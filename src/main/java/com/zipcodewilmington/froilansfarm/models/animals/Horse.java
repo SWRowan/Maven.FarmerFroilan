@@ -4,6 +4,8 @@ import com.zipcodewilmington.froilansfarm.interfaces.Edible;
 import com.zipcodewilmington.froilansfarm.interfaces.Rideable;
 
 public class Horse extends Animal implements Rideable {
+
+
     public void makeNoise() {
 
     }
