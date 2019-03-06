@@ -2,6 +2,6 @@ package com.zipcodewilmington.froilansfarm.farm.interfaces;
 
 import com.zipcodewilmington.froilansfarm.farm.containers.Farm;
 
-public interface FarmVehicle {
-    void operate(Farm farm);
+public interface FarmSimulation {
+    void runSimulation(Farm Farm);
 }

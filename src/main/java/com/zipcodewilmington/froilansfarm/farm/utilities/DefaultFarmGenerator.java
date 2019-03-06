@@ -1,11 +1,11 @@
 package com.zipcodewilmington.froilansfarm.farm.utilities;
 
-import com.zipcodewilmington.froilansfarm.farm.animals.*;
+import com.zipcodewilmington.froilansfarm.farm.models.animals.*;
 import com.zipcodewilmington.froilansfarm.farm.containers.*;
-import com.zipcodewilmington.froilansfarm.farm.crops.*;
-import com.zipcodewilmington.froilansfarm.farm.foods.*;
-import com.zipcodewilmington.froilansfarm.farm.persons.*;
-import com.zipcodewilmington.froilansfarm.farm.vehicles.*;
+import com.zipcodewilmington.froilansfarm.farm.models.crops.*;
+import com.zipcodewilmington.froilansfarm.farm.models.foods.*;
+import com.zipcodewilmington.froilansfarm.farm.models.persons.*;
+import com.zipcodewilmington.froilansfarm.farm.models.vehicles.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
