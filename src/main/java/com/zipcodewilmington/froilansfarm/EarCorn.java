@@ -1,12 +1,7 @@
 package com.zipcodewilmington.froilansfarm;
 
-public class EarCorn implements Edible{
+public class EarCorn extends Food{
     public void eat() {
 
-    }
-
-    @Override
-    public String toString() {
-        return "EarCorn{}";
     }
 }

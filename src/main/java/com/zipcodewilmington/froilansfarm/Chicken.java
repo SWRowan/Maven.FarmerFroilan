@@ -11,10 +11,10 @@ public class Chicken extends Animal implements Produce {
 
     }
 
-    public EdibleEgg yield() {
-        EdibleEgg egg;
+    public Egg yield() {
+        Egg egg;
         if (!hasBeenFertilized) {
-            egg = new EdibleEgg();
+            egg = new Egg();
         } else {
             egg = null;
         }

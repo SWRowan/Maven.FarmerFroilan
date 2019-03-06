@@ -1,12 +1,7 @@
 package com.zipcodewilmington.froilansfarm;
 
-public class Tomato implements Edible{
+public class Tomato extends Food{
     public void eat() {
 
-    }
-
-    @Override
-    public String toString() {
-        return "\nTomato{}";
     }
 }
