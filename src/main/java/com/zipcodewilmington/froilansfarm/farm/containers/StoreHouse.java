@@ -1,32 +1,36 @@
 package com.zipcodewilmington.froilansfarm.farm.containers;
 
-import com.zipcodewilmington.froilansfarm.farm.interfaces.Edible;
+import com.zipcodewilmington.froilansfarm.farm.foods.Food;
 
 import java.util.ArrayList;
 
 public class StoreHouse {
-    private ArrayList<Edible> storedEdibles;
+    private ArrayList<Food> storedFoods;
 
     public StoreHouse() {
-        this.storedEdibles = new ArrayList<>();
+        this(new ArrayList<>());
     }
 
-    public ArrayList<Edible> getStoredEdibles() {
-        return storedEdibles;
+    public StoreHouse(ArrayList<Food> storedFoods) {
+        this.storedFoods = storedFoods;
     }
 
-    public void setStoredEdibles(ArrayList<Edible> storedEdibles) {
-        this.storedEdibles = storedEdibles;
+    public ArrayList<Food> getStoredFoods() {
+        return storedFoods;
     }
 
-    public void addEdibles(ArrayList<Edible> edibles) {
-        storedEdibles.addAll(edibles);
+    public void setStoredFoods(ArrayList<Food> storedFoods) {
+        this.storedFoods = storedFoods;
+    }
+
+    public void addFoods(ArrayList<Food> foods) {
+        storedFoods.addAll(foods);
     }
 
     @Override
     public String toString() {
         return "\nStoreHouse{" +
-                "storedEdibles=" + storedEdibles +
+                "storedFoods=" + storedFoods +
                 '}';
     }
 }

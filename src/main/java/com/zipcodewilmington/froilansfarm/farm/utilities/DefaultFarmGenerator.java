@@ -3,6 +3,7 @@ package com.zipcodewilmington.froilansfarm.farm.utilities;
 import com.zipcodewilmington.froilansfarm.farm.animals.*;
 import com.zipcodewilmington.froilansfarm.farm.containers.*;
 import com.zipcodewilmington.froilansfarm.farm.crops.*;
+import com.zipcodewilmington.froilansfarm.farm.foods.*;
 import com.zipcodewilmington.froilansfarm.farm.persons.*;
 import com.zipcodewilmington.froilansfarm.farm.vehicles.*;
 
@@ -19,7 +20,48 @@ public class DefaultFarmGenerator {
     }
 
     public static StoreHouse generateDefaultStoreHouse() {
-        return new StoreHouse();
+        return new StoreHouse(generateDefaultFoods());
+    }
+
+    private static ArrayList<Food> generateDefaultFoods() {
+        ArrayList<Food> foods = new ArrayList<>();
+        foods.addAll(generateDefaultEarCorns());
+        foods.addAll(generateDefaultEggs());
+        foods.addAll(generateDefaultPumpkins());
+        foods.addAll(generateDefaultTomatoes());
+        return foods;
+    }
+
+    private static ArrayList<EarCorn> generateDefaultEarCorns() {
+        ArrayList<EarCorn> earCorns = new ArrayList<>();
+        for (int i = 0; i < 33; i++) {
+            earCorns.add(new EarCorn());
+        }
+        return earCorns;
+    }
+
+    private static ArrayList<Egg> generateDefaultEggs() {
+        ArrayList<Egg> eggs = new ArrayList<>();
+        for (int i = 0; i < 7; i++) {
+            eggs.add(new Egg());
+        }
+        return eggs;
+    }
+
+    private static ArrayList<Pumpkin> generateDefaultPumpkins() {
+        ArrayList<Pumpkin> pumpkins = new ArrayList<>();
+        for (int i = 0; i < 3; i++) {
+            pumpkins.add(new Pumpkin());
+        }
+        return pumpkins;
+    }
+
+    private static ArrayList<Tomato> generateDefaultTomatoes() {
+        ArrayList<Tomato> tomatoes = new ArrayList<>();
+        for (int i = 0; i < 3; i++) {
+            tomatoes.add(new Tomato());
+        }
+        return tomatoes;
     }
 
     public static Garage generateDefaultGarage() {

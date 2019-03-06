@@ -1,8 +1,7 @@
 package com.zipcodewilmington.froilansfarm.farm;
 
 import com.zipcodewilmington.froilansfarm.farm.containers.*;
-import com.zipcodewilmington.froilansfarm.farm.utilities.DefaultFarmGenerator;
-import com.zipcodewilmington.froilansfarm.farm.utilities.IOConsole;
+import com.zipcodewilmington.froilansfarm.farm.utilities.*;
 import com.zipcodewilmington.froilansfarm.farm.workdays.*;
 
 import java.io.InputStream;
@@ -20,14 +19,7 @@ public class Farm {
     private int daysElapsed;
 
     public Farm() {
-        ioConsole = new IOConsole();
-        farmHouse = DefaultFarmGenerator.generateDefaultFarmHouse();
-        field = DefaultFarmGenerator.generateDefaultField();
-        chickenCoops = DefaultFarmGenerator.generateDefaultChickenCoops();
-        stables = DefaultFarmGenerator.generateDefaultStables();
-        garage = DefaultFarmGenerator.generateDefaultGarage();
-        storeHouse = DefaultFarmGenerator.generateDefaultStoreHouse();
-        daysElapsed = 0;
+        this(System.in, System.out);
     }
 
     /**
@@ -100,48 +92,28 @@ public class Farm {
         return farmHouse;
     }
 
-    public void setFarmHouse(FarmHouse farmHouse) {
-        this.farmHouse = farmHouse;
-    }
-
     public Field getField() {
         return field;
-    }
-
-    public void setField(Field field) {
-        this.field = field;
     }
 
     public ArrayList<ChickenCoop> getChickenCoops() {
         return chickenCoops;
     }
 
-    public void setChickenCoops(ArrayList<ChickenCoop> chickenCoops) {
-        this.chickenCoops = chickenCoops;
-    }
-
     public ArrayList<Stable> getStables() {
         return stables;
-    }
-
-    public void setStables(ArrayList<Stable> stables) {
-        this.stables = stables;
     }
 
     public StoreHouse getStoreHouse() {
         return storeHouse;
     }
 
-    public void setStoreHouse(StoreHouse storeHouse) {
-        this.storeHouse = storeHouse;
-    }
-
     public Garage getGarage() {
         return garage;
     }
 
-    public void setGarage(Garage garage) {
-        this.garage = garage;
+    public int getDaysElapsed() {
+        return daysElapsed;
     }
 
     @Override
