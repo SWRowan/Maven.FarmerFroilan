@@ -28,4 +28,11 @@ public class Chicken extends Animal implements Produce {
     public boolean isFertilized() {
         return hasBeenFertilized;
     }
+
+    @Override
+    public String toString() {
+        return "\nChicken{" +
+                "hasBeenFertilized=" + hasBeenFertilized +
+                '}';
+    }
 }

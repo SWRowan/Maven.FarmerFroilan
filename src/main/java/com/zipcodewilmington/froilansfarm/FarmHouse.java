@@ -16,4 +16,11 @@ public class FarmHouse {
     public void setPersons(ArrayList<Person> persons) {
         this.persons = persons;
     }
+
+    @Override
+    public String toString() {
+        return "\nFarmHouse{" +
+                "persons=" + persons +
+                '}';
+    }
 }

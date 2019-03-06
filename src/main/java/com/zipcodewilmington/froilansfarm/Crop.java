@@ -24,4 +24,12 @@ public abstract class Crop implements Produce{
     public boolean isHarvested() {
         return hasBeenHarvested;
     }
+
+    @Override
+    public String toString() {
+        return '\n' + this.getClass().getSimpleName() + "{ " +
+                "hasBeenFertilized=" + hasBeenFertilized +
+                ", hasBeenHarvested=" + hasBeenHarvested +
+                "}";
+    }
 }

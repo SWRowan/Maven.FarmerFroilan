@@ -16,4 +16,11 @@ public class Garage {
     public void setVehicles(ArrayList<Vehicle> vehicles) {
         this.vehicles = vehicles;
     }
+
+    @Override
+    public String toString() {
+        return "\nGarage{" +
+                "vehicles=" + vehicles +
+                '}';
+    }
 }

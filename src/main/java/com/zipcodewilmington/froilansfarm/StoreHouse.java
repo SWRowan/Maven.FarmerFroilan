@@ -20,4 +20,11 @@ public class StoreHouse {
     public void addEdibles(ArrayList<Edible> edibles) {
         storedEdibles.addAll(edibles);
     }
+
+    @Override
+    public String toString() {
+        return "\nStoreHouse{" +
+                "storedEdibles=" + storedEdibles +
+                '}';
+    }
 }

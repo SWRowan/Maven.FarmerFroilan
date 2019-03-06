@@ -16,4 +16,11 @@ public class Field {
     public void setCropRows(ArrayList<CropRow> cropRows) {
         this.cropRows = cropRows;
     }
+
+    @Override
+    public String toString() {
+        return "\nField{" +
+                "cropRows=" + cropRows +
+                '}';
+    }
 }

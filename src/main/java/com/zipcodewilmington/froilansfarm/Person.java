@@ -10,4 +10,11 @@ public abstract class Person implements NoiseMaker, Eater {
     public String getName() {
         return name;
     }
+
+    @Override
+    public String toString() {
+        return "\nPerson{" +
+                "name='" + name + '\'' +
+                '}';
+    }
 }

@@ -31,4 +31,11 @@ public class CropRow {
     public ArrayList<Crop> getCrops() {
         return crops;
     }
+
+    @Override
+    public String toString() {
+        return "\nCropRow{" +
+                "crops=" + crops +
+                '}';
+    }
 }

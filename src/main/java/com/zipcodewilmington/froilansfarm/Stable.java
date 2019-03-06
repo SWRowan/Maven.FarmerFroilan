@@ -16,4 +16,11 @@ public class Stable {
     public void setHorses(ArrayList<Horse> horses) {
         this.horses = horses;
     }
+
+    @Override
+    public String toString() {
+        return "\nStable{" +
+                "horses=" + horses +
+                '}';
+    }
 }

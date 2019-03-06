@@ -16,4 +16,11 @@ public class ChickenCoop {
     public void setChickens(ArrayList<Chicken> chickens) {
         this.chickens = chickens;
     }
+
+    @Override
+    public String toString() {
+        return "\nChickenCoop{" +
+                "chickens=" + chickens +
+                '}';
+    }
 }
