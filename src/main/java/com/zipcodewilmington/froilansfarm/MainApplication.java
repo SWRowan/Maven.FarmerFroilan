@@ -1,6 +1,6 @@
 package com.zipcodewilmington.froilansfarm;
 
-import com.zipcodewilmington.froilansfarm.farm.containers.Farm;
+import com.zipcodewilmington.froilansfarm.containers.farm.Farm;
 
 public class MainApplication {
     public static void main(String[] args) {
