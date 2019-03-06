@@ -29,7 +29,7 @@ public abstract class Crop implements Produce {
 
     @Override
     public String toString() {
-        return '\n' + this.getClass().getSimpleName() + "{ " +
+        return '\n' + this.getClass().getSimpleName() + "{" +
                 "hasBeenFertilized=" + hasBeenFertilized +
                 ", hasBeenHarvested=" + hasBeenHarvested +
                 "}";

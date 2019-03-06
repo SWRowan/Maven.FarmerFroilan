@@ -7,10 +7,6 @@ import java.util.ArrayList;
 public class StoreHouse {
     private ArrayList<Food> storedFoods;
 
-    public StoreHouse() {
-        this(new ArrayList<>());
-    }
-
     public StoreHouse(ArrayList<Food> storedFoods) {
         this.storedFoods = storedFoods;
     }

@@ -126,19 +126,6 @@ public class Farm {
                 ",\n\nstoreHouse=" + storeHouse +
                 ",\n\ngarage=" + garage +
                 ",\n\ndaysElapsed=" + daysElapsed +
-                '}';
+                "\n}";
     }
-
-//        private static <T, E extends T> ArrayList<T> generateArrayList(T thing, E thing2, int numberOfThings) throws ClassNotFoundException, InstantiationException, IllegalAccessException{
-//        Class<?> tClass = Class.forName(thing.getClass().toString());
-//        Class<?> eClass = Class.forName(thing2.getClass().toString());
-//
-//        ArrayList<T> arrList = (ArrayList<T>) tClass.newInstance();
-//
-//        for (int i = 0; i < numberOfThings; i++) {
-//            arrList.add((E) eClass.newInstance());
-//        }
-//
-//        return arrList;
-//    }
 }

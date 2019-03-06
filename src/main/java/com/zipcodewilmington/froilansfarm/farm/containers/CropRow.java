@@ -11,13 +11,13 @@ public class CropRow {
         this.crops = crops;
     }
 
-    public void fertilizeCrops(){
+    public void fertilizeCrops() {
         for (Crop crop : crops) {
             crop.fertilize();
         }
     }
 
-    public ArrayList<Crop> harvestCrops(){
+    public ArrayList<Crop> harvestCrops() {
         for (Crop crop : crops) {
             crop.harvest();
         }

@@ -26,7 +26,7 @@ public class CropDuster extends Vehicle implements FarmVehicle, Aircraft {
 
     }
 
-    public void fertilize(CropRow cropRow){
+    public void fertilize(CropRow cropRow) {
         cropRow.fertilizeCrops();
     }
 }

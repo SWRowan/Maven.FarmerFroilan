@@ -24,7 +24,7 @@ public class Tractor extends Vehicle implements FarmVehicle {
 
     }
 
-    public ArrayList<Crop> harvest(CropRow cropRow){
+    public ArrayList<Crop> harvest(CropRow cropRow) {
         return cropRow.harvestCrops();
     }
 }
