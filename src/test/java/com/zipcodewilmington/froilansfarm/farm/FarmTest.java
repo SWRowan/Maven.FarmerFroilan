@@ -7,8 +7,6 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
-import static org.junit.Assert.*;
-
 public class FarmTest {
 
     @Test
@@ -83,5 +81,68 @@ public class FarmTest {
 
     @Test
     public void constructorTest1() {
+        // Given
+        Farm farm = new Farm();
+        int expectedDaysElapsed = 0;
+
+        // When
+        int actualDaysElapsed = farm.getDaysElapsed();
+
+        // Then
+        Assert.assertEquals(expectedDaysElapsed, actualDaysElapsed);
+    }
+
+    @Test
+    public void constructorTest2() {
+        // Given
+        Farm farm = new Farm();
+
+        // Then
+        Assert.assertNotNull(farm.getChickenCoops());
+    }
+
+    @Test
+    public void constructorTest3() {
+        // Given
+        Farm farm = new Farm();
+
+        // Then
+        Assert.assertNotNull(farm.getFarmHouse());
+    }
+
+    @Test
+    public void constructorTest4() {
+        // Given
+        Farm farm = new Farm();
+
+        // Then
+        Assert.assertNotNull(farm.getField());
+    }
+
+    @Test
+    public void constructorTest5() {
+        // Given
+        Farm farm = new Farm();
+
+        // Then
+        Assert.assertNotNull(farm.getGarage());
+    }
+
+    @Test
+    public void constructorTest6() {
+        // Given
+        Farm farm = new Farm();
+
+        // Then
+        Assert.assertNotNull(farm.getStables());
+    }
+
+    @Test
+    public void constructorTest7() {
+        // Given
+        Farm farm = new Farm();
+
+        // Then
+        Assert.assertNotNull(farm.getStoreHouse());
     }
 }
