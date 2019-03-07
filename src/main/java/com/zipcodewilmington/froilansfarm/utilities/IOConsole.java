@@ -8,17 +8,26 @@ import java.util.Scanner;
  * Author: Leon Hunter
  */
 public final class IOConsole {
+    private static IOConsole ioConsole;
+
     private final Scanner input;
     private final PrintStream output;
 
-    public IOConsole() {
+    private IOConsole() {
         this.input = new Scanner(System.in);
         this.output = System.out;
     }
 
-    public IOConsole(InputStream in, PrintStream out) {
+    private IOConsole(InputStream in, PrintStream out) {
         this.input = new Scanner(in);
         this.output = out;
+    }
+
+    public static IOConsole getIOConsole() {
+        if (ioConsole == null) {
+            ioConsole = new IOConsole();
+        }
+        return ioConsole;
     }
 
     public void print(String val, Object... args) {

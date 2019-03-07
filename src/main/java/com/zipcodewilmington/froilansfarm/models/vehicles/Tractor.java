@@ -2,29 +2,36 @@ package com.zipcodewilmington.froilansfarm.models.vehicles;
 
 import com.zipcodewilmington.froilansfarm.containers.CropRow;
 import com.zipcodewilmington.froilansfarm.containers.farm.Farm;
+import com.zipcodewilmington.froilansfarm.interfaces.Edible;
 import com.zipcodewilmington.froilansfarm.models.crops.Crop;
 import com.zipcodewilmington.froilansfarm.interfaces.FarmVehicle;
+import com.zipcodewilmington.froilansfarm.models.foods.Food;
+import com.zipcodewilmington.froilansfarm.utilities.IOConsole;
 
 import java.util.ArrayList;
 
-public class Tractor extends Vehicle implements FarmVehicle {
-    public void operate(Farm farm) {
+public class Tractor extends Vehicle implements FarmVehicle<ArrayList<Food>> {
 
+
+    public ArrayList<Food> operate(Farm farm) {
+        ArrayList<Food> harvestedFoods = new ArrayList<>();
+        for (CropRow cropRow : farm.getField().getCropRows()) {
+            harvestedFoods.addAll(harvest(cropRow));
+        }
+        return harvestedFoods;
     }
 
     public void makeNoise() {
-
+        IOConsole.getIOConsole().println("'Tractor noises'");
     }
 
-    public void mount() {
-
-    }
-
-    public void dismount() {
-
-    }
-
-    public ArrayList<Crop> harvest(CropRow cropRow) {
-        return cropRow.harvestCrops();
+    public ArrayList<Food> harvest(CropRow cropRow) {
+        ArrayList<Food> harvestedFoods = new ArrayList<>();
+        for (Crop crop : cropRow.harvestCrops()) {
+            if (crop.isFertilized() && crop.isHarvested()) {
+                harvestedFoods.add(crop.yield());
+            }
+        }
+        return harvestedFoods;
     }
 }

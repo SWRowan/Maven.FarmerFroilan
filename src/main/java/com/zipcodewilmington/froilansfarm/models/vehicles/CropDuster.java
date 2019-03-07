@@ -4,26 +4,22 @@ import com.zipcodewilmington.froilansfarm.containers.CropRow;
 import com.zipcodewilmington.froilansfarm.containers.farm.Farm;
 import com.zipcodewilmington.froilansfarm.interfaces.Aircraft;
 import com.zipcodewilmington.froilansfarm.interfaces.FarmVehicle;
+import com.zipcodewilmington.froilansfarm.utilities.IOConsole;
 
-public class CropDuster extends Vehicle implements FarmVehicle, Aircraft {
+public class CropDuster extends Vehicle implements FarmVehicle<Void>, Aircraft {
     public void fly() {
-
+        
     }
 
-    public void operate(Farm farm) {
-
+    public Void operate(Farm farm) {
+        for (CropRow cropRow : farm.getField().getCropRows()) {
+            fertilize(cropRow);
+        }
+        return null;
     }
 
     public void makeNoise() {
-
-    }
-
-    public void mount() {
-
-    }
-
-    public void dismount() {
-
+        IOConsole.getIOConsole().println("Crop duster noises");
     }
 
     public void fertilize(CropRow cropRow) {
