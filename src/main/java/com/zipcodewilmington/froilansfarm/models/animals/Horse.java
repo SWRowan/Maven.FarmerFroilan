@@ -7,18 +7,28 @@ import com.zipcodewilmington.froilansfarm.models.foods.Food;
 
 public class Horse extends Animal implements Rideable {
     //private IOConsole console = new IOConsole();
-
+    private boolean isMounted;
     private String name;
 
-
     public Horse() {
-        name = "";
-
+        this("");
     }
 
     public Horse(String name){
         this.name = name;
+        isMounted = false;
+    }
 
+    public void mount() {
+        isMounted = true;
+    }
+
+    public void dismount() {
+        isMounted = false;
+    }
+
+    public boolean isMounted() {
+        return isMounted;
     }
 
     public String getName() {

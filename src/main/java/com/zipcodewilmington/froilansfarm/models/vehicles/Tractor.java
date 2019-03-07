@@ -11,10 +11,6 @@ import java.util.ArrayList;
 
 public class Tractor extends Vehicle implements FarmVehicle<ArrayList<Food>> {
 
-    public void ride(Rider rider) {
-
-    }
-
     public ArrayList<Food> operate(Farm farm) {
         ArrayList<Food> harvestedFoods = new ArrayList<>();
         for (CropRow cropRow : farm.getField().getCropRows()) {
