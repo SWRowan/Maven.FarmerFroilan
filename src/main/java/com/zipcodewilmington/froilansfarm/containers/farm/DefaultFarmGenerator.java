@@ -20,9 +20,9 @@ public class DefaultFarmGenerator {
         return new ArrayList<>(Arrays.asList(new Farmer("Froilan", null), new FarmPilot("Froilanda", null)));
     }
 
-    public static StoreHouse generateDefaultStoreHouse() {
-        return new StoreHouse(generateDefaultFoods());
-    }
+//    public static StoreHouse generateDefaultStoreHouse() {
+//        return new StoreHouse(generateDefaultFoods());
+//    }
 
     private static ArrayList<Food> generateDefaultFoods() {
         ArrayList<Food> foods = new ArrayList<>();

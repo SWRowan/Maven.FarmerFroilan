@@ -1,9 +1,11 @@
 package com.zipcodewilmington.froilansfarm.models.persons;
 
+import com.zipcodewilmington.froilansfarm.containers.StoreHouse;
 import com.zipcodewilmington.froilansfarm.containers.farm.Farm;
 import com.zipcodewilmington.froilansfarm.interfaces.Aircraft;
 import com.zipcodewilmington.froilansfarm.interfaces.Edible;
 import com.zipcodewilmington.froilansfarm.interfaces.Pilot;
+import com.zipcodewilmington.froilansfarm.models.foods.Food;
 
 public class FarmPilot extends Person implements Pilot {
     private Farm myFarm;
@@ -13,9 +15,7 @@ public class FarmPilot extends Person implements Pilot {
         this.myFarm = myFarm;
     }
 
-    public void eat(Edible edible) {
 
-    }
 
     public void makeNoise() {
 
@@ -31,5 +31,10 @@ public class FarmPilot extends Person implements Pilot {
 
     public void setMyFarm(Farm myFarm) {
         this.myFarm = myFarm;
+    }
+
+    @Override
+    public void eat(Food food, StoreHouse storeHouse) {
+
     }
 }
