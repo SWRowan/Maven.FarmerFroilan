@@ -18,7 +18,7 @@ public final class IOConsole {
         this.output = System.out;
     }
 
-    private IOConsole(InputStream in, PrintStream out) {
+    public IOConsole(InputStream in, PrintStream out) {
         this.input = new Scanner(in);
         this.output = out;
     }

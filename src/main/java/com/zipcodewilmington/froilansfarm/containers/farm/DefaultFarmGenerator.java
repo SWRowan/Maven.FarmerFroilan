@@ -95,8 +95,8 @@ public class DefaultFarmGenerator {
     }
 
     private static ArrayList<CropRow> generateDefaultCropRows() {
-        return new ArrayList<>(Arrays.asList(new CropRow<>(generateDefaultCornCrops()), new CropRow<>(generateDefaultTomatoCrops()),
-                new CropRow<>(generateDefaultPumpkinCrops()), new CropRow<>(generateDefaultCornCrops()), new CropRow<>(generateDefaultCornCrops())));
+        return new ArrayList<>(Arrays.asList(new CropRow(generateDefaultCornCrops()), new CropRow(generateDefaultTomatoCrops()),
+                new CropRow(generateDefaultPumpkinCrops()), new CropRow(generateDefaultCornCrops()), new CropRow(generateDefaultCornCrops())));
     }
 
     private static ArrayList<Crop> generateDefaultTomatoCrops() {

@@ -19,14 +19,22 @@ public class Farm {
     private int daysElapsed;
 
     public Farm() {
-        this(System.in, System.out);
+        ioConsole = IOConsole.getIOConsole();
+        farmHouse = DefaultFarmGenerator.generateDefaultFarmHouse();
+        field = DefaultFarmGenerator.generateDefaultField();
+        chickenCoops = DefaultFarmGenerator.generateDefaultChickenCoops();
+        stables = DefaultFarmGenerator.generateDefaultStables();
+        garage = DefaultFarmGenerator.generateDefaultGarage();
+//        storeHouse = DefaultFarmGenerator.generateDefaultStoreHouse();
+        daysElapsed = 0;
     }
 
     /**
-     * For testing purposes
+     * For testing purposes.
+     * @param newIOConsole
      */
-    public Farm(InputStream in, PrintStream out) {
-        ioConsole = new IOConsole(in, out);
+    public Farm(IOConsole newIOConsole) {
+        ioConsole = newIOConsole;
         farmHouse = DefaultFarmGenerator.generateDefaultFarmHouse();
         field = DefaultFarmGenerator.generateDefaultField();
         chickenCoops = DefaultFarmGenerator.generateDefaultChickenCoops();

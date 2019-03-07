@@ -1,6 +1,7 @@
 package com.zipcodewilmington.froilansfarm.farm;
 
 import com.zipcodewilmington.froilansfarm.containers.farm.Farm;
+import com.zipcodewilmington.froilansfarm.utilities.IOConsole;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -16,7 +17,7 @@ public class FarmTest {
         String input = "no\n";
         ByteArrayInputStream bytArrInpStr = new ByteArrayInputStream(input.getBytes());
         ByteArrayOutputStream bytArrOutStr = new ByteArrayOutputStream();
-        Farm farm = new Farm(bytArrInpStr, new PrintStream(bytArrOutStr));
+        Farm farm = new Farm(new IOConsole(bytArrInpStr, new PrintStream(bytArrOutStr)));
 
         String expectedOutput = "Would you like to begin farming?\n" +
                 "Thanks for visiting the farm today!\n";
@@ -34,7 +35,7 @@ public class FarmTest {
         // Given
         String input = "no\n";
         ByteArrayInputStream bytArrInpStr = new ByteArrayInputStream(input.getBytes());
-        Farm farm = new Farm(bytArrInpStr, System.out);
+        Farm farm = new Farm(new IOConsole(bytArrInpStr, System.out));
 
         int expectedDaysElapsed = 0;
 
@@ -51,7 +52,7 @@ public class FarmTest {
         // Given
         String input = "yes\n\nyes\nno\n";
         ByteArrayInputStream bytArrInpStr = new ByteArrayInputStream(input.getBytes());
-        Farm farm = new Farm(bytArrInpStr, System.out);
+        Farm farm = new Farm(new IOConsole(bytArrInpStr, System.out));
 
         int expectedDaysElapsed = 1;
 
@@ -68,7 +69,7 @@ public class FarmTest {
         // Given
         String input = "yes\n\nyes\nyes\n\nno\nyes\n\nno\nyes\n\nno\nyes\n\nno\nyes\n\nno\nyes\n\nno\nyes\n\nno\nno\n";
         ByteArrayInputStream bytArrInpStr = new ByteArrayInputStream(input.getBytes());
-        Farm farm = new Farm(bytArrInpStr, System.out);
+        Farm farm = new Farm(new IOConsole(bytArrInpStr, System.out));
 
         int expectedDaysElapsed = 8;
 
