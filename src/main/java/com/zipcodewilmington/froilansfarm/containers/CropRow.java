@@ -4,10 +4,10 @@ import com.zipcodewilmington.froilansfarm.models.crops.Crop;
 
 import java.util.ArrayList;
 
-public class CropRow<T extends Crop> {
-    private ArrayList<T> crops;
+public class CropRow {
+    private ArrayList<Crop> crops;
 
-    public CropRow(ArrayList<T> crops) {
+    public CropRow(ArrayList<Crop> crops) {
         this.crops = crops;
     }
 
@@ -17,20 +17,20 @@ public class CropRow<T extends Crop> {
         }
     }
 
-    public ArrayList<T> harvestCrops() {
+    public ArrayList<Crop> harvestCrops() {
         for (Crop crop : crops) {
             crop.harvest();
         }
-        ArrayList<T> harvestedCrops = crops;
-        crops = new ArrayList<T>();
+        ArrayList<Crop> harvestedCrops = crops;
+        crops = new ArrayList<>();
         return harvestedCrops;
     }
 
-    public void plantCrop(T crop) {
+    public void plantCrop(Crop crop) {
         crops.add(crop);
     }
 
-    public ArrayList<T> getCrops() {
+    public ArrayList<Crop> getCrops() {
         return crops;
     }
 
