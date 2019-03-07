@@ -1,17 +1,15 @@
 package com.zipcodewilmington.froilansfarm.models.animals;
 
+import com.zipcodewilmington.froilansfarm.containers.StoreHouse;
 import com.zipcodewilmington.froilansfarm.models.foods.Egg;
 import com.zipcodewilmington.froilansfarm.interfaces.Edible;
 import com.zipcodewilmington.froilansfarm.interfaces.Produce;
+import com.zipcodewilmington.froilansfarm.models.foods.Food;
 
 public class Chicken extends Animal implements Produce {
     private boolean hasBeenFertilized;
 
     public void makeNoise() {
-
-    }
-
-    public void eat(Edible edible) {
 
     }
 
@@ -38,5 +36,10 @@ public class Chicken extends Animal implements Produce {
         return "\nChicken{" +
                 "hasBeenFertilized=" + hasBeenFertilized +
                 '}';
+    }
+
+    @Override
+    public void eat(Food food, StoreHouse storeHouse) {
+
     }
 }

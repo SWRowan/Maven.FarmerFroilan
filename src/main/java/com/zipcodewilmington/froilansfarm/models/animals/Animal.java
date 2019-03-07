@@ -7,6 +7,8 @@ import java.io.Console;
 
 public abstract class Animal implements NoiseMaker, Eater {
 
+//    public abstract Horse getHorse();
+//    public abstract Chicken getChicken();
 
     @Override
     public String toString() {

@@ -32,7 +32,7 @@ public class Farm {
         chickenCoops = DefaultFarmGenerator.generateDefaultChickenCoops();
         stables = DefaultFarmGenerator.generateDefaultStables();
         garage = DefaultFarmGenerator.generateDefaultGarage();
-        storeHouse = DefaultFarmGenerator.generateDefaultStoreHouse();
+//        storeHouse = DefaultFarmGenerator.generateDefaultStoreHouse();
         daysElapsed = 0;
     }
 
