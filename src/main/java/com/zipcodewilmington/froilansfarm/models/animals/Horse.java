@@ -1,10 +1,9 @@
 package com.zipcodewilmington.froilansfarm.models.animals;
 
 import com.zipcodewilmington.froilansfarm.containers.StoreHouse;
-import com.zipcodewilmington.froilansfarm.interfaces.Edible;
 import com.zipcodewilmington.froilansfarm.interfaces.Rideable;
+import com.zipcodewilmington.froilansfarm.interfaces.Rider;
 import com.zipcodewilmington.froilansfarm.models.foods.Food;
-import com.zipcodewilmington.froilansfarm.utilities.IOConsole;
 
 public class Horse extends Animal implements Rideable {
     //private IOConsole console = new IOConsole();
@@ -43,15 +42,7 @@ public class Horse extends Animal implements Rideable {
 
     }
 
-    public void mount() {
-
-    }
-
-    public void dismount() {
-
-    }
-
-    public void ride() {
+    public void ride(Rider rider) {
 
     }
 }

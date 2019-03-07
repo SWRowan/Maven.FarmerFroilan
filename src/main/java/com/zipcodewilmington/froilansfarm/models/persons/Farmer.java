@@ -10,10 +10,6 @@ import com.zipcodewilmington.froilansfarm.models.vehicles.Vehicle;
 
 public class Farmer extends Person implements Eater, Rider, Botanist {
 
-    public void ride() {
-
-    }
-
     private Farm myFarm;
 
     public Farmer(String name, Farm myFarm) {
@@ -26,7 +22,7 @@ public class Farmer extends Person implements Eater, Rider, Botanist {
     }
 
     public void eat(Edible edible) {
-        
+
     }
 
     public String makeNoise() {

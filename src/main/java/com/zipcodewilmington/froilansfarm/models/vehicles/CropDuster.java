@@ -4,11 +4,11 @@ import com.zipcodewilmington.froilansfarm.containers.CropRow;
 import com.zipcodewilmington.froilansfarm.containers.farm.Farm;
 import com.zipcodewilmington.froilansfarm.interfaces.Aircraft;
 import com.zipcodewilmington.froilansfarm.interfaces.FarmVehicle;
-import com.zipcodewilmington.froilansfarm.utilities.IOConsole;
+import com.zipcodewilmington.froilansfarm.interfaces.Rider;
 
 public class CropDuster extends Vehicle implements FarmVehicle<Void>, Aircraft {
 
-    public void ride() {
+    public void ride(Rider rider) {
 
     }
 
