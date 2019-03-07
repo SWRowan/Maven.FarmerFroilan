@@ -17,8 +17,8 @@ public class FarmPilot extends Person implements Pilot {
 
 
 
-    public void makeNoise() {
-
+    public String makeNoise() {
+        return null;
     }
 
     public void fly(Aircraft aircraft) {

@@ -7,6 +7,11 @@ import com.zipcodewilmington.froilansfarm.interfaces.FarmVehicle;
 import com.zipcodewilmington.froilansfarm.utilities.IOConsole;
 
 public class CropDuster extends Vehicle implements FarmVehicle<Void>, Aircraft {
+
+    public void ride() {
+
+    }
+
     public void fly() {
         
     }
@@ -18,8 +23,8 @@ public class CropDuster extends Vehicle implements FarmVehicle<Void>, Aircraft {
         return null;
     }
 
-    public void makeNoise() {
-        IOConsole.getIOConsole().println("Crop duster noises");
+    public String makeNoise() {
+        return"Crop duster noises";
     }
 
     public void fertilize(CropRow cropRow) {

@@ -9,8 +9,8 @@ import com.zipcodewilmington.froilansfarm.models.foods.Food;
 public class Chicken extends Animal implements Produce {
     private boolean hasBeenFertilized;
 
-    public void makeNoise() {
-
+    public String makeNoise() {
+        return null;
     }
 
     public Egg yield() {

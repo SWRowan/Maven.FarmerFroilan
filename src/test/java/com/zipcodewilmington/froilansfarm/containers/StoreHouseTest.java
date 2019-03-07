@@ -34,7 +34,6 @@ public class StoreHouseTest {
         String output = storeHouse.getStoredFoods();
         //Then
         System.out.println(output);
-
     }
 
     @Test

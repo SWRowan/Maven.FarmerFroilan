@@ -12,6 +12,9 @@ import java.util.ArrayList;
 
 public class Tractor extends Vehicle implements FarmVehicle<ArrayList<Food>> {
 
+    public void ride() {
+
+    }
 
     public ArrayList<Food> operate(Farm farm) {
         ArrayList<Food> harvestedFoods = new ArrayList<>();
@@ -21,8 +24,8 @@ public class Tractor extends Vehicle implements FarmVehicle<ArrayList<Food>> {
         return harvestedFoods;
     }
 
-    public void makeNoise() {
-        IOConsole.getIOConsole().println("'Tractor noises'");
+    public String makeNoise() {
+        return "tractor noises";
     }
 
     public ArrayList<Food> harvest(CropRow cropRow) {
