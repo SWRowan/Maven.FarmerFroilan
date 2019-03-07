@@ -19,7 +19,6 @@ public class Farmer extends Person implements Eater, Rider, Botanist {
     }
 
     public void eat(Edible edible) {
-        setLevelOfEnergy( edible.eat() );
     }
 
     public void makeNoise() {
