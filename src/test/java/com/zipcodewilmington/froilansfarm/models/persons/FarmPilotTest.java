@@ -1,9 +1,7 @@
-package com.zipcodewilmington.froilansfarm.PersonsTest;
+package com.zipcodewilmington.froilansfarm.models.persons;
 
 import com.zipcodewilmington.froilansfarm.containers.farm.Farm;
 import com.zipcodewilmington.froilansfarm.interfaces.Aircraft;
-import com.zipcodewilmington.froilansfarm.models.persons.FarmPilot;
-import com.zipcodewilmington.froilansfarm.models.persons.Farmer;
 import com.zipcodewilmington.froilansfarm.models.vehicles.CropDuster;
 import com.zipcodewilmington.froilansfarm.models.vehicles.Vehicle;
 import org.junit.After;
@@ -12,7 +10,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
-import java.io.Console;
 import java.io.PrintStream;
 
 

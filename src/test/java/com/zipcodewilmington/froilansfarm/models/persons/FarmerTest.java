@@ -1,21 +1,15 @@
-package com.zipcodewilmington.froilansfarm.PersonsTest;
+package com.zipcodewilmington.froilansfarm.models.persons;
 
 import com.zipcodewilmington.froilansfarm.containers.CropRow;
 import com.zipcodewilmington.froilansfarm.containers.farm.Farm;
-import com.zipcodewilmington.froilansfarm.interfaces.Rideable;
 import com.zipcodewilmington.froilansfarm.models.crops.CornStalk;
 import com.zipcodewilmington.froilansfarm.models.crops.Crop;
 import com.zipcodewilmington.froilansfarm.models.crops.PumpkinPlant;
-import com.zipcodewilmington.froilansfarm.models.foods.Egg;
-import com.zipcodewilmington.froilansfarm.models.foods.Food;
-import com.zipcodewilmington.froilansfarm.models.persons.Farmer;
-import com.zipcodewilmington.froilansfarm.models.persons.Person;
 import com.zipcodewilmington.froilansfarm.models.vehicles.CropDuster;
 import com.zipcodewilmington.froilansfarm.models.vehicles.Vehicle;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.io.Console;
 import java.util.ArrayList;
 
 import static org.hamcrest.CoreMatchers.instanceOf;
