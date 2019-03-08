@@ -1,6 +1,8 @@
 package com.zipcodewilmington.froilansfarm.models.foods;
 
 
+import com.zipcodewilmington.froilansfarm.containers.StoreHouse;
+
 public class EarCorn extends Food {
 
     public Integer getEnergy() {
@@ -14,9 +16,9 @@ public class EarCorn extends Food {
         energy = 10;
     }
 
-    public void eat() {
+    public void consumed(StoreHouse storeHouse, Food food) {
 
-
+    storeHouse.removeFood(food);
 
     }
 }

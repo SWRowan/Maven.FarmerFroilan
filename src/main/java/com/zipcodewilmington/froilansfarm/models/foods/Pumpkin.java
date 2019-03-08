@@ -1,5 +1,7 @@
 package com.zipcodewilmington.froilansfarm.models.foods;
 
+import com.zipcodewilmington.froilansfarm.containers.StoreHouse;
+
 public class Pumpkin extends Food {
 
     public Integer getEnergy() {
@@ -13,7 +15,8 @@ public class Pumpkin extends Food {
         energy = 15;
     }
 
-    public void eat() {
+    public void consumed(StoreHouse storeHouse, Food food) {
+        storeHouse.removeFood(food);
 
     }
 }

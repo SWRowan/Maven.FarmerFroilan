@@ -1,5 +1,7 @@
 package com.zipcodewilmington.froilansfarm.models.foods;
 
+import com.zipcodewilmington.froilansfarm.containers.StoreHouse;
+
 import java.util.ArrayList;
 
 public class Egg extends Food {
@@ -14,7 +16,8 @@ public class Egg extends Food {
 
         energy = 5;
     }
-    public void eat() {
+    public void consumed(StoreHouse storeHouse, Food food) {
+        storeHouse.removeFood(food);
 
     }
 }
