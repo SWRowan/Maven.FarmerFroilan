@@ -1,6 +1,7 @@
 package com.zipcodewilmington.froilansfarm.containers.farm;
 
 import com.zipcodewilmington.froilansfarm.simulations.*;
+import com.zipcodewilmington.froilansfarm.utilities.IOConsole;
 
 public class FarmRunner {
     private final Farm farm;
@@ -12,14 +13,14 @@ public class FarmRunner {
     void runFarm(boolean continueFarming) {
         while (continueFarming) {
             runWorkDay();
-            displayStateOfFarm(farm.ioConsole.yesOrNoQuestion("Would you like to display the current state of the farm?"));
-            continueFarming = farm.ioConsole.yesOrNoQuestion("%s days have elapsed. Would you like to keep farming?", farm.getDaysElapsed());
+            displayStateOfFarm(IOConsole.getIOConsole().yesOrNoQuestion("Would you like to display the current state of the farm?"));
+            continueFarming = IOConsole.getIOConsole().yesOrNoQuestion("%s days have elapsed. Would you like to keep farming?", farm.getDaysElapsed());
         }
     }
 
     void displayStateOfFarm(boolean choseYes) {
         if (choseYes) {
-            farm.ioConsole.println(farm.toString());
+            IOConsole.getIOConsole().println(farm.toString());
         }
     }
 

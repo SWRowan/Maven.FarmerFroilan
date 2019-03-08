@@ -5,15 +5,16 @@ import com.zipcodewilmington.froilansfarm.containers.farm.Farm;
 import com.zipcodewilmington.froilansfarm.interfaces.Aircraft;
 import com.zipcodewilmington.froilansfarm.interfaces.FarmVehicle;
 import com.zipcodewilmington.froilansfarm.interfaces.Rider;
+import com.zipcodewilmington.froilansfarm.utilities.IOConsole;
 
 public class CropDuster extends Vehicle implements FarmVehicle<Void>, Aircraft {
 
     public void ride(Rider rider) {
-
+        IOConsole.getIOConsole().println("The crop duster has been ridden");
     }
 
     public void fly() {
-        
+        IOConsole.getIOConsole().println("The crop duster has been flown");
     }
 
     public Void operate(Farm farm) {
@@ -24,7 +25,7 @@ public class CropDuster extends Vehicle implements FarmVehicle<Void>, Aircraft {
     }
 
     public String makeNoise() {
-        return"Crop duster noises";
+        return "*Crop Duster Noises*";
     }
 
     public void fertilize(CropRow cropRow) {

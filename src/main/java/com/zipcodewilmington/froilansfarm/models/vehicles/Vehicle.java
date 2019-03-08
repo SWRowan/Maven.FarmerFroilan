@@ -7,10 +7,6 @@ import com.zipcodewilmington.froilansfarm.interfaces.Rider;
 public abstract class Vehicle implements NoiseMaker, Rideable {
     private boolean isMounted;
 
-    public void ride(Rider rider) {
-
-    }
-
     public Vehicle() {
         this.isMounted = false;
     }
@@ -29,6 +25,6 @@ public abstract class Vehicle implements NoiseMaker, Rideable {
 
     @Override
     public String toString() {
-        return '\n' + this.getClass().getSimpleName() + "{}";
+        return '\n' + this.getClass().getSimpleName();
     }
 }

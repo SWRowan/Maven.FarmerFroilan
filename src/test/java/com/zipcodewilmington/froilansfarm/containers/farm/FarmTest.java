@@ -1,6 +1,5 @@
-package com.zipcodewilmington.froilansfarm.farm;
+package com.zipcodewilmington.froilansfarm.containers.farm;
 
-import com.zipcodewilmington.froilansfarm.containers.farm.Farm;
 import com.zipcodewilmington.froilansfarm.utilities.IOConsole;
 import org.junit.Assert;
 import org.junit.Test;
@@ -10,14 +9,17 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
 public class FarmTest {
+    private ByteArrayInputStream bytArrInpStr;
+    private ByteArrayOutputStream bytArrOutStr;
 
     @Test
     public void runTest1() {
         // Given
         String input = "no\n";
-        ByteArrayInputStream bytArrInpStr = new ByteArrayInputStream(input.getBytes());
-        ByteArrayOutputStream bytArrOutStr = new ByteArrayOutputStream();
-        Farm farm = new Farm(new IOConsole(bytArrInpStr, new PrintStream(bytArrOutStr)));
+        bytArrInpStr = new ByteArrayInputStream(input.getBytes());
+        bytArrOutStr = new ByteArrayOutputStream();
+        getConsoleWithBufInpOut(bytArrInpStr, bytArrOutStr);
+        Farm farm = new Farm();
 
         String expectedOutput = "Would you like to begin farming?\n" +
                 "Thanks for visiting the farm today!\n";
@@ -34,8 +36,9 @@ public class FarmTest {
     public void runTest2() {
         // Given
         String input = "no\n";
-        ByteArrayInputStream bytArrInpStr = new ByteArrayInputStream(input.getBytes());
-        Farm farm = new Farm(new IOConsole(bytArrInpStr, System.out));
+        bytArrInpStr = new ByteArrayInputStream(input.getBytes());
+        getConsoleWithBufInp(bytArrInpStr);
+        Farm farm = new Farm();
 
         int expectedDaysElapsed = 0;
 
@@ -51,8 +54,9 @@ public class FarmTest {
     public void runTest3() {
         // Given
         String input = "yes\n\nyes\nno\n";
-        ByteArrayInputStream bytArrInpStr = new ByteArrayInputStream(input.getBytes());
-        Farm farm = new Farm(new IOConsole(bytArrInpStr, System.out));
+        bytArrInpStr = new ByteArrayInputStream(input.getBytes());
+        getConsoleWithBufInp(bytArrInpStr);
+        Farm farm = new Farm();
 
         int expectedDaysElapsed = 1;
 
@@ -68,8 +72,9 @@ public class FarmTest {
     public void runTest4() {
         // Given
         String input = "yes\n\nyes\nyes\n\nno\nyes\n\nno\nyes\n\nno\nyes\n\nno\nyes\n\nno\nyes\n\nno\nyes\n\nno\nno\n";
-        ByteArrayInputStream bytArrInpStr = new ByteArrayInputStream(input.getBytes());
-        Farm farm = new Farm(new IOConsole(bytArrInpStr, System.out));
+        bytArrInpStr = new ByteArrayInputStream(input.getBytes());
+        getConsoleWithBufInp(bytArrInpStr);
+        Farm farm = new Farm();
 
         int expectedDaysElapsed = 8;
 
@@ -146,5 +151,17 @@ public class FarmTest {
 
         // Then
         Assert.assertNotNull(farm.getStoreHouse());
+    }
+
+    private IOConsole getConsoleWithBufInpOut(ByteArrayInputStream bais, ByteArrayOutputStream baos) {
+        return new IOConsole(bais, new PrintStream(baos));
+    }
+
+    private IOConsole getConsoleWithBufOut(ByteArrayOutputStream baos) {
+        return new IOConsole(System.in, new PrintStream(baos));
+    }
+
+    private IOConsole getConsoleWithBufInp(ByteArrayInputStream bais) {
+        return new IOConsole(bais, System.out);
     }
 }
