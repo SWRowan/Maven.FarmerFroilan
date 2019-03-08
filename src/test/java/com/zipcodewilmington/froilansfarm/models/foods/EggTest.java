@@ -19,7 +19,7 @@ public class EggTest {
 
 
     @Before
-    public void setip() {
+    public void setup() {
         edibleEgg.add(egg);
         edibleEgg.add(egg2);
         storeHouse.addFood(edibleEgg);
