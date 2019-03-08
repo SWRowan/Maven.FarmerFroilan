@@ -1,5 +1,6 @@
 package com.zipcodewilmington.froilansfarm.models.animals;
 
+import com.zipcodewilmington.froilansfarm.containers.PlateOfFood;
 import com.zipcodewilmington.froilansfarm.containers.StoreHouse;
 import com.zipcodewilmington.froilansfarm.interfaces.Rideable;
 import com.zipcodewilmington.froilansfarm.interfaces.Rider;
@@ -18,6 +19,11 @@ public class Horse extends Animal implements Rideable {
     public Horse(String name) {
         this.name = name;
         isMounted = false;
+    }
+
+    @Override
+    public void ride(Rider rider) {
+
     }
 
     public void mount() {
@@ -46,14 +52,8 @@ public class Horse extends Animal implements Rideable {
 
     }
 
-    public void eat(Food food, Integer numOfFood) {
-
-
-            IOConsole.getIOConsole().println(getName() + " ate " + numOfFood+" "+ food.getClass().getSimpleName() + "\n");
-
+    public void eat(PlateOfFood plateOfFood) {
+        IOConsole.getIOConsole().println(getName() + " ate " + plateOfFood.getNumOfFood() + " " +plateOfFood.getFood().getClass().getSimpleName() + "\n");
     }
 
-    public void ride(Rider rider) {
-
-    }
 }

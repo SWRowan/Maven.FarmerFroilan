@@ -33,11 +33,12 @@ public class StoreHouse {
         return sb.toString();
     }
 
-    public Food getFood(Food food, Integer numOfFood) {
+    public PlateOfFood getFood(Food food, Integer numOfFood) {
 
         if (storedFoods.get(typeOfFood(food)) >= numOfFood) {
             storedFoods.replace(typeOfFood(food), storedFoods.get(typeOfFood(food)) - numOfFood);
-            return food;
+            PlateOfFood plateOfFood = new PlateOfFood(food, numOfFood);
+            return plateOfFood;
         }else{
             console.print("*** NOT ENOUGH " + food + "'s ***\n");
             return null;

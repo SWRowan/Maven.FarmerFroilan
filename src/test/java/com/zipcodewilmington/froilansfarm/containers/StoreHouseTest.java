@@ -97,8 +97,9 @@ public class StoreHouseTest {
     public void testGetFoodNull(){
         //Given
         StoreHouse storeHouse = new StoreHouse(storedFood);
+
         //When
-        Food testfood = storeHouse.getFood(pumpkin, 6);
+        PlateOfFood testfood = storeHouse.getFood(pumpkin, 6);
         //Then
         Assert.assertNull(testfood);
     }
