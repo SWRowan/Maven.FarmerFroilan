@@ -8,8 +8,7 @@ import java.io.PrintStream;
 import java.util.ArrayList;
 
 public class Farm {
-    private final FarmRunner farmRunner = new FarmRunner(this);
-    public IOConsole ioConsole;
+    private final FarmRunner farmRunner;
     private FarmHouse farmHouse;
     private Field field;
     private ArrayList<ChickenCoop> chickenCoops;
@@ -19,22 +18,7 @@ public class Farm {
     private int daysElapsed;
 
     public Farm() {
-        ioConsole = IOConsole.getIOConsole();
-        farmHouse = DefaultFarmGenerator.generateDefaultFarmHouse();
-        field = DefaultFarmGenerator.generateDefaultField();
-        chickenCoops = DefaultFarmGenerator.generateDefaultChickenCoops();
-        stables = DefaultFarmGenerator.generateDefaultStables();
-        garage = DefaultFarmGenerator.generateDefaultGarage();
-//        storeHouse = DefaultFarmGenerator.generateDefaultStoreHouse();
-        daysElapsed = 0;
-    }
-
-    /**
-     * For testing purposes.
-     * @param newIOConsole
-     */
-    public Farm(IOConsole newIOConsole) {
-        ioConsole = newIOConsole;
+        farmRunner = new FarmRunner(this);
         farmHouse = DefaultFarmGenerator.generateDefaultFarmHouse();
         field = DefaultFarmGenerator.generateDefaultField();
         chickenCoops = DefaultFarmGenerator.generateDefaultChickenCoops();
@@ -45,9 +29,9 @@ public class Farm {
     }
 
     public void run() {
-        boolean continueFarming = ioConsole.yesOrNoQuestion("Would you like to begin farming?");
+        boolean continueFarming = IOConsole.getIOConsole().yesOrNoQuestion("Would you like to begin farming?");
         farmRunner.runFarm(continueFarming);
-        ioConsole.println("Thanks for visiting the farm today!");
+        IOConsole.getIOConsole().println("Thanks for visiting the farm today!");
     }
 
     public void incrementDaysElapsed() {

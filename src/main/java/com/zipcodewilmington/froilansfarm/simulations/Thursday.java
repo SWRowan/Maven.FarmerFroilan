@@ -1,10 +1,11 @@
 package com.zipcodewilmington.froilansfarm.simulations;
 
 import com.zipcodewilmington.froilansfarm.containers.farm.Farm;
+import com.zipcodewilmington.froilansfarm.utilities.IOConsole;
 
 public class Thursday extends WorkDay {
     public void runSimulation(Farm farm) {
-        farm.ioConsole.println("Thursday has happened!");
-        farm.ioConsole.getStringInput("Press ENTER to continue");
+        IOConsole.getIOConsole().println("Thursday has happened!");
+        IOConsole.getIOConsole().getStringInput("Press ENTER to continue");
     }
 }
