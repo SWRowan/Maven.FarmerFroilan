@@ -4,6 +4,8 @@ import com.zipcodewilmington.froilansfarm.containers.StoreHouse;
 import com.zipcodewilmington.froilansfarm.containers.farm.Farm;
 import com.zipcodewilmington.froilansfarm.interfaces.*;
 import com.zipcodewilmington.froilansfarm.models.foods.Food;
+import com.zipcodewilmington.froilansfarm.models.vehicles.CropDuster;
+import com.zipcodewilmington.froilansfarm.models.vehicles.Vehicle;
 
 public class FarmPilot extends Person implements Pilot, Rider {
     private Farm myFarm;
@@ -14,11 +16,11 @@ public class FarmPilot extends Person implements Pilot, Rider {
     }
 
     public String makeNoise() {
-        return null;
+        return "Ruuun";
     }
 
     public void fly(Aircraft aircraft) {
-
+        aircraft.fly();
     }
 
     public void mount(Rideable rideable) {
