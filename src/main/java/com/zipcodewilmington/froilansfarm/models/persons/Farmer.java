@@ -23,10 +23,6 @@ public class Farmer extends Person implements Botanist, Rider {
         cropRow.plantCrop(crop);
     }
 
-    public void eat(Edible edible) {
-        edible.consumed();
-    }
-
     public String makeNoise() {
         return "Bla bla bla";
     }

@@ -23,7 +23,9 @@ public class Horse extends Animal implements Rideable {
 
     @Override
     public void ride(Rider rider) {
-
+        if(isMounted){
+            IOConsole.getIOConsole().println(getName()+" has been ridden.");
+        }
     }
 
     public void mount() {
@@ -48,8 +50,6 @@ public class Horse extends Animal implements Rideable {
 
     public String makeNoise() {
         return "Neigh!!!";
-
-
     }
 
     public void eat(PlateOfFood plateOfFood) {
