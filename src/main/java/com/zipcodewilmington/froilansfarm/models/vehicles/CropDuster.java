@@ -25,7 +25,7 @@ public class CropDuster extends Vehicle implements FarmVehicle<Void>, Aircraft {
     }
 
     public String makeNoise() {
-        return "Crop duster noises";
+        return "*Crop Duster Noises*";
     }
 
     public void fertilize(CropRow cropRow) {

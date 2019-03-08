@@ -1,7 +1,8 @@
 package com.zipcodewilmington.froilansfarm.models.vehicles;
 
-import com.zipcodewilmington.froilansfarm.containers.CropRow;
 import com.zipcodewilmington.froilansfarm.containers.farm.Farm;
+import com.zipcodewilmington.froilansfarm.models.crops.Crop;
+import com.zipcodewilmington.froilansfarm.models.persons.FarmPilot;
 import com.zipcodewilmington.froilansfarm.models.persons.Farmer;
 import com.zipcodewilmington.froilansfarm.utilities.IOConsole;
 import org.junit.Assert;
@@ -9,6 +10,7 @@ import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.ArrayList;
 
 public class CropDusterTest {
     ByteArrayOutputStream bytArrOutStr;
@@ -57,74 +59,16 @@ public class CropDusterTest {
     }
 
     @Test
-    public void operateTest1() {
+    public void makeNoiseTest() {
         // Given
-        Farm farm = new Farm();
-        Tractor tractor = new Tractor();
-        int expectedSize = 0; // food ArrayList will be empty since none of the crops are fertilized
+        CropDuster cropDuster = new CropDuster();
+        String expectedNoise = "*Crop Duster Noises*";
 
         // When
-        int actualSize = tractor.operate(farm).size();
+        String actualNoise = cropDuster.makeNoise();
 
         // Then
-        Assert.assertEquals(expectedSize, actualSize);
-    }
-
-    @Test
-    public void operateTest2() {
-        // Given
-        Farm farm = new Farm();
-        for (CropRow cropRow : farm.getField().getCropRows()) {
-            cropRow.fertilizeCrops();
-        }
-        Tractor tractor = new Tractor();
-        int expectedSize = 39;
-
-        // When
-        int actualSize = tractor.operate(farm).size();
-
-        // Then
-        Assert.assertEquals(expectedSize, actualSize);
-    }
-
-
-
-    @Test
-    public void harvestTest1() {
-        // Given
-        Farm farm = new Farm();
-        Tractor tractor = new Tractor();
-        int expectedSize = 0; // food ArrayList will be empty since none of the crops are fertilized
-
-        // When
-        int actualSize = tractor.harvest(farm.getField().getCropRows().get(0)).size();
-
-        // Then
-        Assert.assertEquals(expectedSize, actualSize);
-    }
-
-    @Test
-    public void harvestTest2() {
-        // Given
-        Farm farm = new Farm();
-        for (CropRow cropRow : farm.getField().getCropRows()) {
-            cropRow.fertilizeCrops();
-        }
-        Tractor tractor = new Tractor();
-        int expectedSize = 11;
-
-        // When
-        int actualSize = tractor.harvest(farm.getField().getCropRows().get(0)).size();
-
-        // Then
-        Assert.assertEquals(expectedSize, actualSize);
-    }
-
-
-
-
-    private IOConsole getConsoleWithBufOut(ByteArrayOutputStream baos) {
-        return new IOConsole(System.in, new PrintStream(baos));
+        Assert.assertEquals(expectedNoise, actualNoise);
     }
 
     @Test
@@ -137,7 +81,7 @@ public class CropDusterTest {
         String expectedOutput = "The crop duster has been ridden\n";
 
         // When
-        cropDuster.ride(new Farmer("", farm));
+        cropDuster.ride(new FarmPilot("", farm));
         String actualOutput = bytArrOutStr.toString();
 
         // Then
@@ -145,28 +89,57 @@ public class CropDusterTest {
     }
 
     @Test
-    public void makeNoiseTest() {
+    public void flyTest() {
         // Given
-        Tractor tractor = new Tractor();
-        String expectedNoise = "*Crop Duster Noises*";
+        bytArrOutStr = new ByteArrayOutputStream();
+        getConsoleWithBufOut(bytArrOutStr);
+        Farm farm = new Farm();
+        CropDuster cropDuster = new CropDuster();
+        String expectedOutput = "The crop duster has been flown\n";
 
         // When
-        String actualNoise = tractor.makeNoise();
+        cropDuster.fly();
+        String actualOutput = bytArrOutStr.toString();
 
         // Then
-        Assert.assertEquals(expectedNoise, actualNoise);
+        Assert.assertEquals(expectedOutput, actualOutput);
     }
 
     @Test
-    public void fly() {
+    public void operateTest1() {
+        // Given
+        Farm farm = new Farm();
+        CropDuster cropDuster = new CropDuster();
+
+        // When
+        cropDuster.operate(farm);
+        boolean actualIsFertilized = farm.getField().getCropRows().get(0).getCrops().get(0).isFertilized();
+
+        // Then
+        Assert.assertTrue(actualIsFertilized);
     }
 
     @Test
-    public void operate() {
-    }
+    public void operateTest2() {
+        // Given
+        Farm farm = new Farm();
+        CropDuster cropDuster = new CropDuster();
 
+        // When
+        cropDuster.operate(farm);
+        ArrayList<Crop> crops = farm.getField().getCropRows().get(0).getCrops();
+
+        // Then
+        for (Crop crop : crops) {
+            Assert.assertTrue(crop.isFertilized());
+        }
+    }
 
     @Test
     public void fertilize() {
+    }
+
+    private IOConsole getConsoleWithBufOut(ByteArrayOutputStream baos) {
+        return new IOConsole(System.in, new PrintStream(baos));
     }
 }
