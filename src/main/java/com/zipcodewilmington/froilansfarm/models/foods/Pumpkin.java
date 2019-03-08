@@ -15,8 +15,8 @@ public class Pumpkin extends Food {
         energy = 15;
     }
 
-    public void consumed(StoreHouse storeHouse, Food food) {
-        storeHouse.removeFood(food, 1);
+    public void consumed(StoreHouse storeHouse) {
+        storeHouse.removeFood(new Pumpkin(), 1);
 
     }
 }

@@ -15,8 +15,8 @@ public class Tomato extends Food {
         energy = 2;
     }
 
-    public void consumed(StoreHouse storeHouse, Food food) {
-        storeHouse.removeFood(food, 1);
+    public void consumed(StoreHouse storeHouse) {
+        storeHouse.removeFood(new Tomato(),1);
 
     }
 }

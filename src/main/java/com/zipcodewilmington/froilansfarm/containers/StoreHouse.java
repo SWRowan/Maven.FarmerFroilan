@@ -72,7 +72,7 @@ public class StoreHouse {
         } else if (food instanceof Pumpkin) {
             return storedFoods.get(pumpkin);
         } else if (food instanceof Egg) {
-            storedFoods.get(egg);
+            return storedFoods.get(egg);
         }
 
         return 0;
