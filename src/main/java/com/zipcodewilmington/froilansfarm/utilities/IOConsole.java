@@ -50,6 +50,10 @@ public final class IOConsole {
         return getStringInput(prompt, args).toLowerCase();
     }
 
+    public void userPressEnterToContinue() {
+        getStringInput("Press ENTER to continue");
+    }
+
     public boolean yesOrNoQuestion(String prompt, Object... args) {
         String choice = getLowerCaseStringInput(prompt, args);
         while (!(choice.equals("yes") || choice.equals("no"))) {

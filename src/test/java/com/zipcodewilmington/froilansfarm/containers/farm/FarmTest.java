@@ -1,6 +1,5 @@
-package com.zipcodewilmington.froilansfarm.farm;
+package com.zipcodewilmington.froilansfarm.containers.farm;
 
-import com.zipcodewilmington.froilansfarm.containers.farm.Farm;
 import com.zipcodewilmington.froilansfarm.utilities.IOConsole;
 import org.junit.Assert;
 import org.junit.Test;
