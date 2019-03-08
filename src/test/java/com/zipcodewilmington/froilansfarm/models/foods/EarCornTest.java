@@ -50,7 +50,7 @@ public class EarCornTest {
        Integer expected = 0;
 
         //When
-        earCorn.consumed(earCorn);
+        earCorn.consumed(storeHouse, earCorn);
         Integer actual = storeHouse.checkStock(earCorn);
 
         //Then

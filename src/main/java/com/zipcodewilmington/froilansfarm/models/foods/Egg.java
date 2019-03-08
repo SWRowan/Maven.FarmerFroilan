@@ -17,7 +17,7 @@ public class Egg extends Food {
         energy = 5;
     }
     public void consumed(StoreHouse storeHouse, Food food) {
-        storeHouse.removeFood(food);
+        storeHouse.removeFood(food, 1);
 
     }
 }

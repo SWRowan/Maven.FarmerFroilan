@@ -22,7 +22,7 @@ public class PumpkinTest {
         storedFoods = new HashMap<>(storedFoods);
         storeHouse = new StoreHouse(storedFoods);
         ediblePumpkin = new ArrayList<>();
-        Pumpkin = new Pumpkin();
+        pumpkin = new Pumpkin();
         ediblePumpkin.add(pumpkin);
         storeHouse.addFood(ediblePumpkin);
 
@@ -43,7 +43,7 @@ public class PumpkinTest {
         //Then
 
         Assert.assertEquals(expected, actual);
-        
+
     }
 
 }

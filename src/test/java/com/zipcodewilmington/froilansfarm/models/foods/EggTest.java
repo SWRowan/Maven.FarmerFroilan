@@ -21,7 +21,7 @@ public class EggTest {
         storedFoods = new HashMap<>(storedFoods);
         storeHouse = new StoreHouse(storedFoods);
         edibleEgg = new ArrayList<>();
-        Egg = new Egg();
+        egg = new Egg();
         edibleEgg.add(egg);
         storeHouse.addFood(edibleEgg);
 
@@ -52,7 +52,7 @@ public class EggTest {
 
         //When
 
-        egg.consumed(egg);
+        egg.consumed(storeHouse, egg);
         Integer actual = storeHouse.checkStock(egg);
 
         //Then

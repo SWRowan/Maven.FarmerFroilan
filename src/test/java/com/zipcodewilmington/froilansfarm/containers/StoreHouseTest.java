@@ -1,30 +1,44 @@
 package com.zipcodewilmington.froilansfarm.containers;
 
-import com.zipcodewilmington.froilansfarm.models.foods.EarCorn;
-import com.zipcodewilmington.froilansfarm.models.foods.Food;
-import com.zipcodewilmington.froilansfarm.models.foods.Pumpkin;
-import com.zipcodewilmington.froilansfarm.models.foods.Tomato;
+import com.zipcodewilmington.froilansfarm.models.foods.*;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 import static org.junit.Assert.*;
 
 public class StoreHouseTest {
-    private HashMap<Food, Integer> storedFood;
+    private HashMap<Food, Integer> storedFood = new HashMap<>();
     private EarCorn earCorn = new EarCorn();
-    private Tomato tomato = new Tomato();
+    private EarCorn earCorn2 = new EarCorn();
+    private EarCorn earCorn3 = new EarCorn();
+    private EarCorn earCorn4 = new EarCorn();
     private Pumpkin pumpkin = new Pumpkin();
+    private Pumpkin pumpkin2 = new Pumpkin();
+    private Pumpkin pumpkin3 = new Pumpkin();
+    private Pumpkin pumpkin4 = new Pumpkin();
+    private Pumpkin pumpkin5 = new Pumpkin();
+    private Tomato tomato = new Tomato();
+    private Egg egg = new Egg();
+    private ArrayList<Food> foodList = new ArrayList<>();
 
     @Before
     public void setup(){
-        this.storedFood = new HashMap<>();
-        storedFood.put(earCorn, 3);
-        storedFood.put(tomato, 0);
-        storedFood.put(pumpkin, 0);
+        foodList.add(pumpkin);
+        foodList.add(pumpkin2);
+        foodList.add(pumpkin3);
+        foodList.add(pumpkin4);
+        foodList.add(pumpkin5);
+        foodList.add(earCorn);
+        foodList.add(earCorn2);
+        foodList.add(earCorn3);
+        foodList.add(earCorn4);
+        foodList.add(tomato);
+        foodList.add(egg);
     }
     @Test
     public void testConstructor(){
@@ -38,54 +52,39 @@ public class StoreHouseTest {
 
     @Test
     public void testAddFood(){
-        //When
+        //Given
         StoreHouse storeHouse = new StoreHouse(storedFood);
         Integer expected = 5;
         //When
-        storeHouse.addFood(tomato, 5);
-        Integer actual = storedFood.get(tomato);
-        String output = storeHouse.getStoredFoods();
+        storeHouse.addFood(foodList);
+        Integer actual = storeHouse.checkStock(pumpkin);
+        System.out.println(storeHouse.getStoredFoods());
         //Then
         Assert.assertEquals(expected, actual);
-        System.out.println(output);
+
     }
 
     @Test
     public void testRemoveFood1(){
-        //When
+        //Given
         StoreHouse storeHouse = new StoreHouse(storedFood);
-        Integer expected = 5;
+        storeHouse.addFood(foodList);
+        Integer expected = 2;
         //When
-        storeHouse.addFood(tomato, 10);
-        storeHouse.removeFood(tomato, 5);
-        Integer actual = storedFood.get(tomato);
-        String output = storeHouse.getStoredFoods();
+        storeHouse.removeFood(pumpkin, 3);
+        Integer actual = storeHouse.checkStock(pumpkin);
         //Then
         Assert.assertEquals(expected, actual);
-        System.out.println(output);
     }
 
-    @Test
-    public void testRemoveFood2(){
-        //When
-        StoreHouse storeHouse = new StoreHouse(storedFood);
-        //Integer expected = 5;
-        //When
-        storeHouse.addFood(tomato, 10);
-        storeHouse.removeFood(tomato, 11);
-        //Integer actual = storedFood.get(tomato);
-        String output = storeHouse.getStoredFoods();
-        //Then
-        //Assert.assertEquals(expected, actual);
-        System.out.println(output);
-    }
 
     @Test
     public void testCheckStock(){
         //Given
         StoreHouse storeHouse = new StoreHouse(storedFood);
-        Integer expected = 3;
+        Integer expected = 4;
         //When
+        storeHouse.addFood(foodList);
         Integer actual = storeHouse.checkStock(earCorn);
         //then
         Assert.assertEquals(expected, actual);

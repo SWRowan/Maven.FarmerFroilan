@@ -8,7 +8,7 @@ import com.zipcodewilmington.froilansfarm.interfaces.*;
 import com.zipcodewilmington.froilansfarm.models.foods.Food;
 import com.zipcodewilmington.froilansfarm.models.vehicles.Vehicle;
 
-public class Farmer extends Person implements Eater, Rider, Botanist {
+public class Farmer extends Person implements Botanist, Rider {
 
     private Farm myFarm;
 
@@ -30,10 +30,11 @@ public class Farmer extends Person implements Eater, Rider, Botanist {
     }
 
     public void mount(Rideable rideable) {
+        rideable.mount();
     }
 
     public void dismount(Rideable rideable) {
-
+        rideable.dismount();
     }
 
     public Farm getMyFarm() {
