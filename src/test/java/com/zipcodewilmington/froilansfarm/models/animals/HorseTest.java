@@ -46,7 +46,7 @@ public class HorseTest {
         //Given
         Horse horse = new Horse();
         //Then
-        horse.makeNoise();
+        System.out.println(horse.makeNoise());
     }
 
 

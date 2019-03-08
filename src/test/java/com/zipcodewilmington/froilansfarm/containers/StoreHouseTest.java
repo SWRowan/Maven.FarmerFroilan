@@ -86,6 +86,7 @@ public class StoreHouseTest {
         //When
         storeHouse.addFood(foodList);
         Integer actual = storeHouse.checkStock(earCorn);
+        System.out.println(storeHouse.checkStock(tomato) + storeHouse.checkStock(egg));
         //then
         Assert.assertEquals(expected, actual);
     }
