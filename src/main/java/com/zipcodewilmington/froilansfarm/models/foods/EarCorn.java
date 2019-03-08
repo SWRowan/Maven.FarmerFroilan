@@ -21,4 +21,9 @@ public class EarCorn extends Food {
     storeHouse.removeFood(new EarCorn(), 1);
 
     }
+
+    @Override
+    public int hashCode() {
+        return 1;
+    }
 }

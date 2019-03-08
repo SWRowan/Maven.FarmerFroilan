@@ -19,4 +19,9 @@ public class Tomato extends Food {
         storeHouse.removeFood(new Tomato(),1);
 
     }
+
+    @Override
+    public int hashCode() {
+        return 2;
+    }
 }

@@ -20,4 +20,9 @@ public class Egg extends Food {
         storeHouse.removeFood(new Egg(), 1);
 
     }
+
+    @Override
+    public int hashCode() {
+        return 0;
+    }
 }

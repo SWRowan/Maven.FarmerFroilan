@@ -19,4 +19,9 @@ public class Pumpkin extends Food {
         storeHouse.removeFood(new Pumpkin(), 1);
 
     }
+
+    @Override
+    public int hashCode() {
+        return 3;
+    }
 }
