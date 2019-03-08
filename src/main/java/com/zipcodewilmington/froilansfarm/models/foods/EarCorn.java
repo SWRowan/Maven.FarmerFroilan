@@ -19,4 +19,9 @@ public class EarCorn extends Food {
     public void consumed() {
 
     }
+
+    @Override
+    public int hashCode() {
+        return 1;
+    }
 }

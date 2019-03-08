@@ -20,4 +20,9 @@ public class Egg extends Food {
 
 
     }
+
+    @Override
+    public int hashCode() {
+        return 0;
+    }
 }

@@ -19,4 +19,9 @@ public class Tomato extends Food {
 
 
     }
+
+    @Override
+    public int hashCode() {
+        return 2;
+    }
 }

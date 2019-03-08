@@ -19,4 +19,9 @@ public class Pumpkin extends Food {
 
 
     }
+
+    @Override
+    public int hashCode() {
+        return 3;
+    }
 }

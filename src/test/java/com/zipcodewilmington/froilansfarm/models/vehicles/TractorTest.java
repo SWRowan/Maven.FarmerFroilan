@@ -6,6 +6,10 @@ import com.zipcodewilmington.froilansfarm.models.crops.CornStalk;
 import com.zipcodewilmington.froilansfarm.models.crops.Crop;
 import com.zipcodewilmington.froilansfarm.models.crops.PumpkinPlant;
 import com.zipcodewilmington.froilansfarm.models.crops.TomatoPlant;
+import com.zipcodewilmington.froilansfarm.models.foods.EarCorn;
+import com.zipcodewilmington.froilansfarm.models.foods.Food;
+import com.zipcodewilmington.froilansfarm.models.foods.Pumpkin;
+import com.zipcodewilmington.froilansfarm.models.foods.Tomato;
 import com.zipcodewilmington.froilansfarm.models.persons.Farmer;
 import com.zipcodewilmington.froilansfarm.utilities.IOConsole;
 import org.junit.Assert;
@@ -61,112 +65,6 @@ public class TractorTest {
     }
 
     @Test
-    public void operateTest1() {
-        // Given
-        Farm farm = new Farm();
-        Tractor tractor = new Tractor();
-        int expectedSize = 0; // food ArrayList will be empty since none of the crops are fertilized
-
-        // When
-        int actualSize = tractor.operate(farm).size();
-
-        // Then
-        Assert.assertEquals(expectedSize, actualSize);
-    }
-
-    @Test
-    public void operateTest2() {
-        // Given
-        Farm farm = new Farm();
-        for (CropRow cropRow : farm.getField().getCropRows()) {
-            cropRow.fertilizeCrops();
-        }
-        Tractor tractor = new Tractor();
-        int expectedSize = 3; // number of different types of crops on this farm
-
-        // When
-        int actualSize = tractor.operate(farm).size();
-
-        // Then
-        Assert.assertEquals(expectedSize, actualSize);
-    }
-
-    @Test
-    public void operateTest3() {
-        // Given
-        Farm farm = new Farm();
-        for (CropRow cropRow : farm.getField().getCropRows()) {
-            cropRow.fertilizeCrops();
-        }
-        Tractor tractor = new Tractor();
-
-        int expectedEarCorns = 0;
-        for (CropRow cropRow : farm.getField().getCropRows()) {
-            for (Crop crop : cropRow.getCrops()) {
-                if (crop instanceof CornStalk) {
-                    expectedEarCorns++;
-                }
-            }
-        }
-
-        // When
-        int actualEarCorns = tractor.operate(farm).getOrDefault("EarCorn", 0);
-
-        // Then
-        Assert.assertEquals(expectedEarCorns, actualEarCorns);
-    }
-
-    @Test
-    public void operateTest4() {
-        // Given
-        Farm farm = new Farm();
-        for (CropRow cropRow : farm.getField().getCropRows()) {
-            cropRow.fertilizeCrops();
-        }
-        Tractor tractor = new Tractor();
-
-        int expectedTomatoes = 0;
-        for (CropRow cropRow : farm.getField().getCropRows()) {
-            for (Crop crop : cropRow.getCrops()) {
-                if (crop instanceof TomatoPlant) {
-                    expectedTomatoes++;
-                }
-            }
-        }
-
-        // When
-        int actualTomatoes = tractor.operate(farm).getOrDefault("Tomato", 0);
-
-        // Then
-        Assert.assertEquals(expectedTomatoes, actualTomatoes);
-    }
-
-    @Test
-    public void operateTest5() {
-        // Given
-        Farm farm = new Farm();
-        for (CropRow cropRow : farm.getField().getCropRows()) {
-            cropRow.fertilizeCrops();
-        }
-        Tractor tractor = new Tractor();
-
-        int expectedPumpkins = 0;
-        for (CropRow cropRow : farm.getField().getCropRows()) {
-            for (Crop crop : cropRow.getCrops()) {
-                if (crop instanceof PumpkinPlant) {
-                    expectedPumpkins++;
-                }
-            }
-        }
-
-        // When
-        int actualPumpkins = tractor.operate(farm).getOrDefault("Pumpkin", 0);
-
-        // Then
-        Assert.assertEquals(expectedPumpkins, actualPumpkins);
-    }
-
-    @Test
     public void rideTest() {
         // Given
         bytArrOutStr = new ByteArrayOutputStream();
@@ -197,6 +95,128 @@ public class TractorTest {
     }
 
     @Test
+    public void operateTest1() {
+        // Given
+        Farm farm = new Farm();
+        Tractor tractor = new Tractor();
+        int expectedSize = 0; // food ArrayList will be empty since none of the crops are fertilized
+
+        // When
+        int actualSize = tractor.operate(farm).size();
+
+        // Then
+        Assert.assertEquals(expectedSize, actualSize);
+    }
+
+    @Test
+    public void operateTest2() {
+        // Given
+        Farm farm = new Farm();
+        for (CropRow cropRow : farm.getField().getCropRows()) {
+            cropRow.fertilizeCrops();
+        }
+        Tractor tractor = new Tractor();
+        int expectedSize = 39; // total number of crops on this farm
+
+        // When
+        int actualSize = tractor.operate(farm).size();
+
+        // Then
+        Assert.assertEquals(expectedSize, actualSize);
+    }
+
+    @Test
+    public void operateTest3() {
+        // Given
+        Farm farm = new Farm();
+        for (CropRow cropRow : farm.getField().getCropRows()) {
+            cropRow.fertilizeCrops();
+        }
+        Tractor tractor = new Tractor();
+
+        int expectedEarCorns = 0;
+        for (CropRow cropRow : farm.getField().getCropRows()) {
+            for (Crop crop : cropRow.getCrops()) {
+                if (crop instanceof CornStalk) {
+                    expectedEarCorns++;
+                }
+            }
+        }
+
+        // When
+        int actualEarCorns = 0;
+        for (Food food : tractor.operate(farm)) {
+            if (food instanceof EarCorn) {
+                actualEarCorns++;
+            }
+        }
+
+
+        // Then
+        Assert.assertEquals(expectedEarCorns, actualEarCorns);
+    }
+
+    @Test
+    public void operateTest4() {
+        // Given
+        Farm farm = new Farm();
+        for (CropRow cropRow : farm.getField().getCropRows()) {
+            cropRow.fertilizeCrops();
+        }
+        Tractor tractor = new Tractor();
+
+        int expectedTomatoes = 0;
+        for (CropRow cropRow : farm.getField().getCropRows()) {
+            for (Crop crop : cropRow.getCrops()) {
+                if (crop instanceof TomatoPlant) {
+                    expectedTomatoes++;
+                }
+            }
+        }
+
+        // When
+        int actualTomatoes = 0;
+        for (Food food : tractor.operate(farm)) {
+            if (food instanceof Tomato) {
+                actualTomatoes++;
+            }
+        }
+
+        // Then
+        Assert.assertEquals(expectedTomatoes, actualTomatoes);
+    }
+
+    @Test
+    public void operateTest5() {
+        // Given
+        Farm farm = new Farm();
+        for (CropRow cropRow : farm.getField().getCropRows()) {
+            cropRow.fertilizeCrops();
+        }
+        Tractor tractor = new Tractor();
+
+        int expectedPumpkins = 0;
+        for (CropRow cropRow : farm.getField().getCropRows()) {
+            for (Crop crop : cropRow.getCrops()) {
+                if (crop instanceof PumpkinPlant) {
+                    expectedPumpkins++;
+                }
+            }
+        }
+
+        // When
+        int actualPumpkins = 0;
+        for (Food food : tractor.operate(farm)) {
+            if (food instanceof Pumpkin) {
+                actualPumpkins++;
+            }
+        }
+
+        // Then
+        Assert.assertEquals(expectedPumpkins, actualPumpkins);
+    }
+
+    @Test
     public void harvestTest1() {
         // Given
         Farm farm = new Farm();
@@ -218,7 +238,7 @@ public class TractorTest {
             cropRow.fertilizeCrops();
         }
         Tractor tractor = new Tractor();
-        int expectedSize = 1; // number of different crops in first cropRow
+        int expectedSize = 11; // total number of crops in first cropRow
 
         // When
         int actualSize = tractor.harvest(farm.getField().getCropRows().get(0)).size();
@@ -230,4 +250,142 @@ public class TractorTest {
     private IOConsole getConsoleWithBufOut(ByteArrayOutputStream baos) {
         return new IOConsole(System.in, new PrintStream(baos));
     }
+
+//    TESTS FOR HASH MAP IMPLEMENTATION
+//    @Test
+//    public void operateTest1() {
+//        // Given
+//        Farm farm = new Farm();
+//        Tractor tractor = new Tractor();
+//        int expectedSize = 0; // food ArrayList will be empty since none of the crops are fertilized
+//
+//        // When
+//        int actualSize = tractor.operate(farm).size();
+//
+//        // Then
+//        Assert.assertEquals(expectedSize, actualSize);
+//    }
+//
+//    @Test
+//    public void operateTest2() {
+//        // Given
+//        Farm farm = new Farm();
+//        for (CropRow cropRow : farm.getField().getCropRows()) {
+//            cropRow.fertilizeCrops();
+//        }
+//        Tractor tractor = new Tractor();
+//        int expectedSize = 3; // number of different types of crops on this farm
+//
+//        // When
+//        int actualSize = tractor.operate(farm).size();
+//
+//        // Then
+//        Assert.assertEquals(expectedSize, actualSize);
+//    }
+//
+//    @Test
+//    public void operateTest3() {
+//        // Given
+//        Farm farm = new Farm();
+//        for (CropRow cropRow : farm.getField().getCropRows()) {
+//            cropRow.fertilizeCrops();
+//        }
+//        Tractor tractor = new Tractor();
+//
+//        int expectedEarCorns = 0;
+//        for (CropRow cropRow : farm.getField().getCropRows()) {
+//            for (Crop crop : cropRow.getCrops()) {
+//                if (crop instanceof CornStalk) {
+//                    expectedEarCorns++;
+//                }
+//            }
+//        }
+//
+//        // When
+//        int actualEarCorns = tractor.operate(farm).getOrDefault(new EarCorn(), 0);
+//
+//        // Then
+//        Assert.assertEquals(expectedEarCorns, actualEarCorns);
+//    }
+//
+//    @Test
+//    public void operateTest4() {
+//        // Given
+//        Farm farm = new Farm();
+//        for (CropRow cropRow : farm.getField().getCropRows()) {
+//            cropRow.fertilizeCrops();
+//        }
+//        Tractor tractor = new Tractor();
+//
+//        int expectedTomatoes = 0;
+//        for (CropRow cropRow : farm.getField().getCropRows()) {
+//            for (Crop crop : cropRow.getCrops()) {
+//                if (crop instanceof TomatoPlant) {
+//                    expectedTomatoes++;
+//                }
+//            }
+//        }
+//
+//        // When
+//        int actualTomatoes = tractor.operate(farm).getOrDefault(new Tomato(), 0);
+//
+//        // Then
+//        Assert.assertEquals(expectedTomatoes, actualTomatoes);
+//    }
+//
+//    @Test
+//    public void operateTest5() {
+//        // Given
+//        Farm farm = new Farm();
+//        for (CropRow cropRow : farm.getField().getCropRows()) {
+//            cropRow.fertilizeCrops();
+//        }
+//        Tractor tractor = new Tractor();
+//
+//        int expectedPumpkins = 0;
+//        for (CropRow cropRow : farm.getField().getCropRows()) {
+//            for (Crop crop : cropRow.getCrops()) {
+//                if (crop instanceof PumpkinPlant) {
+//                    expectedPumpkins++;
+//                }
+//            }
+//        }
+//
+//        // When
+//        int actualPumpkins = tractor.operate(farm).getOrDefault(new Pumpkin(), 0);
+//
+//        // Then
+//        Assert.assertEquals(expectedPumpkins, actualPumpkins);
+//    }
+//
+//    @Test
+//    public void harvestTest1() {
+//        // Given
+//        Farm farm = new Farm();
+//        Tractor tractor = new Tractor();
+//        int expectedSize = 0; // food ArrayList will be empty since none of the crops are fertilized
+//
+//        // When
+//        int actualSize = tractor.harvest(farm.getField().getCropRows().get(0)).size();
+//
+//        // Then
+//        Assert.assertEquals(expectedSize, actualSize);
+//    }
+//
+//    @Test
+//    public void harvestTest2() {
+//        // Given
+//        Farm farm = new Farm();
+//        for (CropRow cropRow : farm.getField().getCropRows()) {
+//            cropRow.fertilizeCrops();
+//        }
+//        Tractor tractor = new Tractor();
+//        int expectedSize = 1; // number of different crops in first cropRow
+//
+//        // When
+//        int actualSize = tractor.harvest(farm.getField().getCropRows().get(0)).size();
+//
+//        // Then
+//        Assert.assertEquals(expectedSize, actualSize);
+//    }
 }
