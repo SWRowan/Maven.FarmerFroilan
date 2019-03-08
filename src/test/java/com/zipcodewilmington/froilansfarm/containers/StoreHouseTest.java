@@ -71,10 +71,12 @@ public class StoreHouseTest {
         storeHouse.addFood(foodList);
         Integer expected = 2;
         //When
-        storeHouse.removeFood(pumpkin, 3);
+        System.out.println(storeHouse.getStoredFoods());
+        storeHouse.getFood(pumpkin, 3);
         Integer actual = storeHouse.checkStock(pumpkin);
+        System.out.println(storeHouse.getStoredFoods());
         //Then
-        Assert.assertEquals(expected, actual);
+        assertEquals(expected, actual);
     }
 
 
@@ -90,5 +92,17 @@ public class StoreHouseTest {
         //then
         Assert.assertEquals(expected, actual);
     }
+
+    @Test
+    public void testGetFoodNull(){
+        //Given
+        StoreHouse storeHouse = new StoreHouse(storedFood);
+        //When
+        Food testfood = storeHouse.getFood(pumpkin, 6);
+        //Then
+        Assert.assertNull(testfood);
+    }
+
+
 
 }

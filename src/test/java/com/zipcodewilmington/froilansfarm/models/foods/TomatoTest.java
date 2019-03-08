@@ -37,21 +37,21 @@ public class TomatoTest {
         Assert.assertEquals(expected, actual);
     }
 
-    @Test
-    public void Testeat(){
-
-        //Given
-        Integer expected = 0;
-
-        //When
-        System.out.println(storeHouse.getStoredFoods());
-        tomato.consumed(storeHouse);
-        Integer actual = storeHouse.checkStock(tomato);
-        System.out.println(storeHouse.getStoredFoods());
-
-        //Then
-        Assert.assertEquals(expected, actual);
-
-
-    }
+//    @Test
+//    public void Testeat(){
+//
+//        //Given
+//        Integer expected = 0;
+//
+//        //When
+//        System.out.println(storeHouse.getStoredFoods());
+//        tomato.consumed(storeHouse);
+//        Integer actual = storeHouse.checkStock(tomato);
+//        System.out.println(storeHouse.getStoredFoods());
+//
+//        //Then
+//        Assert.assertEquals(expected, actual);
+//
+//
+//    }
 }

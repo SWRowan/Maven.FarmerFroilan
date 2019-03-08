@@ -38,7 +38,7 @@ public class FarmPilot extends Person implements Pilot, Rider {
     }
 
     @Override
-    public void eat(Food food, StoreHouse storeHouse) {
+    public void eat(Food food, Integer numOfFood) {
 
     }
 }

@@ -40,23 +40,23 @@ public class EggTest {
         Assert.assertEquals(expected, actual);
     }
 
-    @Test
-    public void Testeat() {
-
-        //Given
-
-        Integer expected = 1;
-
-        //When
-
-        System.out.println(storeHouse.getStoredFoods());
-        egg.consumed(storeHouse);
-        Integer actual = storeHouse.checkStock(egg);
-        System.out.println(storeHouse.getStoredFoods());
-
-        //Then
-
-        Assert.assertEquals(expected, actual);
-    }
+//    @Test
+//    public void Testeat() {
+//
+//        //Given
+//
+//        Integer expected = 1;
+//
+//        //When
+//
+//        System.out.println(storeHouse.getStoredFoods());
+//        egg.consumed(storeHouse);
+//        Integer actual = storeHouse.checkStock(egg);
+//        System.out.println(storeHouse.getStoredFoods());
+//
+//        //Then
+//
+//        Assert.assertEquals(expected, actual);
+//    }
 
 }

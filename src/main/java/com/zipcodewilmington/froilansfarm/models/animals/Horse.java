@@ -15,7 +15,7 @@ public class Horse extends Animal implements Rideable {
         this("");
     }
 
-    public Horse(String name){
+    public Horse(String name) {
         this.name = name;
         isMounted = false;
     }
@@ -46,10 +46,10 @@ public class Horse extends Animal implements Rideable {
 
     }
 
-    public void eat(Food food, StoreHouse storeHouse) {
-        if(storeHouse.checkStock(food) >=3) {
-            IOConsole.getIOConsole().println(getName()+" ate 3" + food.getClass().getSimpleName());
-        }
+    public void eat(Food food, Integer numOfFood) {
+
+
+            IOConsole.getIOConsole().println(getName() + " ate " + numOfFood+" "+ food.getClass().getSimpleName() + "\n");
 
     }
 

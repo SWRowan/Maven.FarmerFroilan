@@ -1,6 +1,7 @@
 package com.zipcodewilmington.froilansfarm.models.animals;
 
 import com.zipcodewilmington.froilansfarm.containers.StoreHouse;
+import com.zipcodewilmington.froilansfarm.models.foods.EarCorn;
 import com.zipcodewilmington.froilansfarm.models.foods.Food;
 import org.junit.Assert;
 import org.junit.Before;
@@ -15,10 +16,16 @@ public class HorseTest {
     private HashMap<Food, Integer> foodStock = new HashMap<>();
     private StoreHouse storeHouse = new StoreHouse(foodStock);
     private ArrayList<Food> foodList = new ArrayList<>();
-
+    private EarCorn earCorn1 = new EarCorn();
+    private EarCorn earCorn2 = new EarCorn();
+    private EarCorn earCorn3 = new EarCorn();
 
     @Before
-    public void setup(){
+    public void setup() {
+        foodList.add(earCorn1);
+        foodList.add(earCorn1);
+        foodList.add(earCorn1);
+        storeHouse.addFood(foodList);
 
     }
 
@@ -66,11 +73,16 @@ public class HorseTest {
     }
 
     @Test
-    public void testEat(){
+    public void testEat() {
         //Given
+        Horse horse = new Horse("Boah");
+        //When
+        System.out.println(storeHouse.getStoredFoods());
+        horse.eat(earCorn1, 3);
+        System.out.println(storeHouse.getStoredFoods());
+
 
     }
-
 
 
 }

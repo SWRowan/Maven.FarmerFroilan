@@ -24,7 +24,7 @@ public class Farm {
         chickenCoops = DefaultFarmGenerator.generateDefaultChickenCoops();
         stables = DefaultFarmGenerator.generateDefaultStables();
         garage = DefaultFarmGenerator.generateDefaultGarage();
-//        storeHouse = DefaultFarmGenerator.generateDefaultStoreHouse();
+        storeHouse = DefaultFarmGenerator.generateDefaultStoreHouse();
         daysElapsed = 0;
     }
 
@@ -73,7 +73,7 @@ public class Farm {
                 ",\n\nfield=" + field +
                 ",\n\nchickenCoops=" + chickenCoops +
                 ",\n\nstables=" + stables +
-                ",\n\nstoreHouse=" + storeHouse +
+                ",\n\nstoreHouse=\n" + storeHouse.getStoredFoods() +
                 ",\n\ngarage=" + garage +
                 ",\n\ndaysElapsed=" + daysElapsed +
                 "\n}";

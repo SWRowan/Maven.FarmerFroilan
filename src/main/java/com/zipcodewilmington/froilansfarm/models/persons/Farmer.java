@@ -46,7 +46,7 @@ public class Farmer extends Person implements Botanist, Rider {
     }
 
     @Override
-    public void eat(Food food, StoreHouse storeHouse) {
+    public void eat(Food food, Integer numOfFood) {
 
     }
 }

@@ -38,21 +38,21 @@ public class EarCornTest {
         Assert.assertEquals(expected, actual);
     }
 
-    @Test
-    public void Testeat(){
-
-        //Given
-       Integer expected = 0;
-
-        //When
-        System.out.println(storeHouse.getStoredFoods());
-        earCorn.consumed(storeHouse);
-        Integer actual = storeHouse.checkStock(earCorn);
-        System.out.println(storeHouse.getStoredFoods());
-
-        //Then
-        Assert.assertEquals(expected, actual);
-
-
-    }
+//    @Test
+//    public void Testeat(){
+//
+//        //Given
+//       Integer expected = 0;
+//
+//        //When
+//        System.out.println(storeHouse.getStoredFoods());
+//        earCorn.consumed(storeHouse);
+//        Integer actual = storeHouse.checkStock(earCorn);
+//        System.out.println(storeHouse.getStoredFoods());
+//
+//        //Then
+//        Assert.assertEquals(expected, actual);
+//
+//
+//    }
 }
