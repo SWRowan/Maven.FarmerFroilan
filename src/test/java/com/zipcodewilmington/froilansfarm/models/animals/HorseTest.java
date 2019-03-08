@@ -1,11 +1,27 @@
 package com.zipcodewilmington.froilansfarm.models.animals;
 
+import com.zipcodewilmington.froilansfarm.containers.StoreHouse;
+import com.zipcodewilmington.froilansfarm.models.foods.Food;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 import static org.junit.Assert.*;
 
 public class HorseTest {
+    private HashMap<Food, Integer> foodStock = new HashMap<>();
+    private StoreHouse storeHouse = new StoreHouse(foodStock);
+    private ArrayList<Food> foodList = new ArrayList<>();
+
+
+    @Before
+    public void setup(){
+
+    }
+
 
     @Test
     public void testConstructor1() {
@@ -47,6 +63,12 @@ public class HorseTest {
         Horse horse = new Horse();
         //Then
         System.out.println(horse.makeNoise());
+    }
+
+    @Test
+    public void testEat(){
+        //Given
+
     }
 
 
