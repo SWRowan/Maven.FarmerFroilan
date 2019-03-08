@@ -22,11 +22,11 @@ public abstract class Person implements NoiseMaker, Eater {
                 '}';
     }
 
-    public Integer getLevelOfEnergy() {
-        return levelOfEnergy;
-    }
-
-    public void setLevelOfEnergy(Integer levelOfEnergy) {
-        this.levelOfEnergy = levelOfEnergy;
-    }
+//    public Integer getLevelOfEnergy() {
+//        return levelOfEnergy;
+//    }
+//
+//    public void setLevelOfEnergy(Integer levelOfEnergy) {
+//        this.levelOfEnergy = levelOfEnergy;
+//    }
 }
