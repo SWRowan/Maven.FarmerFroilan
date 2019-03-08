@@ -78,33 +78,149 @@ public class IOConsoleTest {
 
     @Test
     public void userPressEnterToContinueTest() {
-        String input = "\nasdf";
+        String input = "\nasdf\n";
         bytArrInpStr = new ByteArrayInputStream(input.getBytes());
         IOConsole ioConsole = getConsoleWithBufInp(bytArrInpStr);
         String expected = "asdf";
 
         // When
         ioConsole.userPressEnterToContinue();
-        String actual = bytArrInpStr.toString();
+        String actual = ioConsole.getStringInput("");
 
         // Then
         Assert.assertEquals(expected, actual);
     }
 
     @Test
-    public void yesOrNoQuestion() {
+    public void yesOrNoQuestionTest1() {
+        // Given
+        String input = "yes\n";
+        bytArrInpStr = new ByteArrayInputStream(input.getBytes());
+        IOConsole ioConsole = getConsoleWithBufInp(bytArrInpStr);
+
+        // When
+        boolean userInput = ioConsole.yesOrNoQuestion("");
+
+        // Then
+        Assert.assertTrue(userInput);
     }
 
     @Test
-    public void getDoubleInput() {
+    public void yesOrNoQuestionTest2() {
+        // Given
+        String input = "no\n";
+        bytArrInpStr = new ByteArrayInputStream(input.getBytes());
+        IOConsole ioConsole = getConsoleWithBufInp(bytArrInpStr);
+
+        // When
+        boolean userInput = ioConsole.yesOrNoQuestion("");
+
+        // Then
+        Assert.assertFalse(userInput);
     }
 
     @Test
-    public void getLongInput() {
+    public void yesOrNoQuestionTest3() {
+        // Given
+        String input = "badinput\nno\n";
+        bytArrInpStr = new ByteArrayInputStream(input.getBytes());
+        IOConsole ioConsole = getConsoleWithBufInp(bytArrInpStr);
+
+        // When
+        boolean userInput = ioConsole.yesOrNoQuestion("");
+
+        // Then
+        Assert.assertFalse(userInput);
     }
 
     @Test
-    public void getIntegerInput() {
+    public void getDoubleInputTest() {
+        // Given
+        String input = "5\n";
+        double expectedDouble = 5.0;
+        bytArrInpStr = new ByteArrayInputStream(input.getBytes());
+        IOConsole ioConsole = getConsoleWithBufInp(bytArrInpStr);
+
+        // When
+        double actualDouble = ioConsole.getDoubleInput("");
+
+        // Then
+        Assert.assertEquals(expectedDouble, actualDouble, .000001);
+    }
+
+    @Test
+    public void getLongInputTest() {
+        // Given
+        String input = "8\n";
+        long expectedLong = 8;
+        bytArrInpStr = new ByteArrayInputStream(input.getBytes());
+        IOConsole ioConsole = getConsoleWithBufInp(bytArrInpStr);
+
+        // When
+        long actualLong = ioConsole.getLongInput("");
+
+        // Then
+        Assert.assertEquals(expectedLong, actualLong);
+    }
+
+    @Test
+    public void getIntegerInputTest() {
+        // Given
+        String input = "11\n";
+        int expectedInteger = 11;
+        bytArrInpStr = new ByteArrayInputStream(input.getBytes());
+        IOConsole ioConsole = getConsoleWithBufInp(bytArrInpStr);
+
+        // When
+        int actualInteger = ioConsole.getIntegerInput("");
+
+        // Then
+        Assert.assertEquals(expectedInteger, actualInteger);
+    }
+
+    @Test
+    public void getDoubleInputTest2() {
+        // Given
+        String input = "dsaf\n5\n";
+        double expectedDouble = 5.0;
+        bytArrInpStr = new ByteArrayInputStream(input.getBytes());
+        IOConsole ioConsole = getConsoleWithBufInp(bytArrInpStr);
+
+        // When
+        double actualDouble = ioConsole.getDoubleInput("");
+
+        // Then
+        Assert.assertEquals(expectedDouble, actualDouble, .000001);
+    }
+
+    @Test
+    public void getLongInputTest2() {
+        // Given
+        String input = "fdsa\n8\n";
+        long expectedLong = 8;
+        bytArrInpStr = new ByteArrayInputStream(input.getBytes());
+        IOConsole ioConsole = getConsoleWithBufInp(bytArrInpStr);
+
+        // When
+        long actualLong = ioConsole.getLongInput("");
+
+        // Then
+        Assert.assertEquals(expectedLong, actualLong);
+    }
+
+    @Test
+    public void getIntegerInputTest2() {
+        // Given
+        String input = "asdf\n11\n";
+        int expectedInteger = 11;
+        bytArrInpStr = new ByteArrayInputStream(input.getBytes());
+        IOConsole ioConsole = getConsoleWithBufInp(bytArrInpStr);
+
+        // When
+        int actualInteger = ioConsole.getIntegerInput("");
+
+        // Then
+        Assert.assertEquals(expectedInteger, actualInteger);
     }
 
     private IOConsole getConsoleWithBufInpOut(ByteArrayInputStream bais, ByteArrayOutputStream baos) {
