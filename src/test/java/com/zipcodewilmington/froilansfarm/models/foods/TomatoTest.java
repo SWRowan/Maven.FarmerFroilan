@@ -11,20 +11,13 @@ import java.util.HashMap;
 import static org.junit.Assert.*;
 
 public class TomatoTest {
-
-
-        private HashMap<Food, Integer> storedFoods;
-        private StoreHouse storeHouse;
-        private ArrayList<Food> edibleTomato;
-        private Tomato tomato;
+        private HashMap<Food, Integer> storedFoods = new HashMap<>();
+        private StoreHouse storeHouse = new StoreHouse(storedFoods);
+        private ArrayList<Food> edibleTomato = new ArrayList<>();
+        private Tomato tomato = new Tomato();
 
         @Before
         public void setup() {
-
-            storedFoods = new HashMap<>();
-            storeHouse = new StoreHouse(storedFoods);
-            edibleTomato = new ArrayList<>();
-            tomato = new Tomato();
             edibleTomato.add(tomato);
             storeHouse.addFood(edibleTomato);
 
@@ -43,6 +36,7 @@ public class TomatoTest {
 
         Assert.assertEquals(expected, actual);
     }
+
     @Test
     public void Testeat(){
 
@@ -50,8 +44,10 @@ public class TomatoTest {
         Integer expected = 0;
 
         //When
-        tomato.consumed(storeHouse, tomato);
+        System.out.println(storeHouse.getStoredFoods());
+        tomato.consumed(storeHouse);
         Integer actual = storeHouse.checkStock(tomato);
+        System.out.println(storeHouse.getStoredFoods());
 
         //Then
         Assert.assertEquals(expected, actual);

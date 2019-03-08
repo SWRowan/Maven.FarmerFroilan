@@ -11,18 +11,13 @@ import java.util.HashMap;
 import static org.junit.Assert.*;
 
 public class EarCornTest {
-    private HashMap<Food, Integer> storedFoods;
-    private StoreHouse storeHouse;
-    private  ArrayList<Food> corn;
-    private EarCorn earCorn;
+    private HashMap<Food, Integer> storedFoods = new HashMap<>();
+    private StoreHouse storeHouse = new StoreHouse(storedFoods);
+    private  ArrayList<Food> corn = new ArrayList<>();
+    private EarCorn earCorn = new EarCorn();
 
     @Before
     public void setup() {
-
-        storedFoods = new HashMap<>();
-        storeHouse = new StoreHouse(storedFoods);
-        corn = new ArrayList<>();
-        earCorn = new EarCorn();
         corn.add(earCorn);
         storeHouse.addFood(corn);
 
@@ -50,8 +45,10 @@ public class EarCornTest {
        Integer expected = 0;
 
         //When
-        earCorn.consumed(storeHouse, earCorn);
+        System.out.println(storeHouse.getStoredFoods());
+        earCorn.consumed(storeHouse);
         Integer actual = storeHouse.checkStock(earCorn);
+        System.out.println(storeHouse.getStoredFoods());
 
         //Then
         Assert.assertEquals(expected, actual);

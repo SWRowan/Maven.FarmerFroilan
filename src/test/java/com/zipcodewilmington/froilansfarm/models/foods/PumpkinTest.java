@@ -12,21 +12,15 @@ import static org.junit.Assert.*;
 
 public class PumpkinTest {
 
-    private HashMap<Food, Integer> storedFoods;
-    private StoreHouse storeHouse;
-    private ArrayList<Food> ediblePumpkin;
-    private Pumpkin pumpkin;
+    private HashMap<Food, Integer> storedFoods = new HashMap<>();
+    private StoreHouse storeHouse = new StoreHouse(storedFoods);
+    private ArrayList<Food> ediblePumpkin = new ArrayList<>();
+    private Pumpkin pumpkin = new Pumpkin();
 
     @Before
     public void setup(){
-        storedFoods = new HashMap<>(storedFoods);
-        storeHouse = new StoreHouse(storedFoods);
-        ediblePumpkin = new ArrayList<>();
-        pumpkin = new Pumpkin();
         ediblePumpkin.add(pumpkin);
         storeHouse.addFood(ediblePumpkin);
-
-
     }
 
 

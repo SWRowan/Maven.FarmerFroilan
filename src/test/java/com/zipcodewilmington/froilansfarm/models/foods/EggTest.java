@@ -11,21 +11,18 @@ import java.util.HashMap;
 import static org.junit.Assert.*;
 
 public class EggTest {
-    private HashMap<Food, Integer> storedFoods;
-    private StoreHouse storeHouse;
-    private ArrayList<Food> edibleEgg;
-    private Egg egg;
+    private HashMap<Food, Integer> storedFoods = new HashMap<>();
+    private StoreHouse storeHouse = new StoreHouse(storedFoods);
+    private ArrayList<Food> edibleEgg = new ArrayList<>();
+    private Egg egg = new Egg();
+    private Egg egg2 = new Egg();
+
 
     @Before
     public void setip() {
-        storedFoods = new HashMap<>(storedFoods);
-        storeHouse = new StoreHouse(storedFoods);
-        edibleEgg = new ArrayList<>();
-        egg = new Egg();
         edibleEgg.add(egg);
+        edibleEgg.add(egg2);
         storeHouse.addFood(edibleEgg);
-
-
     }
 
     @Test
@@ -48,12 +45,14 @@ public class EggTest {
 
         //Given
 
-        Integer expected = 0;
+        Integer expected = 1;
 
         //When
 
-        egg.consumed(storeHouse, egg);
+        System.out.println(storeHouse.getStoredFoods());
+        egg.consumed(storeHouse);
         Integer actual = storeHouse.checkStock(egg);
+        System.out.println(storeHouse.getStoredFoods());
 
         //Then
 

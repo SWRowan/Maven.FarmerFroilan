@@ -5,6 +5,6 @@ import com.zipcodewilmington.froilansfarm.models.foods.Food;
 
 public interface Edible {
 
-    void consumed(StoreHouse storeHouse, Food food);
+    void consumed(StoreHouse storeHouse);
 
 }

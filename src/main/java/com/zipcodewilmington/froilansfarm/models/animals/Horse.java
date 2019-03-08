@@ -40,8 +40,8 @@ public class Horse extends Animal implements Rideable {
     }
 
     public String makeNoise() {
-        return null;
-        //console.println("Neigh");
+        return "Neigh!!!";
+
 
     }
 
