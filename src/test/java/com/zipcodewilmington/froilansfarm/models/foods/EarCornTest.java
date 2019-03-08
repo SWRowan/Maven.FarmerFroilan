@@ -13,7 +13,7 @@ import static org.junit.Assert.*;
 public class EarCornTest {
     private HashMap<Food, Integer> storedFoods = new HashMap<>();
     private StoreHouse storeHouse = new StoreHouse(storedFoods);
-    private  ArrayList<Food> corn = new ArrayList<>();
+    private ArrayList<Food> corn = new ArrayList<>();
     private EarCorn earCorn = new EarCorn();
 
     @Before
@@ -38,21 +38,9 @@ public class EarCornTest {
         Assert.assertEquals(expected, actual);
     }
 
-//    @Test
-//    public void Testeat(){
-//
-//        //Given
-//       Integer expected = 0;
-//
-//        //When
-//        System.out.println(storeHouse.getStoredFoods());
-//        earCorn.consumed(storeHouse);
-//        Integer actual = storeHouse.checkStock(earCorn);
-//        System.out.println(storeHouse.getStoredFoods());
-//
-//        //Then
-//        Assert.assertEquals(expected, actual);
-//
-//
-//    }
+    @Test
+    public void testConsumed() {
+        EarCorn earCorn = new EarCorn();
+        earCorn.consumed();
+    }
 }
