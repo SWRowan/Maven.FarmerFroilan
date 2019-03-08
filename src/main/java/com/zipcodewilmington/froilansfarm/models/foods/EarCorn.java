@@ -16,9 +16,7 @@ public class EarCorn extends Food {
         energy = 10;
     }
 
-    public void consumed(StoreHouse storeHouse) {
-
-    storeHouse.removeFood(new EarCorn(), 1);
+    public void consumed() {
 
     }
 
