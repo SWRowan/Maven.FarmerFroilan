@@ -13,7 +13,7 @@ public class Horse extends Animal implements Rideable {
     private String name;
 
     public Horse() {
-        this("");
+        this("Horse");
     }
 
     public Horse(String name) {
@@ -25,6 +25,7 @@ public class Horse extends Animal implements Rideable {
     public void ride(Rider rider) {
         if(isMounted){
             IOConsole.getIOConsole().println(getName()+" has been ridden.");
+            dismount();
         }
     }
 

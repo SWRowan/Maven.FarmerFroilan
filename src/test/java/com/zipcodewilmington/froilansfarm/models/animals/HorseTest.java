@@ -38,7 +38,7 @@ public class HorseTest {
     public void testConstructor1() {
         //Given
         Horse horse = new Horse();
-        String expected = "";
+        String expected = "Horse";
         //When
         String actual = horse.getName();
         //then

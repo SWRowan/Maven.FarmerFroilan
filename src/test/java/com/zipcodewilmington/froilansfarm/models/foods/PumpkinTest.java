@@ -18,7 +18,7 @@ public class PumpkinTest {
     private Pumpkin pumpkin = new Pumpkin();
 
     @Before
-    public void setup(){
+    public void setup() {
         ediblePumpkin.add(pumpkin);
         storeHouse.addFood(ediblePumpkin);
     }
@@ -38,6 +38,12 @@ public class PumpkinTest {
 
         Assert.assertEquals(expected, actual);
 
+    }
+
+    @Test
+    public void testConsumed() {
+        Pumpkin pumpkin = new Pumpkin();
+        pumpkin.consumed();
     }
 
 }

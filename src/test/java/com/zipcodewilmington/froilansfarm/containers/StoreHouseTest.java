@@ -104,6 +104,17 @@ public class StoreHouseTest {
         Assert.assertNull(testfood);
     }
 
+    @Test
+    public void testTypeNull(){
+        //Given
+        StoreHouse storeHouse = new StoreHouse(storedFood);
+        Carrot carrot = new Carrot();
+        //When
+        Food food = storeHouse.typeOfFood(carrot);
+        //Then
+        Assert.assertNull(food);
+    }
+
 
 
 }

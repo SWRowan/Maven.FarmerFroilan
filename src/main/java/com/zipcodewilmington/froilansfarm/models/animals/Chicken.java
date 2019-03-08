@@ -12,23 +12,14 @@ import java.util.Random;
 
 public class Chicken extends Animal implements Produce {
     private boolean hasBeenFertilized;
-    private Integer Id;
-    private Random r = new Random();
+
 
     public Chicken(){
-        //Id = r.nextInt(1000);
-    }
 
-    public Integer getId() {
-        return Id;
-    }
-
-    public void setId(Integer id) {
-        this.Id = id;
     }
 
     public String makeNoise() {
-        return "CLUCK";
+        return "Buh-gawk!";
     }
 
     public Egg yield() {
@@ -58,7 +49,7 @@ public class Chicken extends Animal implements Produce {
 
     @Override
     public void eat(PlateOfFood plateOfFood) {
-        IOConsole.getIOConsole().println("Chicken: "+getId() + " ate " + plateOfFood.getNumOfFood() + " " +plateOfFood.getFood().getClass().getSimpleName() + "\n");
+        IOConsole.getIOConsole().println("Chicken: ate " + plateOfFood.getNumOfFood() + " " +plateOfFood.getFood().getClass().getSimpleName() + "\n");
 
     }
 }
