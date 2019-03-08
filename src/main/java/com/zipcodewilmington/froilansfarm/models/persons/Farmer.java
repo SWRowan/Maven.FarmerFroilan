@@ -21,7 +21,7 @@ public class Farmer extends Person implements Botanist, Rider {
         cropRow.plantCrop(crop);
     }
 
-    public void eat(Edible edible) {
+    public void consumed(Edible edible) {
 
     }
 
