@@ -2,6 +2,10 @@ package com.zipcodewilmington.froilansfarm.models.vehicles;
 
 import com.zipcodewilmington.froilansfarm.containers.CropRow;
 import com.zipcodewilmington.froilansfarm.containers.farm.Farm;
+import com.zipcodewilmington.froilansfarm.models.crops.CornStalk;
+import com.zipcodewilmington.froilansfarm.models.crops.Crop;
+import com.zipcodewilmington.froilansfarm.models.crops.PumpkinPlant;
+import com.zipcodewilmington.froilansfarm.models.crops.TomatoPlant;
 import com.zipcodewilmington.froilansfarm.models.persons.Farmer;
 import com.zipcodewilmington.froilansfarm.utilities.IOConsole;
 import org.junit.Assert;
@@ -78,13 +82,88 @@ public class TractorTest {
             cropRow.fertilizeCrops();
         }
         Tractor tractor = new Tractor();
-        int expectedSize = 39;
+        int expectedSize = 3; // number of different types of crops on this farm
 
         // When
         int actualSize = tractor.operate(farm).size();
 
         // Then
         Assert.assertEquals(expectedSize, actualSize);
+    }
+
+    @Test
+    public void operateTest3() {
+        // Given
+        Farm farm = new Farm();
+        for (CropRow cropRow : farm.getField().getCropRows()) {
+            cropRow.fertilizeCrops();
+        }
+        Tractor tractor = new Tractor();
+
+        int expectedEarCorns = 0;
+        for (CropRow cropRow : farm.getField().getCropRows()) {
+            for (Crop crop : cropRow.getCrops()) {
+                if (crop instanceof CornStalk) {
+                    expectedEarCorns++;
+                }
+            }
+        }
+
+        // When
+        int actualEarCorns = tractor.operate(farm).getOrDefault("EarCorn", 0);
+
+        // Then
+        Assert.assertEquals(expectedEarCorns, actualEarCorns);
+    }
+
+    @Test
+    public void operateTest4() {
+        // Given
+        Farm farm = new Farm();
+        for (CropRow cropRow : farm.getField().getCropRows()) {
+            cropRow.fertilizeCrops();
+        }
+        Tractor tractor = new Tractor();
+
+        int expectedTomatoes = 0;
+        for (CropRow cropRow : farm.getField().getCropRows()) {
+            for (Crop crop : cropRow.getCrops()) {
+                if (crop instanceof TomatoPlant) {
+                    expectedTomatoes++;
+                }
+            }
+        }
+
+        // When
+        int actualTomatoes = tractor.operate(farm).getOrDefault("Tomato", 0);
+
+        // Then
+        Assert.assertEquals(expectedTomatoes, actualTomatoes);
+    }
+
+    @Test
+    public void operateTest5() {
+        // Given
+        Farm farm = new Farm();
+        for (CropRow cropRow : farm.getField().getCropRows()) {
+            cropRow.fertilizeCrops();
+        }
+        Tractor tractor = new Tractor();
+
+        int expectedPumpkins = 0;
+        for (CropRow cropRow : farm.getField().getCropRows()) {
+            for (Crop crop : cropRow.getCrops()) {
+                if (crop instanceof PumpkinPlant) {
+                    expectedPumpkins++;
+                }
+            }
+        }
+
+        // When
+        int actualPumpkins = tractor.operate(farm).getOrDefault("Pumpkin", 0);
+
+        // Then
+        Assert.assertEquals(expectedPumpkins, actualPumpkins);
     }
 
     @Test
@@ -139,7 +218,7 @@ public class TractorTest {
             cropRow.fertilizeCrops();
         }
         Tractor tractor = new Tractor();
-        int expectedSize = 11;
+        int expectedSize = 1; // number of different crops in first cropRow
 
         // When
         int actualSize = tractor.harvest(farm.getField().getCropRows().get(0)).size();

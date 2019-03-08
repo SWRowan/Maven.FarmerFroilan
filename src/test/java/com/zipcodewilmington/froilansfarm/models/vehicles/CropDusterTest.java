@@ -1,9 +1,9 @@
 package com.zipcodewilmington.froilansfarm.models.vehicles;
 
+import com.zipcodewilmington.froilansfarm.containers.CropRow;
 import com.zipcodewilmington.froilansfarm.containers.farm.Farm;
 import com.zipcodewilmington.froilansfarm.models.crops.Crop;
 import com.zipcodewilmington.froilansfarm.models.persons.FarmPilot;
-import com.zipcodewilmington.froilansfarm.models.persons.Farmer;
 import com.zipcodewilmington.froilansfarm.utilities.IOConsole;
 import org.junit.Assert;
 import org.junit.Test;
@@ -127,7 +127,10 @@ public class CropDusterTest {
 
         // When
         cropDuster.operate(farm);
-        ArrayList<Crop> crops = farm.getField().getCropRows().get(0).getCrops();
+        ArrayList<Crop> crops = new ArrayList<>();
+        for (CropRow cropRow : farm.getField().getCropRows()) {
+            crops.addAll(cropRow.getCrops());
+        }
 
         // Then
         for (Crop crop : crops) {
@@ -136,7 +139,33 @@ public class CropDusterTest {
     }
 
     @Test
-    public void fertilize() {
+    public void fertilizeTest1() {
+        // Given
+        Farm farm = new Farm();
+        CropDuster cropDuster = new CropDuster();
+
+        // When
+        cropDuster.fertilize(farm.getField().getCropRows().get(0));
+        boolean actualIsFertilized = farm.getField().getCropRows().get(0).getCrops().get(0).isFertilized();
+
+        // Then
+        Assert.assertTrue(actualIsFertilized);
+    }
+
+    @Test
+    public void fertilizeTest2() {
+        // Given
+        Farm farm = new Farm();
+        CropDuster cropDuster = new CropDuster();
+
+        // When
+        cropDuster.fertilize(farm.getField().getCropRows().get(0));
+        ArrayList<Crop> crops = farm.getField().getCropRows().get(0).getCrops();
+
+        // Then
+        for (Crop crop : crops) {
+            Assert.assertTrue(crop.isFertilized());
+        }
     }
 
     private IOConsole getConsoleWithBufOut(ByteArrayOutputStream baos) {

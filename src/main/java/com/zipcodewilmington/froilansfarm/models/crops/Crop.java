@@ -37,6 +37,6 @@ public abstract class Crop implements Produce {
         if (hasBeenHarvested) {
             harvested = "harvested";
         }
-        return String.format("\n%s, %s, %s", this.getClass().getSimpleName(), fertilized, harvested);
+        return String.format("%s, %s, %s", this.getClass().getSimpleName(), fertilized, harvested);
     }
 }

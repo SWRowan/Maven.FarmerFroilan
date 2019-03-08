@@ -6,6 +6,6 @@ public abstract class Food implements Edible {
 
     @Override
     public String toString() {
-        return '\n' + this.getClass().getSimpleName();
+        return this.getClass().getSimpleName();
     }
 }
