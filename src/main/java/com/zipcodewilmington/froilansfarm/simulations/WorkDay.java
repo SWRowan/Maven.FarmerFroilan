@@ -16,15 +16,6 @@ public abstract class WorkDay implements FarmSimulation {
         IOConsole.getIOConsole().userPressEnterToContinue();
     }
 
-//    protected void morningRoutineHorses(Farm farm){
-//        for(Stable s : farm.getStables()){
-//            for(Horse h : stable.getStable()){
-//                horseFeed = storeHouse.getFood(new EarCorn(), 3);
-//                h.mount();
-//                System.out.println(h.makeNoise());
-//                h.ride(farm.gfarmer);
-//                h.eat(horseFeed);
-//            }
-//        }
-//    }
+    protected void morningRoutine() {
+    }
 }
