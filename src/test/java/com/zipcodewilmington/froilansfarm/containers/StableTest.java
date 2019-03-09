@@ -1,17 +1,16 @@
 package com.zipcodewilmington.froilansfarm.containers;
 
 import com.zipcodewilmington.froilansfarm.models.animals.Horse;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
 
-import static org.junit.Assert.*;
-
 public class StableTest {
     private ArrayList<Horse> horses;
-    private Horse horse1 = new Horse("Lightning");
-    private Horse horse2 = new Horse("Thunder");
+    private Horse horse1 = Horse.createHorse("Lightning");
+    private Horse horse2 = Horse.createHorse("Thunder");
 
     @Before
     public void setup(){
@@ -34,11 +33,22 @@ public class StableTest {
     public void testAddHorseToStable(){
         //Given
         Stable stable = new Stable(horses);
-        Horse horse3 = new Horse("Bishop");
+        Horse horse3 = Horse.createHorse("Bishop");
         //When
         stable.addHorseToStable(horse3);
         String output = stable.getHorses();
         //Then
         System.out.println(output);
+    }
+
+    @Test
+    public void testGetStable(){
+        //Given
+        Stable stable = new Stable(horses);
+        Integer expected = 2;
+        //When
+        Integer actual = stable.getStable().size();
+        //Then
+        Assert.assertEquals(expected, actual);
     }
 }

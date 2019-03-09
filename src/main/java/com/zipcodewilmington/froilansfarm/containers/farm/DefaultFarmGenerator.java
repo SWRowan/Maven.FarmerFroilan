@@ -7,6 +7,7 @@ import com.zipcodewilmington.froilansfarm.models.foods.*;
 import com.zipcodewilmington.froilansfarm.models.persons.*;
 import com.zipcodewilmington.froilansfarm.models.vehicles.*;
 
+import java.net.Inet4Address;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -22,7 +23,7 @@ public class DefaultFarmGenerator {
     }
 
     public static StoreHouse generateDefaultStoreHouse() {
-        return new StoreHouse(new HashMap<>());
+        return new StoreHouse();
     }
 
 
@@ -32,23 +33,26 @@ public class DefaultFarmGenerator {
     }
 
     public static ArrayList<Stable> generateDefaultStables() {
-        return new ArrayList<>(Arrays.asList(new Stable(generateDefaultHorses(4)), new Stable(generateDefaultHorses(4)), new Stable(generateDefaultHorses(3))));
+        return new ArrayList<>(Arrays.asList(
+                new Stable(generateDefaultHorses(4)),
+                new Stable(generateDefaultHorses(3)),
+                new Stable(generateDefaultHorses(3))));
     }
 
-    private static ArrayList<Horse> generateDefaultHorses(int numOfHorses) {
-        ArrayList<Horse> horses = new ArrayList<>();
-        for (int i = 0; i < numOfHorses; i++) {
-            horses.add(new Horse());
-        }
-        return horses;
+    private static ArrayList<Horse> generateDefaultHorses(Integer numOfHorses) {
+        return new ArrayList<>(Horse.horseList(numOfHorses));
     }
 
     public static ArrayList<ChickenCoop> generateDefaultChickenCoops() {
-        return new ArrayList<>(Arrays.asList(new ChickenCoop(generateDefaultChickens()), new ChickenCoop(generateDefaultChickens()), new ChickenCoop(generateDefaultChickens())));
+        return new ArrayList<>(Arrays.asList(
+                new ChickenCoop(generateDefaultChickens(4)),
+                new ChickenCoop(generateDefaultChickens(4)),
+                new ChickenCoop(generateDefaultChickens(4)),
+                new ChickenCoop(generateDefaultChickens(3))));
     }
 
-    private static ArrayList<Chicken> generateDefaultChickens() {
-        return new ArrayList<>(Arrays.asList(new Chicken(), new Chicken(), new Chicken(), new Chicken(), new Chicken()));
+    private static ArrayList<Chicken> generateDefaultChickens(Integer numOfChickens) {
+        return new ArrayList<>(Chicken.chickenList(numOfChickens));
     }
 
     public static Field generateDefaultField() {
@@ -56,21 +60,23 @@ public class DefaultFarmGenerator {
     }
 
     private static ArrayList<CropRow> generateDefaultCropRows() {
-        return new ArrayList<>(Arrays.asList(new CropRow(generateDefaultCornCrops()), new CropRow(generateDefaultTomatoCrops()),
-                new CropRow(generateDefaultPumpkinCrops()), new CropRow(generateDefaultCornCrops()), new CropRow(generateDefaultCornCrops())));
+        return new ArrayList<>(Arrays.asList(
+                new CropRow(generateDefaultCornCrops(11)),
+                new CropRow(generateDefaultTomatoCrops(11)),
+                new CropRow(generateDefaultPumpkinCrops(11)),
+                new CropRow(generateDefaultCornCrops(11)),
+                new CropRow(generateDefaultCornCrops(11))));
     }
 
-    private static ArrayList<Crop> generateDefaultTomatoCrops() {
-        return new ArrayList<>(Arrays.asList(new TomatoPlant(), new TomatoPlant(), new TomatoPlant()));
+    private static ArrayList<Crop> generateDefaultTomatoCrops(Integer numOfCrops) {
+        return new ArrayList<>(TomatoPlant.tomatoPlantList(numOfCrops));
     }
 
-    private static ArrayList<Crop> generateDefaultPumpkinCrops() {
-        return new ArrayList<>(Arrays.asList(new PumpkinPlant(), new PumpkinPlant(), new PumpkinPlant()));
+    private static ArrayList<Crop> generateDefaultPumpkinCrops(Integer numOfPlants) {
+        return new ArrayList<>(PumpkinPlant.pumpkinPlantList(numOfPlants));
     }
 
-    private static ArrayList<Crop> generateDefaultCornCrops() {
-        return new ArrayList<>(Arrays.asList(new CornStalk(), new CornStalk(), new CornStalk(),
-                new CornStalk(), new CornStalk(), new CornStalk(), new CornStalk(),
-                new CornStalk(), new CornStalk(), new CornStalk(), new CornStalk()));
+    private static ArrayList<Crop> generateDefaultCornCrops(Integer numOfPlants) {
+        return new ArrayList<>(CornStalk.cornStalkList(numOfPlants));
     }
 }

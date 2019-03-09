@@ -72,4 +72,18 @@ public class ChickenCoopTest {
         // Then
         Assert.assertEquals(expectedToString, actualToString);
     }
+
+    @Test
+    public void testConstructor(){
+        //Given
+        Integer expected = 0;
+        ChickenCoop coop = new ChickenCoop();
+        //When
+        Integer actual = coop.getChickens().size();
+        //Then
+        Assert.assertEquals(expected, actual);
+
+    }
+
+
 }
