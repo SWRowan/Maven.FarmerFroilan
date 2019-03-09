@@ -1,6 +1,7 @@
 package com.zipcodewilmington.froilansfarm.containers;
 
 import com.zipcodewilmington.froilansfarm.models.animals.Horse;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -38,5 +39,16 @@ public class StableTest {
         String output = stable.getHorses();
         //Then
         System.out.println(output);
+    }
+
+    @Test
+    public void testGetStable(){
+        //Given
+        Stable stable = new Stable(horses);
+        Integer expected = 2;
+        //When
+        Integer actual = stable.getStable().size();
+        //Then
+        Assert.assertEquals(expected, actual);
     }
 }

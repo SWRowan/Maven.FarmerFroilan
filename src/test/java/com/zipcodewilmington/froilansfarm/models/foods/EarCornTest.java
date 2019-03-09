@@ -43,4 +43,14 @@ public class EarCornTest {
         EarCorn earCorn = new EarCorn();
         earCorn.consumed();
     }
+
+    @Test
+    public void testCornList(){
+        //Given
+        Integer expected = 10;
+        //When
+        Integer actual = EarCorn.cornList(10).size();
+        //Then
+        Assert.assertEquals(expected, actual);
+    }
 }

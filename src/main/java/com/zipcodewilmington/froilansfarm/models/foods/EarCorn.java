@@ -24,6 +24,7 @@ public class EarCorn extends Food {
 
     }
 
+    //used for testing
     public static ArrayList<EarCorn> cornList (Integer numOfCorn){
         return (ArrayList<EarCorn>) Stream.generate(EarCorn::new)
                 .limit(numOfCorn)
