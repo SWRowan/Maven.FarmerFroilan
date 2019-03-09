@@ -5,19 +5,17 @@ import com.zipcodewilmington.froilansfarm.models.foods.Food;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
-public class PlateOfFoodTest {
+public class MealTest {
 
     @Test
     public void testConstructor(){
         //Given
         Food expectedFood = new EarCorn();
         Integer expectedNum = 3;
-        PlateOfFood plateOfFood = new PlateOfFood(expectedFood, expectedNum);
+        Meal meal = new Meal(expectedFood, expectedNum);
         //When
-        Food actualFood = plateOfFood.getFood();
-        Integer actualNum = plateOfFood.getNumOfFood();
+        Food actualFood = meal.getFood();
+        Integer actualNum = meal.getNumOfFood();
         //Then
         Assert.assertEquals(expectedNum, actualNum);
         Assert.assertEquals(expectedFood, actualFood);

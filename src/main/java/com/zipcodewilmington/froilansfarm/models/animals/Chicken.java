@@ -1,16 +1,11 @@
 package com.zipcodewilmington.froilansfarm.models.animals;
 
-import com.zipcodewilmington.froilansfarm.containers.PlateOfFood;
-import com.zipcodewilmington.froilansfarm.containers.StoreHouse;
+import com.zipcodewilmington.froilansfarm.containers.Meal;
 import com.zipcodewilmington.froilansfarm.models.foods.Egg;
-import com.zipcodewilmington.froilansfarm.interfaces.Edible;
 import com.zipcodewilmington.froilansfarm.interfaces.Produce;
-import com.zipcodewilmington.froilansfarm.models.foods.Food;
 import com.zipcodewilmington.froilansfarm.utilities.IOConsole;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -57,8 +52,8 @@ public class Chicken extends Animal implements Produce {
     }
 
     @Override
-    public void eat(PlateOfFood plateOfFood) {
-        IOConsole.getIOConsole().println("Chicken: ate " + plateOfFood.getNumOfFood() + " " + plateOfFood.getFood().getClass().getSimpleName() + "\n");
+    public void eat(Meal meal) {
+        IOConsole.getIOConsole().println("Chicken: ate " + meal.getNumOfFood() + " " + meal.getFood().getClass().getSimpleName() + "\n");
 
     }
 }

@@ -32,23 +32,26 @@ public class DefaultFarmGenerator {
     }
 
     public static ArrayList<Stable> generateDefaultStables() {
-        return new ArrayList<>(Arrays.asList(new Stable(generateDefaultHorses(4)), new Stable(generateDefaultHorses(4)), new Stable(generateDefaultHorses(3))));
+        return new ArrayList<>(Arrays.asList(
+                new Stable(generateDefaultHorses(4)),
+                new Stable(generateDefaultHorses(4)),
+                new Stable(generateDefaultHorses(3))));
     }
 
-    private static ArrayList<Horse> generateDefaultHorses(int numOfHorses) {
-        ArrayList<Horse> horses = new ArrayList<>();
-        for (int i = 0; i < numOfHorses; i++) {
-            horses.add(new Horse());
-        }
-        return horses;
+    private static ArrayList<Horse> generateDefaultHorses(Integer numOfHorses) {
+        return new ArrayList<>(Horse.horseList(numOfHorses));
     }
 
     public static ArrayList<ChickenCoop> generateDefaultChickenCoops() {
-        return new ArrayList<>(Arrays.asList(new ChickenCoop(generateDefaultChickens()), new ChickenCoop(generateDefaultChickens()), new ChickenCoop(generateDefaultChickens())));
+        return new ArrayList<>(Arrays.asList(
+                new ChickenCoop(generateDefaultChickens(4)),
+                new ChickenCoop(generateDefaultChickens(4)),
+                new ChickenCoop(generateDefaultChickens(4)),
+                new ChickenCoop(generateDefaultChickens(3))));
     }
 
-    private static ArrayList<Chicken> generateDefaultChickens() {
-        return new ArrayList<>(Arrays.asList(new Chicken(), new Chicken(), new Chicken(), new Chicken(), new Chicken()));
+    private static ArrayList<Chicken> generateDefaultChickens(Integer numOfChickens) {
+        return new ArrayList<>(Chicken.chickenList(numOfChickens));
     }
 
     public static Field generateDefaultField() {

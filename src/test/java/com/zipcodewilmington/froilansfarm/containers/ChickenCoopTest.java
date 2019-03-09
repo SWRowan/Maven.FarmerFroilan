@@ -72,4 +72,6 @@ public class ChickenCoopTest {
         // Then
         Assert.assertEquals(expectedToString, actualToString);
     }
+
+
 }

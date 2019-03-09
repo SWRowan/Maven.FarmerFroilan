@@ -1,6 +1,5 @@
 package com.zipcodewilmington.froilansfarm.containers;
 
-import com.zipcodewilmington.froilansfarm.interfaces.Edible;
 import com.zipcodewilmington.froilansfarm.models.foods.*;
 import com.zipcodewilmington.froilansfarm.utilities.IOConsole;
 
@@ -33,12 +32,12 @@ public class StoreHouse {
         return sb.toString();
     }
 
-    public PlateOfFood getFood(Food food, Integer numOfFood) {
+    public Meal getFood(Food food, Integer numOfFood) {
 
         if (storedFoods.get(typeOfFood(food)) >= numOfFood) {
             storedFoods.replace(typeOfFood(food), storedFoods.get(typeOfFood(food)) - numOfFood);
-            PlateOfFood plateOfFood = new PlateOfFood(food, numOfFood);
-            return plateOfFood;
+            Meal meal = new Meal(food, numOfFood);
+            return meal;
         }else{
             console.print("*** NOT ENOUGH " + food + "'s ***\n");
             return null;

@@ -7,7 +7,6 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 
 import static org.junit.Assert.*;
 
@@ -99,7 +98,7 @@ public class StoreHouseTest {
         StoreHouse storeHouse = new StoreHouse(storedFood);
 
         //When
-        PlateOfFood testfood = storeHouse.getFood(pumpkin, 6);
+        Meal testfood = storeHouse.getFood(pumpkin, 6);
         //Then
         Assert.assertNull(testfood);
     }

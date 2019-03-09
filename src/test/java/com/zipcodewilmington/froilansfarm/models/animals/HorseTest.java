@@ -1,6 +1,6 @@
 package com.zipcodewilmington.froilansfarm.models.animals;
 
-import com.zipcodewilmington.froilansfarm.containers.PlateOfFood;
+import com.zipcodewilmington.froilansfarm.containers.Meal;
 import com.zipcodewilmington.froilansfarm.containers.StoreHouse;
 import com.zipcodewilmington.froilansfarm.containers.farm.Farm;
 import com.zipcodewilmington.froilansfarm.models.foods.EarCorn;
@@ -79,8 +79,8 @@ public class HorseTest {
         Horse horse = Horse.createHorse("Boah");
         //When
         System.out.println(storeHouse.getStoredFoods());
-        PlateOfFood plateOfFood = storeHouse.getFood(earCorn1, 3);
-        horse.eat(plateOfFood);
+        Meal meal = storeHouse.getFood(earCorn1, 3);
+        horse.eat(meal);
         System.out.println(storeHouse.getStoredFoods());
 
 

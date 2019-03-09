@@ -2,12 +2,12 @@ package com.zipcodewilmington.froilansfarm.containers;
 
 import com.zipcodewilmington.froilansfarm.models.foods.Food;
 
-public class PlateOfFood {
+public class Meal {
 
     private Food food;
     private Integer numOfFood;
 
-    public PlateOfFood(Food food, Integer numOfFood){
+    public Meal(Food food, Integer numOfFood){
     this.food = food;
     this.numOfFood = numOfFood;
 

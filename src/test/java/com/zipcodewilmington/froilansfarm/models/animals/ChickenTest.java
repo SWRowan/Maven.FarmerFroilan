@@ -1,13 +1,11 @@
 package com.zipcodewilmington.froilansfarm.models.animals;
 
-import com.zipcodewilmington.froilansfarm.containers.PlateOfFood;
+import com.zipcodewilmington.froilansfarm.containers.Meal;
 import com.zipcodewilmington.froilansfarm.models.foods.EarCorn;
 import com.zipcodewilmington.froilansfarm.models.foods.Egg;
 import com.zipcodewilmington.froilansfarm.models.foods.Food;
 import org.junit.Assert;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class ChickenTest {
 
@@ -65,9 +63,9 @@ public class ChickenTest {
     public void testEat() {
         //Given
         Chicken chicken = new Chicken();
-        PlateOfFood plateOfFood = new PlateOfFood(new EarCorn(), 1);
+        Meal meal = new Meal(new EarCorn(), 1);
         //Then
-        chicken.eat(plateOfFood);
+        chicken.eat(meal);
     }
 
     @Test
