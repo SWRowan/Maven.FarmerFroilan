@@ -15,14 +15,22 @@ public class StoreHouse {
     private Pumpkin pumpkin = new Pumpkin();
     private Egg egg = new Egg();
 
+    public StoreHouse(){
+        storedFoods = new HashMap<>();
+        storedFoods.put(earCorn, 33);
+        storedFoods.put(tomato, 3);
+        storedFoods.put(pumpkin, 0);
+        storedFoods.put(egg, 7);
+    }
 
-    public StoreHouse(HashMap<Food, Integer> storedFoods) {
+    public StoreHouse(HashMap<Food, Integer> storedFoods){
         this.storedFoods = storedFoods;
         storedFoods.put(earCorn, 0);
         storedFoods.put(tomato, 0);
         storedFoods.put(pumpkin, 0);
         storedFoods.put(egg, 0);
     }
+
 
     public String getStoredFoods() {
         StringBuilder sb = new StringBuilder();

@@ -17,7 +17,7 @@ import java.util.HashMap;
 public class MainApplication {
     public static void main(String[] args) {
         Farm farm = new Farm();
-        //farm.run();
+        farm.run();
         Stable stable = new Stable(Horse.horseList(10));
         Farmer farmer = new Farmer("Bubba", farm);
         ChickenCoop chickenCoop = new ChickenCoop(Chicken.chickenList(10));
