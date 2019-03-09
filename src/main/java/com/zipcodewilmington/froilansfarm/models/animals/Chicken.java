@@ -1,6 +1,8 @@
 package com.zipcodewilmington.froilansfarm.models.animals;
 
+import com.zipcodewilmington.froilansfarm.containers.ChickenCoop;
 import com.zipcodewilmington.froilansfarm.containers.Meal;
+import com.zipcodewilmington.froilansfarm.containers.farm.Farm;
 import com.zipcodewilmington.froilansfarm.models.foods.Egg;
 import com.zipcodewilmington.froilansfarm.interfaces.Produce;
 import com.zipcodewilmington.froilansfarm.utilities.IOConsole;
@@ -56,4 +58,6 @@ public class Chicken extends Animal implements Produce {
         IOConsole.getIOConsole().println("Chicken: ate " + meal.getNumOfFood() + " " + meal.getFood().getClass().getSimpleName() + "\n");
 
     }
+
+
 }
