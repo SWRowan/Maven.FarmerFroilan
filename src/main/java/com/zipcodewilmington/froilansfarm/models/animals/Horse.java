@@ -1,8 +1,11 @@
 package com.zipcodewilmington.froilansfarm.models.animals;
 
 import com.zipcodewilmington.froilansfarm.containers.Meal;
+import com.zipcodewilmington.froilansfarm.containers.Stable;
+import com.zipcodewilmington.froilansfarm.containers.farm.Farm;
 import com.zipcodewilmington.froilansfarm.interfaces.Rideable;
 import com.zipcodewilmington.froilansfarm.interfaces.Rider;
+import com.zipcodewilmington.froilansfarm.models.foods.EarCorn;
 import com.zipcodewilmington.froilansfarm.utilities.IOConsole;
 
 import java.util.ArrayList;
@@ -69,6 +72,18 @@ public class Horse extends Animal implements Rideable {
 
     public void eat(Meal meal) {
         IOConsole.getIOConsole().println(getName() + " ate " + meal.getNumOfFood() + " " + meal.getFood().getClass().getSimpleName() + "\n");
+    }
+
+    public static void RideAndFeed(Farm farm, Stable s) {
+        Meal horseFeed;
+        for (Horse h: s.getStable()) {
+            horseFeed = farm.getStoreHouse().getFood(new EarCorn(), 3);
+            h.mount();
+            h.ride(farm.getFarmHouse().getRider());
+            IOConsole.getIOConsole().println(h.makeNoise());
+            h.eat(horseFeed);
+
+        }
     }
 
 }
