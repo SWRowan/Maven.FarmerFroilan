@@ -1,6 +1,5 @@
 package com.zipcodewilmington.froilansfarm.models.animals;
 
-import com.sun.tools.hat.internal.parser.HprofReader;
 import com.zipcodewilmington.froilansfarm.containers.PlateOfFood;
 import com.zipcodewilmington.froilansfarm.containers.StoreHouse;
 import com.zipcodewilmington.froilansfarm.containers.farm.Farm;
@@ -13,8 +12,6 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-
-import static org.junit.Assert.*;
 
 public class HorseTest {
     private HashMap<Food, Integer> foodStock = new HashMap<>();
@@ -49,7 +46,7 @@ public class HorseTest {
     public void testConstructor2() {
         //Given
         String expected = "SeaBass";
-        Horse horse = new Horse(expected);
+        Horse horse = Horse.createHorse(expected);
         //When
         String actual = horse.getName();
         //Then
@@ -79,7 +76,7 @@ public class HorseTest {
     @Test
     public void testEat() {
         //Given
-        Horse horse = new Horse("Boah");
+        Horse horse = Horse.createHorse("Boah");
         //When
         System.out.println(storeHouse.getStoredFoods());
         PlateOfFood plateOfFood = storeHouse.getFood(earCorn1, 3);
@@ -92,7 +89,7 @@ public class HorseTest {
     @Test
     public void testMountDismount(){
         //Given
-        Horse horse = new Horse("Steven");
+        Horse horse = Horse.createHorse("Steven");
         //when
         horse.mount();
         //Then
@@ -107,7 +104,7 @@ public class HorseTest {
     public void testRide(){
         //Given
         Farm farm = new Farm();
-        Horse horse = new Horse("Behemoth");
+        Horse horse = Horse.createHorse("Behemoth");
         Farmer farmer = new Farmer("Bubba", farm);
         //When
         horse.mount();
@@ -115,6 +112,15 @@ public class HorseTest {
         horse.ride(farmer);
     }
 
+    @Test
+    public void testHorseList(){
+        //Given
+        Integer expected = 10;
+        //When
+        Integer actual = Horse.horseList(10).size();
+        //Then
+        Assert.assertEquals(expected, actual);
+    }
 
 
 

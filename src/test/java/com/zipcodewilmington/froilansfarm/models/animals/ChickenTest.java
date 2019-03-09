@@ -12,7 +12,7 @@ import static org.junit.Assert.*;
 public class ChickenTest {
 
     @Test
-    public void testConstructor(){
+    public void testConstructor() {
         //Given
         Chicken chicken = new Chicken();
         //Then
@@ -21,7 +21,7 @@ public class ChickenTest {
     }
 
     @Test
-    public void testMakeNoise(){
+    public void testMakeNoise() {
         //Given
         Chicken chicken = new Chicken();
         //Then
@@ -29,7 +29,7 @@ public class ChickenTest {
     }
 
     @Test
-    public void testYeild1(){
+    public void testYeild1() {
         //Given
         Chicken chicken = new Chicken();
         //When
@@ -39,7 +39,7 @@ public class ChickenTest {
     }
 
     @Test
-    public void testYeild2(){
+    public void testYeild2() {
         //Given
         Chicken chicken = new Chicken();
         //When
@@ -50,7 +50,7 @@ public class ChickenTest {
     }
 
     @Test
-    public void testIsFertilized(){
+    public void testIsFertilized() {
         //Given
         Chicken chicken = new Chicken();
         //Then
@@ -62,7 +62,7 @@ public class ChickenTest {
     }
 
     @Test
-    public void testEat(){
+    public void testEat() {
         //Given
         Chicken chicken = new Chicken();
         PlateOfFood plateOfFood = new PlateOfFood(new EarCorn(), 1);
@@ -71,11 +71,21 @@ public class ChickenTest {
     }
 
     @Test
-    public void testToString(){
+    public void testToString() {
         //Given
         Chicken chicken = new Chicken();
         //Then
         System.out.println(chicken.toString());
+    }
+
+    @Test
+    public void testChickenList() {
+        //Given
+        Integer expected = 10;
+        //When
+        Integer actual = Chicken.chickenList(10).size();
+        //Then
+        Assert.assertEquals(expected, actual);
     }
 
 }

@@ -6,12 +6,10 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 
-import static org.junit.Assert.*;
-
 public class StableTest {
     private ArrayList<Horse> horses;
-    private Horse horse1 = new Horse("Lightning");
-    private Horse horse2 = new Horse("Thunder");
+    private Horse horse1 = Horse.createHorse("Lightning");
+    private Horse horse2 = Horse.createHorse("Thunder");
 
     @Before
     public void setup(){
@@ -34,7 +32,7 @@ public class StableTest {
     public void testAddHorseToStable(){
         //Given
         Stable stable = new Stable(horses);
-        Horse horse3 = new Horse("Bishop");
+        Horse horse3 = Horse.createHorse("Bishop");
         //When
         stable.addHorseToStable(horse3);
         String output = stable.getHorses();

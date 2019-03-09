@@ -11,6 +11,7 @@ public class PlateOfFood {
     this.food = food;
     this.numOfFood = numOfFood;
 
+
     }
 
 

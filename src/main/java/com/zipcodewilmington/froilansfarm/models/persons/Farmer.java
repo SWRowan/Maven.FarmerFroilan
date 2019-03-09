@@ -35,6 +35,10 @@ public class Farmer extends Person implements Botanist, Rider {
         rideable.dismount();
     }
 
+//    public String getName(){
+//        return super.getName();
+//    }
+
     public Farm getMyFarm() {
         return myFarm;
     }
