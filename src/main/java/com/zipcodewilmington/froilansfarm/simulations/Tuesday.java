@@ -7,6 +7,7 @@ public class Tuesday extends WorkDay {
         println("Tuesday Morning!\n\n");
 
 
+        System.out.println(farm.getStoreHouse().getStoredFoods());
       morningRoutine(farm);
 
         System.out.println(farm.getStoreHouse().getStoredFoods());

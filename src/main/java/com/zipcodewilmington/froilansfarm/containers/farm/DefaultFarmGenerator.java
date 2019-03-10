@@ -56,16 +56,16 @@ public class DefaultFarmGenerator {
     }
 
     public static Field generateDefaultField() {
-        return new Field(generateDefaultCropRows());
+        return new Field(generateDefaultCropRows(100));
     }
 
-    private static ArrayList<CropRow> generateDefaultCropRows() {
+    private static ArrayList<CropRow> generateDefaultCropRows(Integer numOfCrops) {
         return new ArrayList<>(Arrays.asList(
-                new CropRow(generateDefaultCornCrops(11)),
-                new CropRow(generateDefaultTomatoCrops(11)),
-                new CropRow(generateDefaultPumpkinCrops(11)),
-                new CropRow(generateDefaultCornCrops(11)),
-                new CropRow(generateDefaultCornCrops(11))));
+                new CropRow(generateDefaultCornCrops(numOfCrops)),
+                new CropRow(generateDefaultTomatoCrops(numOfCrops)),
+                new CropRow(generateDefaultPumpkinCrops(numOfCrops)),
+                new CropRow(generateDefaultCornCrops(numOfCrops)),
+                new CropRow(generateDefaultCornCrops(numOfCrops))));
     }
 
     private static ArrayList<Crop> generateDefaultTomatoCrops(Integer numOfCrops) {

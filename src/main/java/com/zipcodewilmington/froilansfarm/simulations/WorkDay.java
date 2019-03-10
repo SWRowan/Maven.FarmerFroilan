@@ -10,11 +10,16 @@ import com.zipcodewilmington.froilansfarm.models.animals.Horse;
 import com.zipcodewilmington.froilansfarm.models.foods.EarCorn;
 import com.zipcodewilmington.froilansfarm.models.foods.Egg;
 import com.zipcodewilmington.froilansfarm.models.foods.Food;
+import com.zipcodewilmington.froilansfarm.models.foods.Tomato;
+import com.zipcodewilmington.froilansfarm.models.persons.FarmPilot;
+import com.zipcodewilmington.froilansfarm.models.persons.Farmer;
+import com.zipcodewilmington.froilansfarm.models.persons.Person;
 import com.zipcodewilmington.froilansfarm.utilities.IOConsole;
 
 import java.util.ArrayList;
 
 public abstract class WorkDay implements FarmSimulation {
+
     protected void println(String val, Object... args) {
         IOConsole.getIOConsole().println(val, args);
     }
@@ -26,7 +31,7 @@ public abstract class WorkDay implements FarmSimulation {
     protected void morningRoutine(Farm farm) {
         morningChickenRoutine(farm);
         morningHorseRoutine(farm);
-        //breakfast(farm);
+        breakfast(farm);
     }
 
     protected void morningHorseRoutine(Farm farm) {
@@ -50,9 +55,20 @@ public abstract class WorkDay implements FarmSimulation {
             IOConsole.getIOConsole().println(getFarmerName(farm) + " collected " + eggCount + " Eggs from Coop: " + count + "\n\n");
             count++;
         }
-        IOConsole.getIOConsole().println("Total number of Eggs collected: " + totalEggs+"\n\n\n");
+        IOConsole.getIOConsole().println("Total number of Eggs collected: " + totalEggs + "\n\n\n");
         farm.getStoreHouse().addFood(Egg.listToFoodList(Egg.eggList(totalEggs)));
 
+    }
+
+    protected void breakfast(Farm farm) {
+        IOConsole.getIOConsole().println("\nTime for Breakfast!\n\n");
+        for (Person person : farm.getFarmHouse().getPersons()) {
+            if (person instanceof Farmer) {
+                froilanMeal(farm, person);
+            } else if (person instanceof FarmPilot) {
+                froilandaMeal(farm, person);
+            }
+        }
     }
 
 
@@ -67,6 +83,34 @@ public abstract class WorkDay implements FarmSimulation {
             eggCount++;
         }
         return eggCount;
+    }
+
+    protected final void froilanMeal(Farm farm, Person person) {
+        for (Meal m : mealList(farm,1, 2, 5)) {
+            person.eat(m);
+        }
+    }
+
+    protected final void froilandaMeal(Farm farm,Person person) {
+        for (Meal m : mealList(farm,2, 1, 2)) {
+            person.eat(m);
+        }
+    }
+
+
+    private Meal corn;
+    private Meal tomato;
+    private Meal egg;
+
+    private ArrayList<Meal> mealList(Farm farm, Integer numOfCorn, Integer numOfTomato, Integer numOfEgg) {
+        corn = farm.getStoreHouse().getFood(new EarCorn(),numOfCorn);
+        tomato = farm.getStoreHouse().getFood(new Tomato(), numOfTomato);
+        egg = farm.getStoreHouse().getFood(new Egg(), numOfEgg);
+        ArrayList<Meal> mealList = new ArrayList<>();
+        mealList.add(corn);
+        mealList.add(tomato);
+        mealList.add(egg);
+        return mealList;
     }
 
 
