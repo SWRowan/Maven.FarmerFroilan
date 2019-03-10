@@ -10,10 +10,12 @@ import com.zipcodewilmington.froilansfarm.utilities.IOConsole;
 
 import java.util.ArrayList;
 
+import static com.zipcodewilmington.froilansfarm.utilities.IOConsole.getIOConsole;
+
 public class Tractor extends Vehicle implements FarmVehicle<ArrayList<Food>> {
 
     public void ride(Rider rider) {
-        IOConsole.getIOConsole().println("The tractor has been ridden");
+        getIOConsole().println("The tractor has been ridden");
     }
 
     public String makeNoise() {
@@ -33,6 +35,7 @@ public class Tractor extends Vehicle implements FarmVehicle<ArrayList<Food>> {
         for (Crop crop : cropRow.harvestCrops()) {
             if (crop.isFertilized()) {
                 harvestedFoods.add(crop.yield());
+
             }
         }
         return harvestedFoods;

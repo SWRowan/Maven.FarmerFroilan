@@ -1,5 +1,7 @@
 package com.zipcodewilmington.froilansfarm.containers;
 
+import com.zipcodewilmington.froilansfarm.containers.farm.Farm;
+import com.zipcodewilmington.froilansfarm.interfaces.Rider;
 import com.zipcodewilmington.froilansfarm.models.persons.FarmPilot;
 import com.zipcodewilmington.froilansfarm.models.persons.Farmer;
 import org.junit.Assert;
@@ -71,4 +73,25 @@ public class FarmHouseTest {
         // Then
         Assert.assertEquals(expectedToString, actualToString);
     }
+
+    @Test
+    public void testGetRider(){
+        //Given
+        Farm farm = new Farm();
+        //
+        Rider rider = farm.getFarmHouse().getRider();
+        //Then
+        Assert.assertTrue(rider instanceof Rider);
+    }
+
+    @Test
+    public void testGetRider2(){
+        //Given
+        FarmHouse farmHouse = new FarmHouse(new ArrayList<>());
+        //
+        Rider rider = farmHouse.getRider();
+        //Then
+        Assert.assertNull(rider);
+    }
+
 }

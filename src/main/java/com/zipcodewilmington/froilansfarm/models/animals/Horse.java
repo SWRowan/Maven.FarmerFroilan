@@ -6,13 +6,15 @@ import com.zipcodewilmington.froilansfarm.containers.farm.Farm;
 import com.zipcodewilmington.froilansfarm.interfaces.Rideable;
 import com.zipcodewilmington.froilansfarm.interfaces.Rider;
 import com.zipcodewilmington.froilansfarm.models.foods.EarCorn;
-import com.zipcodewilmington.froilansfarm.utilities.IOConsole;
 
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import static com.zipcodewilmington.froilansfarm.utilities.IOConsole.getIOConsole;
+
 public class Horse extends Animal implements Rideable {
+
 
     private boolean isMounted;
     private String name;
@@ -41,7 +43,7 @@ public class Horse extends Animal implements Rideable {
     public void ride(Rider rider) {
         if (isMounted) {
 
-            IOConsole.getIOConsole().println(rider.getName() + " has ridden "+ getName());
+            getIOConsole().println(rider.getName() + " has ridden "+ getName());
             dismount();
         }
     }
@@ -71,7 +73,7 @@ public class Horse extends Animal implements Rideable {
     }
 
     public void eat(Meal meal) {
-        IOConsole.getIOConsole().println(getName() + " ate " + meal.getNumOfFood() + " " + meal.getFood().getClass().getSimpleName() + "\n");
+        getIOConsole().println(getName() + " ate " + meal.getNumOfFood() + " " + meal.getFood().getClass().getSimpleName() + "\n");
     }
 
     public static void RideAndFeed(Farm farm, Stable s) {
@@ -80,7 +82,7 @@ public class Horse extends Animal implements Rideable {
             horseFeed = farm.getStoreHouse().getFood(new EarCorn(), 3);
             h.mount();
             h.ride(farm.getFarmHouse().getRider());
-            IOConsole.getIOConsole().println(h.makeNoise());
+            getIOConsole().println(h.makeNoise());
             h.eat(horseFeed);
 
         }

@@ -1,6 +1,7 @@
 package com.zipcodewilmington.froilansfarm.models.animals;
 
 import com.zipcodewilmington.froilansfarm.containers.Meal;
+import com.zipcodewilmington.froilansfarm.containers.Stable;
 import com.zipcodewilmington.froilansfarm.containers.StoreHouse;
 import com.zipcodewilmington.froilansfarm.containers.farm.Farm;
 import com.zipcodewilmington.froilansfarm.models.foods.EarCorn;
@@ -122,6 +123,14 @@ public class HorseTest {
         Assert.assertEquals(expected, actual);
     }
 
+    @Test
+    public void testFeedAndRide(){
+        //Given
+        Farm farm = new Farm();
+        Stable stable = new Stable(Horse.horseList(3));
+        //Then
+        Horse.RideAndFeed(farm, stable);
+    }
 
 
 }
