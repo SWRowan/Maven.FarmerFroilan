@@ -78,4 +78,15 @@ public class Farm {
                 ",\n\ndaysElapsed=" + daysElapsed +
                 "\n}";
     }
+
+    public Farm(Garage garage) {
+        farmRunner = new FarmRunner(this);
+        farmHouse = DefaultFarmGenerator.generateDefaultFarmHouse();
+        field = DefaultFarmGenerator.generateDefaultField();
+        chickenCoops = DefaultFarmGenerator.generateDefaultChickenCoops();
+        stables = DefaultFarmGenerator.generateDefaultStables();
+        this.garage = garage;
+        storeHouse = DefaultFarmGenerator.generateDefaultStoreHouse();
+        daysElapsed = 0;
+    }
 }

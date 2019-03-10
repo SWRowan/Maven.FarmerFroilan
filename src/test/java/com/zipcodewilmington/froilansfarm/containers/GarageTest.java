@@ -1,4 +1,5 @@
 package com.zipcodewilmington.froilansfarm.containers;
+import com.zipcodewilmington.froilansfarm.containers.farm.Farm;
 import com.zipcodewilmington.froilansfarm.models.vehicles.CropDuster;
 import com.zipcodewilmington.froilansfarm.models.vehicles.Tractor;
 import org.junit.Assert;
@@ -69,5 +70,49 @@ public class GarageTest {
 
         // Then
         Assert.assertEquals(expectedToString, actualToString);
+    }
+
+    @Test
+    public void testGetTractor(){
+        //Given
+        Farm farm = new Farm();
+        //When
+        Tractor tractor = farm.getGarage().getTractor(farm);
+        //Then
+        Assert.assertTrue(tractor instanceof Tractor);
+    }
+
+    @Test
+    public void testGetTractorNull(){
+        //Given
+
+        Garage garage = new Garage(new ArrayList<>());
+        Farm farm = new Farm(garage);
+        //When
+        Tractor tractor = farm.getGarage().getTractor(farm);
+        //Then
+        Assert.assertNull(tractor);
+    }
+
+    @Test
+    public void testGetCD(){
+        //Given
+        Farm farm = new Farm();
+        //When
+        CropDuster cropDuster = farm.getGarage().getCropDuster(farm);
+        //Then
+        Assert.assertTrue(cropDuster instanceof CropDuster);
+    }
+
+    @Test
+    public void testGetCDNull(){
+        //Given
+
+        Garage garage = new Garage(new ArrayList<>());
+        Farm farm = new Farm(garage);
+        //When
+        CropDuster cropDuster = farm.getGarage().getCropDuster(farm);
+        //Then
+        Assert.assertNull(cropDuster);
     }
 }

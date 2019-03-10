@@ -45,4 +45,14 @@ public class EggTest {
         Egg egg = new Egg();
         egg.consumed();
     }
+
+    @Test
+    public void testEggLists(){
+        //Given
+        Integer expected = 3;
+        //When
+        Integer actual = Egg.listToFoodList(Egg.eggList(3)).size();
+        //then
+        Assert.assertEquals(expected, actual);
+    }
 }
