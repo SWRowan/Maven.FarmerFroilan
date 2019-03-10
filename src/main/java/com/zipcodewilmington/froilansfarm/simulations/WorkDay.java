@@ -78,7 +78,7 @@ public abstract class WorkDay implements FarmSimulation {
 
     private Integer collectEggs(Farm farm, ChickenCoop coop, Integer eggCount) {
         for (Chicken chicken : coop.getChickens()) {
-            IOConsole.getIOConsole().println(getFarmerName(farm) + " has collected an Egg!\n");
+            IOConsole.getIOConsole().println("\n"+getFarmerName(farm) + " has collected an Egg!");
             IOConsole.getIOConsole().println(chicken.makeNoise());
             eggCount++;
         }
