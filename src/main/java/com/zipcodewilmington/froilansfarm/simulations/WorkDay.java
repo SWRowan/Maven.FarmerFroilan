@@ -26,6 +26,8 @@ public abstract class WorkDay implements FarmSimulation {
     }
 
     protected void morningRoutine(Farm farm) {
+        getIOConsole().println("--- Current Food Stock ---");
+        getIOConsole().println(farm.getStoreHouse().getStoredFoods());
         morningChickenRoutine(farm);
         morningHorseRoutine(farm);
         breakfast(farm);
@@ -33,10 +35,10 @@ public abstract class WorkDay implements FarmSimulation {
 
     protected void morningHorseRoutine(Farm farm){
         Integer count = 1;
-        getIOConsole().println("Time to Ride and Feed the Horses!!\n");
+        getIOConsole().println("*****  Time to Ride and Feed the Horses!  *****\n");
         for (Stable s : farm.getStables()) {
             //Thread.sleep(1000);
-            getIOConsole().println("\nStable: " + count + "\n");
+            getIOConsole().println("\n*****  Stable: " + count + "  *****\n");
             count++;
             Horse.RideAndFeed(farm, s);
         }
@@ -45,8 +47,9 @@ public abstract class WorkDay implements FarmSimulation {
     protected void morningChickenRoutine(Farm farm) {
         Integer totalEggs = 0;
         Integer count = 1;
+        getIOConsole().println("\n***** Chicken Duty  *****");
         for (ChickenCoop coop : farm.getChickenCoops()) {
-            getIOConsole().println("Coop: " + count + "\n");
+            getIOConsole().println("\n*****  Coop: " + count + "  *****");
             Integer eggCount = collectEggs(farm, coop);
             totalEggs += eggCount;
             getIOConsole().println(getFarmerName(farm) + " collected " + eggCount + " Eggs from Coop: " + count + "\n\n");
@@ -58,7 +61,7 @@ public abstract class WorkDay implements FarmSimulation {
     }
 
     protected void breakfast(Farm farm) {
-        getIOConsole().println("\nTime for Breakfast!\n\n");
+        getIOConsole().println("\n*****  Time for Breakfast!  *****\n\n");
         for (Person person : farm.getFarmHouse().getPersons()) {
             if (person instanceof Farmer) {
                 farmerMeal(farm, person);
