@@ -32,13 +32,11 @@ public class Garage {
         return null;
     }
 
-    public CropDuster getCropDuster(Farm farm){
-        for(Vehicle v : farm.getGarage().getVehicles()){
-            if(v instanceof CropDuster){
-                return (CropDuster)v;
-
+    public CropDuster getCropDuster(){
+        for(Vehicle vehicle : vehicles){
+            if(vehicle instanceof CropDuster){
+                return (CropDuster) vehicle;
             }
-
         }
         return null;
     }

@@ -5,6 +5,8 @@ import com.zipcodewilmington.froilansfarm.containers.farm.Farm;
 import com.zipcodewilmington.froilansfarm.interfaces.*;
 import com.zipcodewilmington.froilansfarm.utilities.IOConsole;
 
+import static com.zipcodewilmington.froilansfarm.utilities.IOConsole.getIOConsole;
+
 public class FarmPilot extends Person implements Pilot, Rider {
     private Farm myFarm;
 
@@ -39,6 +41,14 @@ public class FarmPilot extends Person implements Pilot, Rider {
 
     @Override
     public void eat(Meal meal) {
-        IOConsole.getIOConsole().println(getName() + " ate " + meal.getNumOfFood() + " " + meal.getFood().getClass().getSimpleName() + "\n");
+        int numOfFood;
+        if (meal == null) numOfFood = 0;
+        else numOfFood = meal.getNumOfFood();
+
+        String nameOfFood;
+        if (meal == null) nameOfFood = "Food";
+        else nameOfFood = meal.getFood().getClass().getSimpleName();
+
+        getIOConsole().println(getName() + " ate " + numOfFood + " " + nameOfFood + "\n");
     }
 }

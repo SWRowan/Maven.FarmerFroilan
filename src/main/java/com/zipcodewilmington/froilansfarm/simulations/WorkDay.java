@@ -11,6 +11,7 @@ import com.zipcodewilmington.froilansfarm.models.foods.Egg;
 import com.zipcodewilmington.froilansfarm.models.persons.FarmPilot;
 import com.zipcodewilmington.froilansfarm.models.persons.Farmer;
 import com.zipcodewilmington.froilansfarm.models.persons.Person;
+import com.zipcodewilmington.froilansfarm.models.vehicles.CropDuster;
 
 import static com.zipcodewilmington.froilansfarm.containers.Meal.mealList;
 import static com.zipcodewilmington.froilansfarm.utilities.IOConsole.getIOConsole;
@@ -97,7 +98,16 @@ public abstract class WorkDay implements FarmSimulation {
         }
     }
 
-
+    protected void fertilizeCropsUsingCropDuster(Farm farm, FarmPilot farmPilot, CropDuster cropDuster) {
+        farmPilot.mount(cropDuster);
+        println("%s has mounted the crop duster", farmPilot.getName());
+        farmPilot.fly(cropDuster);
+        println("%s is flying the crop duster", farmPilot.getName());
+        cropDuster.operate(farm);
+        println("The crop duster is fertilizing all the crops on the farm");
+        farmPilot.dismount(cropDuster);
+        println("%s is finished flying the crop duster and has dismounted", farmPilot.getName());
+    }
 
 
 }

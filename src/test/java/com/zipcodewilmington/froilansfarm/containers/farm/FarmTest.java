@@ -10,14 +10,13 @@ import java.io.PrintStream;
 
 public class FarmTest {
     private ByteArrayInputStream bytArrInpStr;
-    private ByteArrayOutputStream bytArrOutStr;
 
     @Test
     public void runTest1() {
         // Given
         String input = "no\n";
         bytArrInpStr = new ByteArrayInputStream(input.getBytes());
-        bytArrOutStr = new ByteArrayOutputStream();
+        ByteArrayOutputStream bytArrOutStr = new ByteArrayOutputStream();
         getConsoleWithBufInpOut(bytArrInpStr, bytArrOutStr);
         Farm farm = new Farm();
 
@@ -68,7 +67,7 @@ public class FarmTest {
         Assert.assertEquals(expectedDaysElapsed, actualDaysElapsed);
     }
 
-    //@Test
+    @Test
     public void runTest4() {
         // Given
         String input = "yes\n\nyes\nyes\n\nno\nyes\n\nno\nyes\n\nno\nyes\n\nno\nyes\n\nno\nyes\n\nno\nyes\n\nno\nno\n";
@@ -155,10 +154,6 @@ public class FarmTest {
 
     private IOConsole getConsoleWithBufInpOut(ByteArrayInputStream bais, ByteArrayOutputStream baos) {
         return new IOConsole(bais, new PrintStream(baos));
-    }
-
-    private IOConsole getConsoleWithBufOut(ByteArrayOutputStream baos) {
-        return new IOConsole(System.in, new PrintStream(baos));
     }
 
     private IOConsole getConsoleWithBufInp(ByteArrayInputStream bais) {
