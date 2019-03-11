@@ -94,4 +94,24 @@ public class FarmHouseTest {
         Assert.assertNull(rider);
     }
 
+    @Test
+    public void testGetPilot(){
+        //Given
+        Farm farm = new Farm();
+        //When
+        FarmPilot p = farm.getFarmHouse().getPilot();
+        //Then
+        Assert.assertTrue(p instanceof FarmPilot);
+    }
+
+    @Test
+    public void testGetPilotNull(){
+        //Given
+        FarmHouse farmHouse = new FarmHouse(new ArrayList<>());
+        //When
+        FarmPilot p = farmHouse.getPilot();
+        //Then
+        Assert.assertNull(p);
+    }
+
 }
