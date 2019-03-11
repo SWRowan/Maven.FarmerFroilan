@@ -116,7 +116,7 @@ public class TractorTest {
             cropRow.fertilizeCrops();
         }
         Tractor tractor = new Tractor();
-        int expectedSize = 500; // total number of crops on this farm
+        int expectedSize = 0; // total number of crops on this farm
 
         // When
         int actualSize = tractor.operate(farm).size();
@@ -238,7 +238,7 @@ public class TractorTest {
             cropRow.fertilizeCrops();
         }
         Tractor tractor = new Tractor();
-        int expectedSize = 100; // total number of crops in first cropRow
+        int expectedSize = 0; // total number of crops in first cropRow
 
         // When
         int actualSize = tractor.harvest(farm.getField().getCropRows().get(0)).size();
