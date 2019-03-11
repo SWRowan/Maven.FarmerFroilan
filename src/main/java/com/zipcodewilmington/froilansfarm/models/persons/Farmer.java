@@ -7,6 +7,8 @@ import com.zipcodewilmington.froilansfarm.models.crops.Crop;
 import com.zipcodewilmington.froilansfarm.interfaces.*;
 import com.zipcodewilmington.froilansfarm.utilities.IOConsole;
 
+import java.util.ArrayList;
+
 public class Farmer extends Person implements Botanist, Rider {
 
     private Farm myFarm;
@@ -16,12 +18,12 @@ public class Farmer extends Person implements Botanist, Rider {
         this.myFarm = myFarm;
     }
 
-    public void plant(Crop crop, CropRow cropRow) {
-        cropRow.plantCrop(crop);
+    public void plant(ArrayList<Crop> crop, Farm farm, Integer row) {
+       farm.getField().getCropRows().get(row).plantCrop(crop);
     }
 
     public String makeNoise() {
-        return "Bla bla bla";
+        return "Things are getting wEiRd";
     }
 
     public void mount(Rideable rideable) {
@@ -46,6 +48,6 @@ public class Farmer extends Person implements Botanist, Rider {
 
     @Override
     public void eat(Meal meal) {
-        IOConsole.getIOConsole().println(getName() + " ate " + meal.getNumOfFood() + " " + meal.getFood().getClass().getSimpleName() + "\n");
+        IOConsole.getIOConsole().println( getName() + " ate " + meal.getNumOfFood() + " " + meal.getFood().getClass().getSimpleName());
     }
 }

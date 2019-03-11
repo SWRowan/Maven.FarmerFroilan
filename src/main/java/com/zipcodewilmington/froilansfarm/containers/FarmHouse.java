@@ -1,5 +1,7 @@
 package com.zipcodewilmington.froilansfarm.containers;
 
+import com.zipcodewilmington.froilansfarm.containers.farm.Farm;
+import com.zipcodewilmington.froilansfarm.interfaces.Pilot;
 import com.zipcodewilmington.froilansfarm.interfaces.Rider;
 import com.zipcodewilmington.froilansfarm.models.persons.FarmPilot;
 import com.zipcodewilmington.froilansfarm.models.persons.Farmer;
@@ -29,9 +31,9 @@ public class FarmHouse {
                 '}';
     }
 
-    public Rider getRider() {
+    public Rider getFarmer() {
         for (Person p : getPersons()) {
-            if (p instanceof Rider) {
+            if (p instanceof Farmer) {
                 return (Rider) p;
 
             }
@@ -39,4 +41,14 @@ public class FarmHouse {
         }
         return null;
     }
+
+    public FarmPilot getPilot() {
+        for (Person p : getPersons()) {
+            if (p instanceof FarmPilot) {
+                return (FarmPilot)p;
+            }
+        }
+        return null;
+    }
 }
+

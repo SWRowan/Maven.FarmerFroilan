@@ -39,6 +39,6 @@ public class FarmPilot extends Person implements Pilot, Rider {
 
     @Override
     public void eat(Meal meal) {
-        IOConsole.getIOConsole().println(getName() + " ate " + meal.getNumOfFood() + " " + meal.getFood().getClass().getSimpleName() + "\n");
+        IOConsole.getIOConsole().println(getName() + " ate " + meal.getNumOfFood() + " " + meal.getFood().getClass().getSimpleName());
     }
 }

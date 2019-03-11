@@ -9,6 +9,7 @@ import com.zipcodewilmington.froilansfarm.models.vehicles.CropDuster;
 import com.zipcodewilmington.froilansfarm.models.vehicles.Vehicle;
 import org.junit.Assert;
 import org.junit.Test;
+import org.omg.PortableInterceptor.AdapterStateHelper;
 
 import java.util.ArrayList;
 
@@ -99,28 +100,23 @@ public class FarmerTest {
     public void makeNoiseTest(){
         // Given
         Farmer farmer = new Farmer(null,new Farm());
-        String expected = "Bla bla bla";
-
-        // When
-        String actual = farmer.makeNoise();
-
         // Then
-        Assert.assertEquals(expected,actual);
+        System.out.println(farmer.makeNoise());
     }
+
+
 
     @Test
     public void plantTest(){
-        Integer expected = 2;
-        Farmer farmer = new Farmer(null,new Farm());
-        CropRow cropRow = new CropRow(new ArrayList<>());
-        Crop crop0 = new PumpkinPlant();
-        Crop crop1 = new CornStalk();
-
-        farmer.plant(crop0,cropRow);
-        farmer.plant(crop1,cropRow);
-
-        Integer actual = cropRow.getCrops().size();
-
-        Assert.assertEquals(expected,actual);
+        //Given
+        Farm farm = new Farm();
+        Farmer farmer = new Farmer("Bubba", farm);
+        ArrayList<Crop> crop = CornStalk.listToCropList(CornStalk.cornStalkList(10));
+        Integer expected = 110;
+        //When
+        farmer.plant(crop, farm, 0);
+        Integer actual = farm.getField().getCropRows().get(0).getCrops().size();
+        //Then
+        Assert.assertEquals(expected, actual);
     }
 }

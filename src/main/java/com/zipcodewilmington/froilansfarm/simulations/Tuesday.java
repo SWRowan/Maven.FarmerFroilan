@@ -13,18 +13,18 @@ import static com.zipcodewilmington.froilansfarm.utilities.IOConsole.getIOConsol
 
 public class Tuesday extends WorkDay {
 
-    protected static void tuesdayWorkDay(Farm farm) {
+    protected static void harvestDay(Farm farm) {
         storeFoodInStoreHouse(farm, harvestCrops(farm, getTractor(farm)));
         getIOConsole().println(farm.getStoreHouse().getStoredFoods());
     }
 
     protected static Tractor getTractor(Farm farm) {
-        getIOConsole().println(farm.getFarmHouse().getRider().getName()+" drove the Tractor out of Garage.\n");
+        getIOConsole().println(farm.getFarmHouse().getFarmer().getName()+" drove the Tractor out of Garage.\n");
         return farm.getGarage().getTractor(farm);
     }
 
     protected static ArrayList<Food> harvestCrops(Farm farm, Tractor tractor) {
-        getIOConsole().println(farm.getFarmHouse().getRider().getName()+" Harvested the Field of Crops.\n");
+        getIOConsole().println(farm.getFarmHouse().getFarmer().getName()+" Harvested the Field of Crops.\n");
         ArrayList<Food> harvestedFood = tractor.operate(farm);
         getIOConsole().println("Total Harvested Food: "+harvestedFood.size()+"\n");
         return harvestedFood;
@@ -38,7 +38,8 @@ public class Tuesday extends WorkDay {
         getIOConsole().println("\n\n*****  Tuesday Morning!  *****\n\n");
         morningRoutine(farm);
         getIOConsole().println("\n*****  Time To Harvest!  *****\n");
-        tuesdayWorkDay(farm);
+        harvestDay(farm);
+        afterWork(farm);
         userPressEnterToContinue();
     }
 }

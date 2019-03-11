@@ -79,7 +79,7 @@ public class FarmHouseTest {
         //Given
         Farm farm = new Farm();
         //
-        Rider rider = farm.getFarmHouse().getRider();
+        Rider rider = farm.getFarmHouse().getFarmer();
         //Then
         Assert.assertTrue(rider instanceof Rider);
     }
@@ -89,7 +89,7 @@ public class FarmHouseTest {
         //Given
         FarmHouse farmHouse = new FarmHouse(new ArrayList<>());
         //
-        Rider rider = farmHouse.getRider();
+        Rider rider = farmHouse.getFarmer();
         //Then
         Assert.assertNull(rider);
     }

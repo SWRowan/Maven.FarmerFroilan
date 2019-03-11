@@ -5,6 +5,7 @@ import com.zipcodewilmington.froilansfarm.containers.Meal;
 import com.zipcodewilmington.froilansfarm.containers.Stable;
 import com.zipcodewilmington.froilansfarm.containers.farm.Farm;
 import com.zipcodewilmington.froilansfarm.interfaces.FarmSimulation;
+import com.zipcodewilmington.froilansfarm.interfaces.Rider;
 import com.zipcodewilmington.froilansfarm.models.animals.Chicken;
 import com.zipcodewilmington.froilansfarm.models.animals.Horse;
 import com.zipcodewilmington.froilansfarm.models.foods.Egg;
@@ -16,6 +17,8 @@ import static com.zipcodewilmington.froilansfarm.containers.Meal.mealList;
 import static com.zipcodewilmington.froilansfarm.utilities.IOConsole.getIOConsole;
 
 public abstract class WorkDay implements FarmSimulation {
+    private Rider farmer;
+    private Rider pilot;
 
     protected void println(String val, Object... args) {
         getIOConsole().println(val, args);
@@ -26,14 +29,19 @@ public abstract class WorkDay implements FarmSimulation {
     }
 
     protected void morningRoutine(Farm farm) {
-        getIOConsole().println("--- Current Food Stock ---");
-        getIOConsole().println(farm.getStoreHouse().getStoredFoods());
+        checkFoodStock(farm);
         morningChickenRoutine(farm);
         morningHorseRoutine(farm);
+        getIOConsole().println("\n*****  Time for Breakfast!  *****\n");
         breakfast(farm);
     }
 
-    protected void morningHorseRoutine(Farm farm){
+    protected void checkFoodStock(Farm farm) {
+        getIOConsole().println("\n--- Current Food Stock ---");
+        getIOConsole().println(farm.getStoreHouse().getStoredFoods());
+    }
+
+    protected void morningHorseRoutine(Farm farm) {
         Integer count = 1;
         getIOConsole().println("*****  Time to Ride and Feed the Horses!  *****\n");
         for (Stable s : farm.getStables()) {
@@ -61,7 +69,7 @@ public abstract class WorkDay implements FarmSimulation {
     }
 
     protected void breakfast(Farm farm) {
-        getIOConsole().println("\n*****  Time for Breakfast!  *****\n\n");
+
         for (Person person : farm.getFarmHouse().getPersons()) {
             if (person instanceof Farmer) {
                 farmerMeal(farm, person);
@@ -69,16 +77,21 @@ public abstract class WorkDay implements FarmSimulation {
                 pilotMeal(farm, person);
             }
         }
+        checkFoodStock(farm);
     }
 
     protected String getFarmerName(Farm farm) {
-        return farm.getFarmHouse().getRider().getName();
+        return farm.getFarmHouse().getFarmer().getName();
+    }
+
+    protected String getPilotName(Farm farm) {
+        return farm.getFarmHouse().getPilot().getName();
     }
 
     protected Integer collectEggs(Farm farm, ChickenCoop coop) {
         Integer eggCount = 0;
         for (Chicken chicken : coop.getChickens()) {
-            getIOConsole().println("\n"+getFarmerName(farm) + " has collected an Egg!");
+            getIOConsole().println("\n" + getFarmerName(farm) + " has collected an Egg!");
             getIOConsole().println(chicken.makeNoise());
             eggCount++;
         }
@@ -86,18 +99,26 @@ public abstract class WorkDay implements FarmSimulation {
     }
 
     protected final void farmerMeal(Farm farm, Person person) {
-        for (Meal m : mealList(farm,1, 2, 5)) {
+        for (Meal m : mealList(farm, 1, 2, 5)) {
             person.eat(m);
         }
     }
 
     protected final void pilotMeal(Farm farm, Person person) {
-        for (Meal m : mealList(farm,2, 1, 2)) {
+        for (Meal m : mealList(farm, 2, 1, 2)) {
             person.eat(m);
         }
     }
 
+    protected void afterWork(Farm farm) {
+        getIOConsole().println("\n\n*****  Time to Relax!  *****");
+        getIOConsole().println("\n\n" + getFarmerName(farm) + " says: " + farm.getFarmHouse().getPersons().get(0).makeNoise());
+        getIOConsole().println("\n*****  Breakfast for Dinner  *****\n");
+        breakfast(farm);
+        getIOConsole().println("\n\n********  Time for bed  ********\n 🛌 ZzZzZzZzZzZzZzZzZzZzZzZzZz 🛌");
+
+    }
 
 
-
+//
 }

@@ -11,7 +11,7 @@ public class TuesdayTest {
     @Test
     public void testTuesdayWD(){
         //When
-        Tuesday.tuesdayWorkDay(farm);
+        Tuesday.harvestDay(farm);
     }
 
     @Test

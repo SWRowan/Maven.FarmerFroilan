@@ -22,4 +22,12 @@ public class CornStalk extends Crop {
                 .limit(numberOfStalks)
                 .collect(Collectors.toList());
     }
+
+    public static ArrayList<Crop> listToCropList(ArrayList<CornStalk> cornStalkList){
+        ArrayList<Crop> newList = new ArrayList<>();
+        for (CornStalk cs : cornStalkList){
+            newList.add(cs);
+        }
+        return newList;
+    }
 }

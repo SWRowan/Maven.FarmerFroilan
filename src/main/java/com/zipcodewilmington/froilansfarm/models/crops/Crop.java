@@ -1,6 +1,10 @@
 package com.zipcodewilmington.froilansfarm.models.crops;
 
 import com.zipcodewilmington.froilansfarm.interfaces.Produce;
+import com.zipcodewilmington.froilansfarm.models.foods.Tomato;
+
+import java.util.ArrayList;
+import java.util.stream.Stream;
 
 public abstract class Crop implements Produce {
     private boolean hasBeenFertilized;
@@ -26,6 +30,8 @@ public abstract class Crop implements Produce {
     public boolean isHarvested() {
         return hasBeenHarvested;
     }
+
+
 
     @Override
     public String toString() {

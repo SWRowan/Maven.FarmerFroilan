@@ -81,7 +81,7 @@ public class Horse extends Animal implements Rideable {
         for (Horse h: s.getStable()) {
             horseFeed = farm.getStoreHouse().getFood(new EarCorn(), 3);
             h.mount();
-            h.ride(farm.getFarmHouse().getRider());
+            h.ride(farm.getFarmHouse().getFarmer());
             getIOConsole().println(h.makeNoise());
             h.eat(horseFeed);
 

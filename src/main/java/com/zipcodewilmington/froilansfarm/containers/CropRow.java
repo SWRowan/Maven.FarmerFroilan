@@ -1,6 +1,9 @@
 package com.zipcodewilmington.froilansfarm.containers;
 
+import com.zipcodewilmington.froilansfarm.models.crops.CornStalk;
 import com.zipcodewilmington.froilansfarm.models.crops.Crop;
+import com.zipcodewilmington.froilansfarm.models.crops.PumpkinPlant;
+import com.zipcodewilmington.froilansfarm.models.crops.TomatoPlant;
 
 import java.util.ArrayList;
 
@@ -26,8 +29,10 @@ public class CropRow {
         return harvestedCrops;
     }
 
-    public void plantCrop(Crop crop) {
-        crops.add(crop);
+    public void plantCrop(ArrayList<Crop> sporc) {
+        for(Crop crop : sporc){
+            crops.add(crop);
+        }
     }
 
     public ArrayList<Crop> getCrops() {
@@ -40,4 +45,6 @@ public class CropRow {
                 "crops=" + crops +
                 '}';
     }
+
+
 }

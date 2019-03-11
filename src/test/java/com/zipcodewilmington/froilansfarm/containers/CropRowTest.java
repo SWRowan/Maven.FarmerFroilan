@@ -4,6 +4,7 @@ import com.zipcodewilmington.froilansfarm.models.crops.CornStalk;
 import com.zipcodewilmington.froilansfarm.models.crops.Crop;
 import com.zipcodewilmington.froilansfarm.models.crops.PumpkinPlant;
 import com.zipcodewilmington.froilansfarm.models.crops.TomatoPlant;
+import com.zipcodewilmington.froilansfarm.models.foods.Tomato;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -92,12 +93,10 @@ public class CropRowTest {
     public void plantCrop() {
         // Given
         CropRow cropRow = new CropRow(new ArrayList<>());
-        int expectedSize = 3;
+        int expectedSize = 100;
 
         // When
-        cropRow.plantCrop(new TomatoPlant());
-        cropRow.plantCrop(new PumpkinPlant());
-        cropRow.plantCrop(new CornStalk());
+        cropRow.plantCrop(CornStalk.listToCropList(CornStalk.cornStalkList(100)));
         int actualSize = cropRow.getCrops().size();
 
         // Then
