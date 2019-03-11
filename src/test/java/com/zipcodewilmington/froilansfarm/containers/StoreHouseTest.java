@@ -96,11 +96,12 @@ public class StoreHouseTest {
     public void testGetFoodNull(){
         //Given
         StoreHouse storeHouse = new StoreHouse(storedFood);
-
+        Integer expected = 0;
         //When
         Meal testfood = storeHouse.getFood(pumpkin, 6);
+        Integer actual = testfood.getNumOfFood();
         //Then
-        Assert.assertNull(testfood);
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
