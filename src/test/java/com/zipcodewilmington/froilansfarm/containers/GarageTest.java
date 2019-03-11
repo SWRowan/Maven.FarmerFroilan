@@ -99,7 +99,7 @@ public class GarageTest {
         //Given
         Farm farm = new Farm();
         //When
-        CropDuster cropDuster = farm.getGarage().getCropDuster(farm);
+        CropDuster cropDuster = farm.getGarage().getCropDuster();
         //Then
         Assert.assertTrue(cropDuster instanceof CropDuster);
     }
@@ -111,7 +111,7 @@ public class GarageTest {
         Garage garage = new Garage(new ArrayList<>());
         Farm farm = new Farm(garage);
         //When
-        CropDuster cropDuster = farm.getGarage().getCropDuster(farm);
+        CropDuster cropDuster = farm.getGarage().getCropDuster();
         //Then
         Assert.assertNull(cropDuster);
     }

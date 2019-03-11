@@ -4,6 +4,7 @@ import com.zipcodewilmington.froilansfarm.containers.farm.Farm;
 import com.zipcodewilmington.froilansfarm.interfaces.Rider;
 import com.zipcodewilmington.froilansfarm.models.persons.FarmPilot;
 import com.zipcodewilmington.froilansfarm.models.persons.Farmer;
+import com.zipcodewilmington.froilansfarm.models.persons.Person;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -92,6 +93,20 @@ public class FarmHouseTest {
         Rider rider = farmHouse.getRider();
         //Then
         Assert.assertNull(rider);
+    }
+
+    @Test
+    public void testGetPersonByName(){
+        // Given
+        Person expectedPerson = new Farmer("Bob", null);
+        FarmHouse farmHouse = new FarmHouse(new ArrayList<>(Arrays.asList(new Farmer("Froilan", null), new FarmPilot("Froilanda", null))));
+        farmHouse.addPerson(expectedPerson);
+
+        // When
+        Person actualPerson = farmHouse.getPersonByName("Bob");
+
+        // Then
+        Assert.assertEquals(expectedPerson, actualPerson);
     }
 
 }

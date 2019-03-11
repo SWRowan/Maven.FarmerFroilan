@@ -73,7 +73,15 @@ public class Horse extends Animal implements Rideable {
     }
 
     public void eat(Meal meal) {
-        getIOConsole().println(getName() + " ate " + meal.getNumOfFood() + " " + meal.getFood().getClass().getSimpleName() + "\n");
+        int numOfFood;
+        if (meal == null) numOfFood = 0;
+        else numOfFood = meal.getNumOfFood();
+
+        String nameOfFood;
+        if (meal == null) nameOfFood = "Food";
+        else nameOfFood = meal.getFood().getClass().getSimpleName();
+
+        getIOConsole().println(getName() + " ate " + numOfFood + " " + nameOfFood + "\n");
     }
 
     public static void RideAndFeed(Farm farm, Stable s) {

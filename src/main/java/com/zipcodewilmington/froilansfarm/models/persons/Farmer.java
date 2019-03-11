@@ -7,6 +7,8 @@ import com.zipcodewilmington.froilansfarm.models.crops.Crop;
 import com.zipcodewilmington.froilansfarm.interfaces.*;
 import com.zipcodewilmington.froilansfarm.utilities.IOConsole;
 
+import static com.zipcodewilmington.froilansfarm.utilities.IOConsole.getIOConsole;
+
 public class Farmer extends Person implements Botanist, Rider {
 
     private Farm myFarm;
@@ -46,6 +48,14 @@ public class Farmer extends Person implements Botanist, Rider {
 
     @Override
     public void eat(Meal meal) {
-        IOConsole.getIOConsole().println(getName() + " ate " + meal.getNumOfFood() + " " + meal.getFood().getClass().getSimpleName() + "\n");
+        int numOfFood;
+        if (meal == null) numOfFood = 0;
+        else numOfFood = meal.getNumOfFood();
+
+        String nameOfFood;
+        if (meal == null) nameOfFood = "Food";
+        else nameOfFood = meal.getFood().getClass().getSimpleName();
+
+        getIOConsole().println(getName() + " ate " + numOfFood + " " + nameOfFood + "\n");
     }
 }

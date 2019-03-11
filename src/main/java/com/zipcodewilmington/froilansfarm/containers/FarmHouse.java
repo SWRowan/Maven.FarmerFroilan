@@ -39,4 +39,16 @@ public class FarmHouse {
         }
         return null;
     }
+
+    public void addPerson(Person person) {
+        persons.add(person);
+    }
+
+    public Person getPersonByName(String name) {
+        return persons.stream()
+                .parallel()
+                .filter(person -> name.equals(person.getName()))
+                .findAny()
+                .orElse(null);
+    }
 }
