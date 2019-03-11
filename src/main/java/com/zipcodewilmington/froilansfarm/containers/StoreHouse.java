@@ -17,10 +17,10 @@ public class StoreHouse {
 
     public StoreHouse(){
         storedFoods = new HashMap<>();
-        storedFoods.put(earCorn, 33);
-        storedFoods.put(tomato, 3);
+        storedFoods.put(earCorn, 105);
+        storedFoods.put(tomato, 15);
         storedFoods.put(pumpkin, 0);
-        storedFoods.put(egg, 7);
+        storedFoods.put(egg, 0);
     }
 
     public StoreHouse(HashMap<Food, Integer> storedFoods){
