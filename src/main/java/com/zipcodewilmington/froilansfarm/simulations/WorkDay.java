@@ -84,9 +84,9 @@ public abstract class WorkDay implements FarmSimulation {
         return farm.getFarmHouse().getFarmer().getName();
     }
 
-    protected String getPilotName(Farm farm) {
-        return farm.getFarmHouse().getPilot().getName();
-    }
+//    protected String getPilotName(Farm farm) {
+//        return farm.getFarmHouse().getPilot().getName();
+//    }
 
     protected Integer collectEggs(Farm farm, ChickenCoop coop) {
         Integer eggCount = 0;

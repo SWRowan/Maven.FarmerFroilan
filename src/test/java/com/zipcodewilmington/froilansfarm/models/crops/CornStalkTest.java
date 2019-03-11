@@ -61,7 +61,7 @@ public class CornStalkTest {
     public void toStringTest1() {
         // Given
         CornStalk cornStalk = new CornStalk();
-        String expectedToString = cornStalk.getClass().getSimpleName() + ", not fertilized, not harvested";
+        String expectedToString = cornStalk.getClass().getSimpleName() + ", not fertilized";
 
         // When
         String actualToString = cornStalk.toString();
@@ -76,7 +76,7 @@ public class CornStalkTest {
         CornStalk cornStalk = new CornStalk();
         cornStalk.fertilize();
         cornStalk.harvest();
-        String expectedToString = cornStalk.getClass().getSimpleName() + ", fertilized, harvested";
+        String expectedToString = cornStalk.getClass().getSimpleName() + ", fertilized";
 
         // When
         String actualToString = cornStalk.toString();

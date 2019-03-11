@@ -4,8 +4,7 @@ import com.zipcodewilmington.froilansfarm.containers.farm.Farm;
 import com.zipcodewilmington.froilansfarm.models.crops.CornStalk;
 import com.zipcodewilmington.froilansfarm.models.crops.PumpkinPlant;
 import com.zipcodewilmington.froilansfarm.models.crops.TomatoPlant;
-import com.zipcodewilmington.froilansfarm.models.foods.Pumpkin;
-import com.zipcodewilmington.froilansfarm.models.foods.Tomato;
+
 
 import static com.zipcodewilmington.froilansfarm.utilities.IOConsole.getIOConsole;
 

@@ -112,7 +112,7 @@ public class FarmerTest {
         Farm farm = new Farm();
         Farmer farmer = new Farmer("Bubba", farm);
         ArrayList<Crop> crop = CornStalk.listToCropList(CornStalk.cornStalkList(10));
-        Integer expected = 110;
+        Integer expected = 10;
         //When
         farmer.plant(crop, farm, 0);
         Integer actual = farm.getField().getCropRows().get(0).getCrops().size();

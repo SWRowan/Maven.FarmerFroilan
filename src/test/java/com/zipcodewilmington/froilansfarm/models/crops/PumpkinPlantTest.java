@@ -61,7 +61,7 @@ public class PumpkinPlantTest {
     public void toStringTest1() {
         // Given
         PumpkinPlant pumpkinPlant = new PumpkinPlant();
-        String expectedToString = pumpkinPlant.getClass().getSimpleName() + ", not fertilized, not harvested";
+        String expectedToString = pumpkinPlant.getClass().getSimpleName() + ", not fertilized";
 
         // When
         String actualToString = pumpkinPlant.toString();
@@ -76,7 +76,7 @@ public class PumpkinPlantTest {
         PumpkinPlant pumpkinPlant = new PumpkinPlant();
         pumpkinPlant.fertilize();
         pumpkinPlant.harvest();
-        String expectedToString = pumpkinPlant.getClass().getSimpleName() + ", fertilized, harvested";
+        String expectedToString = pumpkinPlant.getClass().getSimpleName() + ", fertilized";
 
         // When
         String actualToString = pumpkinPlant.toString();

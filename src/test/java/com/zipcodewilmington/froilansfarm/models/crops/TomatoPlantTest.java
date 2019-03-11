@@ -61,7 +61,7 @@ public class TomatoPlantTest {
     public void toStringTest1() {
         // Given
         TomatoPlant tomatoPlant = new TomatoPlant();
-        String expectedToString = tomatoPlant.getClass().getSimpleName() + ", not fertilized, not harvested";
+        String expectedToString = tomatoPlant.getClass().getSimpleName() + ", not fertilized";
 
         // When
         String actualToString = tomatoPlant.toString();
@@ -76,7 +76,7 @@ public class TomatoPlantTest {
         TomatoPlant tomatoPlant = new TomatoPlant();
         tomatoPlant.fertilize();
         tomatoPlant.harvest();
-        String expectedToString = tomatoPlant.getClass().getSimpleName() + ", fertilized, harvested";
+        String expectedToString = tomatoPlant.getClass().getSimpleName() + ", fertilized";
 
         // When
         String actualToString = tomatoPlant.toString();
