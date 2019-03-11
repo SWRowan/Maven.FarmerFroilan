@@ -16,8 +16,6 @@ public class Meal {
     public Meal(Food food, Integer numOfFood){
     this.food = food;
     this.numOfFood = numOfFood;
-
-
     }
 
     public static ArrayList<Meal> mealList(Farm farm, Integer numOfCorn, Integer numOfTomato, Integer numOfEgg) {

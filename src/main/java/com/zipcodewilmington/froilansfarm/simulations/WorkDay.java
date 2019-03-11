@@ -28,9 +28,10 @@ public abstract class WorkDay implements FarmSimulation {
 
     protected void morningRoutine(Farm farm) {
         getIOConsole().println("--- Current Food Stock ---");
-        getIOConsole().println(farm.getStoreHouse().getStoredFoods());
+        checkFoodStock(farm);
         morningChickenRoutine(farm);
         morningHorseRoutine(farm);
+        getIOConsole().println("\n*****  Time for Breakfast!  *****\n\n");
         breakfast(farm);
     }
 
@@ -62,7 +63,7 @@ public abstract class WorkDay implements FarmSimulation {
     }
 
     protected void breakfast(Farm farm) {
-        getIOConsole().println("\n*****  Time for Breakfast!  *****\n\n");
+
         for (Person person : farm.getFarmHouse().getPersons()) {
             if (person instanceof Farmer) {
                 farmerMeal(farm, person);
@@ -70,6 +71,7 @@ public abstract class WorkDay implements FarmSimulation {
                 pilotMeal(farm, person);
             }
         }
+        checkFoodStock(farm);
     }
 
     protected String getFarmerName(Farm farm) {
@@ -107,6 +109,20 @@ public abstract class WorkDay implements FarmSimulation {
         println("The crop duster is fertilizing all the crops on the farm");
         farmPilot.dismount(cropDuster);
         println("%s is finished flying the crop duster and has dismounted", farmPilot.getName());
+    }
+
+    protected void afterWork(Farm farm) {
+        getIOConsole().println("\n\n*****  Time to Relax!  *****");
+        getIOConsole().println("\n\n" + getFarmerName(farm) + " says: " + farm.getFarmHouse().getPersons().get(0).makeNoise());
+        getIOConsole().println("\n*****  Breakfast for Dinner  *****\n");
+        breakfast(farm);
+        getIOConsole().println("\n\n********  Time for bed  ********\n 🛌 ZzZzZzZzZzZzZzZzZzZzZzZzZz 🛌");
+
+    }
+
+    protected void checkFoodStock(Farm farm) {
+        getIOConsole().println("\n--- Current Food Stock ---");
+        getIOConsole().println(farm.getStoreHouse().getStoredFoods());
     }
 
 

@@ -10,6 +10,7 @@ public class Thursday extends WorkDay {
         morningRoutine(farm);
         println("\n*****  Time To fertilize the crops!  *****\n");
         thursdayWorkDay(farm);
+        afterWork(farm);
         userPressEnterToContinue();
     }
 

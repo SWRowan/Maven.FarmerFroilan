@@ -39,6 +39,7 @@ public class Tuesday extends WorkDay {
         morningRoutine(farm);
         getIOConsole().println("\n*****  Time To Harvest!  *****\n");
         tuesdayWorkDay(farm);
+        afterWork(farm);
         userPressEnterToContinue();
     }
 }

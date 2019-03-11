@@ -48,7 +48,8 @@ public class StoreHouse {
             return meal;
         }else{
             console.print("*** NOT ENOUGH " + food + "'s ***\n");
-            return null;
+            Meal meal = new Meal(food, 0);
+            return meal;
         }
     }
 

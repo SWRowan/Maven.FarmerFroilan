@@ -61,11 +61,11 @@ public class DefaultFarmGenerator {
 
     private static ArrayList<CropRow> generateDefaultCropRows() {
         return new ArrayList<>(Arrays.asList(
-                new CropRow(generateDefaultCornCrops(100)),
-                new CropRow(generateDefaultTomatoCrops(100)),
-                new CropRow(generateDefaultPumpkinCrops(100)),
-                new CropRow(generateDefaultCornCrops(100)),
-                new CropRow(generateDefaultCornCrops(100))));
+                new CropRow(generateDefaultCornCrops(0)),
+                new CropRow(generateDefaultTomatoCrops(0)),
+                new CropRow(generateDefaultPumpkinCrops(0)),
+                new CropRow(generateDefaultCornCrops(0)),
+                new CropRow(generateDefaultCornCrops(0))));
     }
 
     private static ArrayList<Crop> generateDefaultTomatoCrops(Integer numOfCrops) {
