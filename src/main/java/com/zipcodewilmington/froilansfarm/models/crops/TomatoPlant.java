@@ -32,4 +32,12 @@ public class TomatoPlant extends Crop {
     }
 
 
+    public static ArrayList<Crop> listToCropList(ArrayList<TomatoPlant> list){
+        ArrayList<Crop> newList = new ArrayList<>();
+        for(TomatoPlant c : list){
+            newList.add(c);
+        }
+        return newList;
+    }
+
 }
