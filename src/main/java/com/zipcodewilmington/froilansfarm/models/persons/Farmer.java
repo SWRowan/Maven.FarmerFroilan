@@ -25,7 +25,7 @@ public class Farmer extends Person implements Botanist, Rider {
     }
 
     public String makeNoise() {
-        return "Bla bla bla";
+        return "Things are getting..... weird.";
     }
 
     public void mount(Rideable rideable) {

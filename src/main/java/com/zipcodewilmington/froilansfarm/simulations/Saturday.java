@@ -4,7 +4,7 @@ import com.zipcodewilmington.froilansfarm.containers.farm.Farm;
 
 public class Saturday extends WorkDay {
     public void runSimulation(Farm farm) {
-        println("Saturday has happened!");
+        println("RELAXING SATURDAY\n\n\n\n");
         userPressEnterToContinue();
     }
 }

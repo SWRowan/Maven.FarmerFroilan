@@ -113,7 +113,7 @@ public abstract class WorkDay implements FarmSimulation {
 
     protected void afterWork(Farm farm) {
         getIOConsole().println("\n\n*****  Time to Relax!  *****");
-        getIOConsole().println("\n\n" + getFarmerName(farm) + " says: " + farm.getFarmHouse().getPersons().get(0).makeNoise());
+        getIOConsole().println("\n\nFarmer " + getFarmerName(farm) + " says: " + farm.getFarmHouse().getPersons().get(0).makeNoise());
         getIOConsole().println("\n*****  Breakfast for Dinner  *****\n");
         breakfast(farm);
         getIOConsole().println("\n\n********  Time for bed  ********\n 🛌 ZzZzZzZzZzZzZzZzZzZzZzZzZz 🛌");

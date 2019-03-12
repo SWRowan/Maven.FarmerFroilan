@@ -23,15 +23,6 @@ public class TomatoPlant extends Crop {
                 .collect(Collectors.toList());
     }
 
-    public static ArrayList<Crop> listToCropList(ArrayList<TomatoPlant> tomatoPlantList){
-        ArrayList<Crop> newList = new ArrayList<>();
-        for (TomatoPlant tp : tomatoPlantList){
-            newList.add(tp);
-        }
-        return newList;
-    }
-
-
     public static ArrayList<Crop> listToCropList(ArrayList<TomatoPlant> list){
         ArrayList<Crop> newList = new ArrayList<>();
         for(TomatoPlant c : list){
