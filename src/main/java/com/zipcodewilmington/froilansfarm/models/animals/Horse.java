@@ -69,7 +69,7 @@ public class Horse extends Animal implements Rideable {
     }
 
     public String makeNoise() {
-        return "Neigh!!!";
+        return "Neigh!!";
     }
 
     public void eat(Meal meal) {

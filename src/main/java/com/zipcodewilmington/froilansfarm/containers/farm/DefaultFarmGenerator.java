@@ -76,7 +76,7 @@ public class DefaultFarmGenerator {
         return new ArrayList<>(PumpkinPlant.pumpkinPlantList(numOfPlants));
     }
 
-    private static ArrayList<Crop> generateDefaultCornCrops(Integer numOfPlants) {
-        return new ArrayList<>(CornStalk.cornStalkList(numOfPlants));
+    private static ArrayList<Crop> generateDefaultCornCrops(Integer plantNumber) {
+        return new ArrayList<>(CornStalk.cornStalkList(plantNumber));
     }
 }
