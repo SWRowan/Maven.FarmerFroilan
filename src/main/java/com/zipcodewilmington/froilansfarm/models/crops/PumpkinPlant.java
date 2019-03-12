@@ -23,4 +23,12 @@ public class PumpkinPlant extends Crop {
                 .collect(Collectors.toList());
     }
 
+    public static ArrayList<Crop> listToCropList(ArrayList<PumpkinPlant> list){
+        ArrayList<Crop> newList = new ArrayList<>();
+        for(PumpkinPlant c : list){
+            newList.add(c);
+        }
+        return newList;
+    }
+
 }
