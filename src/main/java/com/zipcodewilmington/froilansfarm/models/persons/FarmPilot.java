@@ -1,9 +1,11 @@
 package com.zipcodewilmington.froilansfarm.models.persons;
 
-import com.zipcodewilmington.froilansfarm.containers.StoreHouse;
+import com.zipcodewilmington.froilansfarm.containers.Meal;
 import com.zipcodewilmington.froilansfarm.containers.farm.Farm;
 import com.zipcodewilmington.froilansfarm.interfaces.*;
-import com.zipcodewilmington.froilansfarm.models.foods.Food;
+import com.zipcodewilmington.froilansfarm.utilities.IOConsole;
+
+import static com.zipcodewilmington.froilansfarm.utilities.IOConsole.getIOConsole;
 
 public class FarmPilot extends Person implements Pilot, Rider {
     private Farm myFarm;
@@ -14,11 +16,11 @@ public class FarmPilot extends Person implements Pilot, Rider {
     }
 
     public String makeNoise() {
-        return null;
+        return "Bears, Beets, Battlestar Galactica";
     }
 
     public void fly(Aircraft aircraft) {
-
+        aircraft.fly();
     }
 
     public void mount(Rideable rideable) {
@@ -38,7 +40,7 @@ public class FarmPilot extends Person implements Pilot, Rider {
     }
 
     @Override
-    public void eat(Food food, StoreHouse storeHouse) {
-
+    public void eat(Meal meal) {
+        getIOConsole().println(getName() + " ate " + meal.getNumOfFood() + " " + meal.getFood().getClass().getSimpleName());
     }
 }

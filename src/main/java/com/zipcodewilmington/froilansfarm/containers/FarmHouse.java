@@ -1,5 +1,8 @@
 package com.zipcodewilmington.froilansfarm.containers;
 
+import com.zipcodewilmington.froilansfarm.interfaces.Rider;
+import com.zipcodewilmington.froilansfarm.models.persons.FarmPilot;
+import com.zipcodewilmington.froilansfarm.models.persons.Farmer;
 import com.zipcodewilmington.froilansfarm.models.persons.Person;
 
 import java.util.ArrayList;
@@ -24,5 +27,28 @@ public class FarmHouse {
         return "\nFarmHouse{" +
                 "persons=" + persons +
                 '}';
+    }
+
+    public Rider getRider() {
+        for (Person p : getPersons()) {
+            if (p instanceof Rider) {
+                return (Rider) p;
+
+            }
+            break;
+        }
+        return null;
+    }
+
+    public void addPerson(Person person) {
+        persons.add(person);
+    }
+
+    public Person getPersonByName(String name) {
+        return persons.stream()
+                .parallel()
+                .filter(person -> name.equals(person.getName()))
+                .findAny()
+                .orElse(null);
     }
 }

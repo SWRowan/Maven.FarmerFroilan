@@ -26,8 +26,10 @@ public class CropRow {
         return harvestedCrops;
     }
 
-    public void plantCrop(Crop crop) {
-        crops.add(crop);
+    public void plantCrop(ArrayList<Crop> list) {
+        for(Crop c : list) {
+            crops.add(c);
+        }
     }
 
     public ArrayList<Crop> getCrops() {

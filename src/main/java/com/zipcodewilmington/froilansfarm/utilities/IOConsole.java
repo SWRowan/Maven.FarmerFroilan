@@ -9,18 +9,21 @@ import java.util.Scanner;
  */
 public final class IOConsole {
     private static IOConsole ioConsole;
-
-    private final Scanner input;
-    private final PrintStream output;
+    private Scanner input;
+    private PrintStream output;
 
     private IOConsole() {
         this.input = new Scanner(System.in);
         this.output = System.out;
     }
 
+    /**
+     * For testing purposes only
+     */
     public IOConsole(InputStream in, PrintStream out) {
         this.input = new Scanner(in);
         this.output = out;
+        ioConsole = this;
     }
 
     public static IOConsole getIOConsole() {
@@ -45,6 +48,10 @@ public final class IOConsole {
 
     public String getLowerCaseStringInput(String prompt, Object... args) {
         return getStringInput(prompt, args).toLowerCase();
+    }
+
+    public void userPressEnterToContinue() {
+        getStringInput("Press ENTER to continue");
     }
 
     public boolean yesOrNoQuestion(String prompt, Object... args) {

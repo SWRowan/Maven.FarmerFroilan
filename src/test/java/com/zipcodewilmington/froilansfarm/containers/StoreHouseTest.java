@@ -7,7 +7,6 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 
 import static org.junit.Assert.*;
 
@@ -71,10 +70,12 @@ public class StoreHouseTest {
         storeHouse.addFood(foodList);
         Integer expected = 2;
         //When
-        storeHouse.removeFood(pumpkin, 3);
+        System.out.println(storeHouse.getStoredFoods());
+        storeHouse.getFood(pumpkin, 3);
         Integer actual = storeHouse.checkStock(pumpkin);
+        System.out.println(storeHouse.getStoredFoods());
         //Then
-        Assert.assertEquals(expected, actual);
+        assertEquals(expected, actual);
     }
 
 
@@ -90,5 +91,30 @@ public class StoreHouseTest {
         //then
         Assert.assertEquals(expected, actual);
     }
+
+    //@Test
+    public void testGetFoodNull(){
+        //Given
+        StoreHouse storeHouse = new StoreHouse(storedFood);
+        Integer expected = 0;
+        //When
+        Meal testfood = storeHouse.getFood(pumpkin, 6);
+        Integer actual = testfood.getNumOfFood();
+        //Then
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testTypeNull(){
+        //Given
+        StoreHouse storeHouse = new StoreHouse(storedFood);
+        Carrot carrot = new Carrot();
+        //When
+        Food food = storeHouse.typeOfFood(carrot);
+        //Then
+        Assert.assertNull(food);
+    }
+
+
 
 }

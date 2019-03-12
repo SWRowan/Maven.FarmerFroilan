@@ -41,22 +41,18 @@ public class EggTest {
     }
 
     @Test
-    public void Testeat() {
-
-        //Given
-
-        Integer expected = 1;
-
-        //When
-
-        System.out.println(storeHouse.getStoredFoods());
-        egg.consumed(storeHouse);
-        Integer actual = storeHouse.checkStock(egg);
-        System.out.println(storeHouse.getStoredFoods());
-
-        //Then
-
-        Assert.assertEquals(expected, actual);
+    public void testConsumed() {
+        Egg egg = new Egg();
+        egg.consumed();
     }
 
+    @Test
+    public void testEggLists(){
+        //Given
+        Integer expected = 3;
+        //When
+        Integer actual = Egg.listToFoodList(Egg.eggList(3)).size();
+        //then
+        Assert.assertEquals(expected, actual);
+    }
 }

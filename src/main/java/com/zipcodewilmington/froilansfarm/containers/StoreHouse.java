@@ -1,6 +1,5 @@
 package com.zipcodewilmington.froilansfarm.containers;
 
-import com.zipcodewilmington.froilansfarm.interfaces.Edible;
 import com.zipcodewilmington.froilansfarm.models.foods.*;
 import com.zipcodewilmington.froilansfarm.utilities.IOConsole;
 
@@ -16,14 +15,22 @@ public class StoreHouse {
     private Pumpkin pumpkin = new Pumpkin();
     private Egg egg = new Egg();
 
+    public StoreHouse(){
+        storedFoods = new HashMap<>();
+        storedFoods.put(earCorn, 105);
+        storedFoods.put(tomato, 15);
+        storedFoods.put(pumpkin, 0);
+        storedFoods.put(egg, 0);
+    }
 
-    public StoreHouse(HashMap<Food, Integer> storedFoods) {
+    public StoreHouse(HashMap<Food, Integer> storedFoods){
         this.storedFoods = storedFoods;
         storedFoods.put(earCorn, 0);
         storedFoods.put(tomato, 0);
         storedFoods.put(pumpkin, 0);
         storedFoods.put(egg, 0);
     }
+
 
     public String getStoredFoods() {
         StringBuilder sb = new StringBuilder();
@@ -33,49 +40,43 @@ public class StoreHouse {
         return sb.toString();
     }
 
-    public void removeFood(Food food, Integer removedFood) {
+    public Meal getFood(Food food, Integer numOfFood) {
 
-        if (food instanceof EarCorn && storedFoods.get(earCorn) >= removedFood) {
-            storedFoods.replace(earCorn, storedFoods.get(earCorn) - removedFood);
-        } else if (food instanceof Tomato && storedFoods.get(tomato) >= removedFood) {
-            storedFoods.replace(tomato, storedFoods.get(tomato) - removedFood);
-        } else if (food instanceof Pumpkin && storedFoods.get(pumpkin) >= removedFood) {
-            storedFoods.replace(pumpkin, storedFoods.get(pumpkin) - removedFood);
-        } else if (food instanceof Egg && storedFoods.get(egg) >= removedFood) {
-            storedFoods.replace(egg, storedFoods.get(egg) - removedFood);
-        } else {
-            console.print("*** NOT ENOUGH ***" + food + "'s\n");
+        if (storedFoods.get(typeOfFood(food)) >= numOfFood) {
+            storedFoods.replace(typeOfFood(food), storedFoods.get(typeOfFood(food)) - numOfFood);
+            Meal meal = new Meal(food, numOfFood);
+            return meal;
+        }else{
+            console.print("*** NOT ENOUGH " + food + "'s ***\n");
+            Meal meal = new Meal(food, 0);
+            return meal;
         }
     }
+
 
     public void addFood(ArrayList<Food> harvestedFood) {
-
         for (Food food : harvestedFood) {
-            if (food instanceof EarCorn) {
-                storedFoods.replace(earCorn, storedFoods.get(earCorn) + 1);
-            } else if (food instanceof Tomato) {
-                storedFoods.replace(tomato, storedFoods.get(tomato) + 1);
-            } else if (food instanceof Pumpkin) {
-                storedFoods.replace(pumpkin, storedFoods.get(pumpkin) + 1);
-            } else if (food instanceof Egg) {
-                storedFoods.replace(egg, storedFoods.get(egg) + 1);
-            }
+                storedFoods.replace(typeOfFood(food), storedFoods.get(typeOfFood(food)) + 1);
         }
-
     }
 
-    public Integer checkStock(Food food) {
+    public Food typeOfFood(Food food){
         if (food instanceof EarCorn) {
-            return storedFoods.get(earCorn);
+            return earCorn;
         } else if (food instanceof Tomato) {
-            return storedFoods.get(tomato);
+            return tomato;
         } else if (food instanceof Pumpkin) {
-            return storedFoods.get(pumpkin);
+            return pumpkin;
         } else if (food instanceof Egg) {
-            return storedFoods.get(egg);
+            return egg;
+        } else{
+            return null;
         }
+    }
+    
 
-        return 0;
+    public Integer checkStock(Food food) {
+        return storedFoods.get(typeOfFood(food));
     }
 
 }

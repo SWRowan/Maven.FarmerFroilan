@@ -11,6 +11,10 @@ public class Stable {
         this.stable = new ArrayList<>(horses);
     }
 
+    public ArrayList<Horse> getStable(){
+        return stable;
+    }
+
     public String getHorses() {
         StringBuilder sb = new StringBuilder();
         for(Horse h : stable){

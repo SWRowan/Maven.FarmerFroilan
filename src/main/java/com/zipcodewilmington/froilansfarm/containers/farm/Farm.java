@@ -8,8 +8,7 @@ import java.io.PrintStream;
 import java.util.ArrayList;
 
 public class Farm {
-    private final FarmRunner farmRunner = new FarmRunner(this);
-    public IOConsole ioConsole;
+    private final FarmRunner farmRunner;
     private FarmHouse farmHouse;
     private Field field;
     private ArrayList<ChickenCoop> chickenCoops;
@@ -19,35 +18,20 @@ public class Farm {
     private int daysElapsed;
 
     public Farm() {
-        ioConsole = IOConsole.getIOConsole();
+        farmRunner = new FarmRunner(this);
         farmHouse = DefaultFarmGenerator.generateDefaultFarmHouse();
         field = DefaultFarmGenerator.generateDefaultField();
         chickenCoops = DefaultFarmGenerator.generateDefaultChickenCoops();
         stables = DefaultFarmGenerator.generateDefaultStables();
         garage = DefaultFarmGenerator.generateDefaultGarage();
-//        storeHouse = DefaultFarmGenerator.generateDefaultStoreHouse();
-        daysElapsed = 0;
-    }
-
-    /**
-     * For testing purposes.
-     * @param newIOConsole
-     */
-    public Farm(IOConsole newIOConsole) {
-        ioConsole = newIOConsole;
-        farmHouse = DefaultFarmGenerator.generateDefaultFarmHouse();
-        field = DefaultFarmGenerator.generateDefaultField();
-        chickenCoops = DefaultFarmGenerator.generateDefaultChickenCoops();
-        stables = DefaultFarmGenerator.generateDefaultStables();
-        garage = DefaultFarmGenerator.generateDefaultGarage();
-//        storeHouse = DefaultFarmGenerator.generateDefaultStoreHouse();
+        storeHouse = DefaultFarmGenerator.generateDefaultStoreHouse();
         daysElapsed = 0;
     }
 
     public void run() {
-        boolean continueFarming = ioConsole.yesOrNoQuestion("Would you like to begin farming?");
+        boolean continueFarming = IOConsole.getIOConsole().yesOrNoQuestion("Would you like to begin farming?");
         farmRunner.runFarm(continueFarming);
-        ioConsole.println("Thanks for visiting the farm today!");
+        IOConsole.getIOConsole().println("Thanks for visiting the farm today!");
     }
 
     public void incrementDaysElapsed() {
@@ -89,9 +73,20 @@ public class Farm {
                 ",\n\nfield=" + field +
                 ",\n\nchickenCoops=" + chickenCoops +
                 ",\n\nstables=" + stables +
-                ",\n\nstoreHouse=" + storeHouse +
+                ",\n\nstoreHouse=\n" + storeHouse.getStoredFoods() +
                 ",\n\ngarage=" + garage +
                 ",\n\ndaysElapsed=" + daysElapsed +
                 "\n}";
+    }
+
+    public Farm(Garage garage) {
+        farmRunner = new FarmRunner(this);
+        farmHouse = DefaultFarmGenerator.generateDefaultFarmHouse();
+        field = DefaultFarmGenerator.generateDefaultField();
+        chickenCoops = DefaultFarmGenerator.generateDefaultChickenCoops();
+        stables = DefaultFarmGenerator.generateDefaultStables();
+        this.garage = garage;
+        storeHouse = DefaultFarmGenerator.generateDefaultStoreHouse();
+        daysElapsed = 0;
     }
 }
