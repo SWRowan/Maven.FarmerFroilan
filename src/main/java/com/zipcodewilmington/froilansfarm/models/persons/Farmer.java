@@ -7,6 +7,8 @@ import com.zipcodewilmington.froilansfarm.models.crops.Crop;
 import com.zipcodewilmington.froilansfarm.interfaces.*;
 import com.zipcodewilmington.froilansfarm.utilities.IOConsole;
 
+import java.util.ArrayList;
+
 import static com.zipcodewilmington.froilansfarm.utilities.IOConsole.getIOConsole;
 
 public class Farmer extends Person implements Botanist, Rider {
@@ -18,7 +20,7 @@ public class Farmer extends Person implements Botanist, Rider {
         this.myFarm = myFarm;
     }
 
-    public void plant(Crop crop, CropRow cropRow) {
+    public void plant(ArrayList<Crop> crop, CropRow cropRow) {
         cropRow.plantCrop(crop);
     }
 

@@ -88,19 +88,19 @@ public class CropRowTest {
         Assert.assertEquals(expectedSize, actualSize);
     }
 
-    @Test
-    public void plantCrop() {
-        // Given
-        CropRow cropRow = new CropRow(new ArrayList<>());
-        int expectedSize = 3;
-
-        // When
-        cropRow.plantCrop(new TomatoPlant());
-        cropRow.plantCrop(new PumpkinPlant());
-        cropRow.plantCrop(new CornStalk());
-        int actualSize = cropRow.getCrops().size();
-
-        // Then
-        Assert.assertEquals(expectedSize, actualSize);
-    }
+//    @Test
+//    public void plantCrop() {
+//        // Given
+//        CropRow cropRow = new CropRow(new ArrayList<>());
+//        int expectedSize = 3;
+//
+//        // When
+//        cropRow.plantCrop(new TomatoPlant());
+//        cropRow.plantCrop(new PumpkinPlant());
+//        cropRow.plantCrop(new CornStalk());
+//        int actualSize = cropRow.getCrops().size();
+//
+//        // Then
+//        Assert.assertEquals(expectedSize, actualSize);
+//    }
 }

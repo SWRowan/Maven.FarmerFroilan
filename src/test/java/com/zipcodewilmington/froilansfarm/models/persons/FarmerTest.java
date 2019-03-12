@@ -108,19 +108,19 @@ public class FarmerTest {
         Assert.assertEquals(expected,actual);
     }
 
-    @Test
-    public void plantTest(){
-        Integer expected = 2;
-        Farmer farmer = new Farmer(null,new Farm());
-        CropRow cropRow = new CropRow(new ArrayList<>());
-        Crop crop0 = new PumpkinPlant();
-        Crop crop1 = new CornStalk();
-
-        farmer.plant(crop0,cropRow);
-        farmer.plant(crop1,cropRow);
-
-        Integer actual = cropRow.getCrops().size();
-
-        Assert.assertEquals(expected,actual);
-    }
+//    @Test
+//    public void plantTest(){
+//        Integer expected = 2;
+//        Farmer farmer = new Farmer(null,new Farm());
+//        CropRow cropRow = new CropRow(new ArrayList<>());
+//        Crop crop0 = new PumpkinPlant();
+//        Crop crop1 = new CornStalk();
+//
+//        farmer.plant(crop0,cropRow);
+//        farmer.plant(crop1,cropRow);
+//
+//        Integer actual = cropRow.getCrops().size();
+//
+//        Assert.assertEquals(expected,actual);
+//    }
 }
